@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <h1>Revenue:</h1>
+{% endblock %}
+
+
+{% block content %}
+{% for item in recipe_requirements %}
+    {{ item| linebreaks }}
+
+{% endfor %}
+{% endblock %}
