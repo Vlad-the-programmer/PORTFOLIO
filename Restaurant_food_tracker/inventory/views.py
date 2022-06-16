@@ -8,6 +8,8 @@ from rest_framework.response import Response
 from rest_framework import generics, mixins
 from django.db.models import Sum, F
 from .forms import IngredientForm, MenuItemForm, RecipeRequirementForm, PurchaseForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import logout
 
 
 # Create your views here.
@@ -168,63 +170,63 @@ class PurchaseAPIDelete(generics.RetrieveDestroyAPIView):
 
 # class-based generic views
 
-#
-# class MenuItemUpdate(generic.UpdateView):
-#     model = MenuItem
-#     queryset = MenuItem.objects.all()
-#     context_object_name = 'menuItem_update'
-#
-#
-# class PurchaseUpdate(generic.UpdateView):
-#     model = Purchase
-#     queryset = Purchase.objects.all()
-#     context_object_name = 'purchase_update'
-#
-#
-# class RecipeDelete(generic.DeleteView):
-#     queryset = RecipeRequirement.objects.all()
-#     model = RecipeRequirement
-#
-#
-# class IngredientDelete(generic.DeleteView):
-#     queryset = Ingredient.objects.all()
-#     model = Ingredient
-#
-#
-# class MenuItemDelete(generic.DeleteView):
-#     model = MenuItem
-#     queryset = MenuItem.objects.all()
-#
-#
-# class PurchaseDelete(generic.DeleteView):
-#     model = Purchase
-#     queryset = Purchase.objects.all()
-#
-#
-# class RecipeDetail(generic.DeleteView):
-#     queryset = RecipeRequirement.objects.all()
-#     # template_name = 'recipe_detail.html'
-#     context_object_name = 'recipe'
 
-#
-# class IngredientDetail(generic.DetailView):
-#     queryset = Ingredient.objects.all()
-#     # template_name = 'ingredient_detail.html'
-#     context_object_name = 'ingredient'
-#
-#
-# class MenuItemDetail(generic.DetailView):
-#     queryset = MenuItem.objects.all()
-#     # template_name = 'menu_detail.html'
-#     context_object_name = 'menu_item'
-#
-#
-# class PurchaseDetail(generic.DetailView):
-#     queryset = Purchase.objects.all()
-#     context_object_name = 'purchase'
-#     # template_name = 'purchase_detail.html'
+class MenuItemUpdate(generic.UpdateView):
+    model = MenuItem
+    queryset = MenuItem.objects.all()
+    context_object_name = 'menuItem_update'
 
 
+class PurchaseUpdate(generic.UpdateView):
+    model = Purchase
+    queryset = Purchase.objects.all()
+    context_object_name = 'purchase_update'
+
+
+class RecipeDelete(generic.DeleteView):
+    queryset = RecipeRequirement.objects.all()
+    model = RecipeRequirement
+
+
+class IngredientDelete(generic.DeleteView):
+    queryset = Ingredient.objects.all()
+    model = Ingredient
+
+
+class MenuItemDelete(generic.DeleteView):
+    model = MenuItem
+    queryset = MenuItem.objects.all()
+
+
+class PurchaseDelete(generic.DeleteView):
+    model = Purchase
+    queryset = Purchase.objects.all()
+
+
+class RecipeDetail(generic.DeleteView):
+    queryset = RecipeRequirement.objects.all()
+    # template_name = 'recipe_detail.html'
+    context_object_name = 'recipe'
+
+
+class IngredientDetail(generic.DetailView):
+    queryset = Ingredient.objects.all()
+    # template_name = 'ingredient_detail.html'
+    context_object_name = 'ingredient'
+
+
+class MenuItemDetail(generic.DetailView):
+    queryset = MenuItem.objects.all()
+    # template_name = 'menu_detail.html'
+    context_object_name = 'menu_item'
+
+
+class PurchaseDetail(generic.DetailView):
+    queryset = Purchase.objects.all()
+    context_object_name = 'purchase'
+    # template_name = 'purchase_detail.html'
+
+##
 class HomeView(generic.TemplateView):
     template_name = "inventory/home.html"
 
@@ -244,6 +246,11 @@ class IngredientList(generic.ListView):
 class PurchasesList(generic.ListView):
     model = Purchase
     template_name = 'inventory/purchase_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['objects'] = Purchase.objects.all()
+        return context
 
 
 class MenuList(generic.ListView):
@@ -268,11 +275,11 @@ class MenusItemCreate(generic.CreateView):
     template_name = 'inventory/add_menu_item.html'
     form_class = MenuItemForm
 
-
-class PurchaseCreate(generic.CreateView):
-    model = Purchase
-    template_name = 'inventory/add_purchase.html'
-    form_class = PurchaseForm
+#
+# class PurchaseCreate(generic.CreateView):
+#     model = Purchase
+#     template_name = 'inventory/add_purchase.html'
+#     form_class = PurchaseForm
 
 
 class IngredientUpdate(generic.UpdateView):
@@ -315,7 +322,7 @@ class ReportView(generic.TemplateView):
         total_cost = 0
         for purchase in Purchase.objects.all():
             for recipe_requirement in purchase.menu_item.reciperequirement_set.all():
-                total_cost += recipe_requirement.ingredient.unit_price * \
+                total_cost += recipe_requirement.ingredient.price_per_unit * \
                     recipe_requirement.quantity
 
         context["revenue"] = revenue
@@ -323,14 +330,9 @@ class ReportView(generic.TemplateView):
         context["profit"] = revenue - total_cost
 
 
-
-
-
-
-
-
-
-
+def log_out(request):
+    logout(request)
+    return redirect("/")
 
 
 
