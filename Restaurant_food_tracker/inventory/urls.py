@@ -74,6 +74,7 @@ urlpatterns = [
     path('reports/', views.ReportView.as_view(), name="reports"),
     path('ingredient/<slug:pk>/delete/', views.IngredientDelete.as_view(), name="delete_ingredient"),
     path('reciperequirement/<slug:pk>/delete/', views.RecipeDelete.as_view(), name="delete_recipe_requirement"),
-
+    path('menu/<slug:pk>/delete/', views.MenuItemDelete.as_view(), name="delete_menu"),
+    path('purchase/<slug:pk>/delete/', views.PurchaseDelete.as_view(), name="delete_purchase"),
 
 ]

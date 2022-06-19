@@ -12,14 +12,18 @@
                 <th>Menu Item</th>
                 <th>Price</th>
                 <th>Time</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for purchase in object_list %}
             <tr>
+
                 <td>{{ purchase.menu_item.title }}</td>
                 <td class="price">${{ purchase.menu_item.price|stringformat:".2f" }}</td>
                 <td>{{ purchase.timestamp }}</td>
+                <td class="price"><a href="{% url 'inventory:delete_purchase' purchase.id %}">Delete</a></td>
+
             </tr>
         {% endfor %}
         </tbody>

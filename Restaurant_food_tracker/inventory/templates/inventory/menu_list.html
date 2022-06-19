@@ -14,12 +14,16 @@
     {% for menu_item in object_list %}
         <li>
             <div class="menu-item-header">
+                <td class="price"><a href="{% url 'inventory:delete_menu' menu_item.id %}">Delete</a></td>
+
                 <div class="menu-item-title">{{ menu_item.title }}</div>
                 <div class="menu-item-price">${{ menu_item.price|stringformat:".2f" }}</div>
             </div>
+
             <ul class="menu-item-ingredients">
                 {% for recipe_requirement in menu_item.reciperequirement_set.all %}
                 <li>{{ recipe_requirement.quantity }} {{recipe_requirement.ingredient.unit }} {{ recipe_requirement.ingredient.name }}</li>
+                <td class="price"><a href="{% url 'inventory:delete_recipe_requirement' recipe_requirement.id %}">Delete</a></td>
 
 
                 {% endfor %}

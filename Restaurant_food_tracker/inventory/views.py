@@ -189,16 +189,11 @@ class RecipeDelete(generic.edit.DeleteView):
     queryset = RecipeRequirement.objects.all()
     model = RecipeRequirement
     context_object_name = 'recipe'
-    success_url = reverse_lazy('menu')
+    success_url = reverse_lazy('inventory:menu')
 
     def get_object(self):
         pk_ = self.kwargs.get('pk')
         return get_object_or_404(RecipeRequirement, pk=pk_)
-
-    # def get_context_data(self,  **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['recipe_id'] = kwargs.get('pk')
-    #     return context
 
 
 class IngredientDelete(generic.edit.DeleteView):
@@ -213,26 +208,28 @@ class IngredientDelete(generic.edit.DeleteView):
         return get_object_or_404(Ingredient, pk=pk_)
 
 
-class MenuItemDelete(generic.DeleteView):
+class MenuItemDelete(generic.edit.DeleteView):
     model = MenuItem
     queryset = MenuItem.objects.all()
-    context_object_name = 'objects'
-    success_url = reverse_lazy('menu')
+    template_name = 'inventory/delete_menu.html'
+    context_object_name = 'menu'
+    success_url = reverse_lazy('inventory:menu')
 
     def get_object(self):
         pk_ = self.kwargs.get('pk')
-        return get_object_or_404(Ingredient, pk=pk_)
+        return get_object_or_404(MenuItem, pk=pk_)
 
 
-class PurchaseDelete(generic.DeleteView):
+class PurchaseDelete(generic.edit.DeleteView):
     model = Purchase
     queryset = Purchase.objects.all()
-    context_object_name = 'objects'
-    success_url = reverse_lazy('purchases')
+    context_object_name = 'purchase'
+    template_name = 'inventory/delete_purchase.html'
+    success_url = reverse_lazy('inventory:purchases')
 
     def get_object(self):
         pk_ = self.kwargs.get('pk')
-        return get_object_or_404(Ingredient, pk=pk_)
+        return get_object_or_404(Purchase, pk=pk_)
 
 
 class IngredientDetail(generic.DetailView):

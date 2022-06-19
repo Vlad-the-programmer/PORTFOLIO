@@ -23,7 +23,6 @@ class Ingredient(models.Model):
     """
     Represents a single ingredient in the restaurant's inventory
     """
-    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, unique=True)
     quantity = models.FloatField(default=0)
     unit = models.CharField(max_length=200)
@@ -45,7 +44,6 @@ class RecipeRequirement(models.Model):
     """
     Represents an ingredient required for a recipe for a MenuItem
     """
-    id = models.AutoField(primary_key=True)
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     quantity = models.FloatField(default=0)
