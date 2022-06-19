@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 
+app_name = 'inventory'
 urlpatterns = [
 
     # path('', views.HomeView.as_view(), name='home'),
@@ -70,6 +71,9 @@ urlpatterns = [
     path('reciperequirement/new', views.RecipeCreate.as_view(), name="add_recipe_requirement"),
     path('purchases/', views.PurchasesList.as_view(), name="purchases"),
     path('purchases/new', views.NewPurchaseView.as_view(), name="add_purchase"),
-    path('reports/', views.ReportView.as_view(), name="reports")
+    path('reports/', views.ReportView.as_view(), name="reports"),
+    path('ingredient/<slug:pk>/delete/', views.IngredientDelete.as_view(), name="delete_ingredient"),
+    path('reciperequirement/<slug:pk>/delete/', views.RecipeDelete.as_view(), name="delete_recipe_requirement"),
+
 
 ]

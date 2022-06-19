@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     <h2>Ingredients</h2>
-    <a href="{% url 'add_ingredient' %} ">Add New Ingredient to Inventory</a>
+    <a href="{% url 'inventory:add_ingredient' %} ">Add New Ingredient to Inventory</a>
     <hr/>
     <table class="inventory-table">
         <thead>
@@ -14,17 +14,20 @@
                 <th>Quantity</th>
                 <th>Unit</th>
                 <th>Unit Price</th>
+                <th>Delete Item</th>
+
             </tr>
         </thead>
         <tbody>
         {% for ingredient in object_list %}
             <tr>
                 <td>
-                    <a href="{% url 'update_ingredient' ingredient.id %}">{{ ingredient.name }}</a>
+                    <a href="{% url 'inventory:update_ingredient' ingredient.id %}">{{ ingredient.name }}</a>
                 </td>
                 <td>{{ ingredient.quantity }}</td>
                 <td>{{ ingredient.unit }}</td>
                 <td class="price">${{ ingredient.price_per_unit|stringformat:".2f" }}</td>
+                <td class="price"><a href="{% url 'inventory:delete_ingredient' ingredient.id %}">Delete</a></td>
             </tr>
         {% endfor %}
         </tbody>

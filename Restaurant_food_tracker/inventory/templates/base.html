@@ -29,11 +29,11 @@
         {% url 'menu' as menu_url %}
         {% url 'purchases' as purchases_url %}
         {% url 'reports' as reports_url %}
-        <a class="nav-item{% if request.path == home_url %} current-page{% endif %}" href="{% url 'home' %}">Home</a>
-        <a class="nav-item{% if request.path == ingredients_url %} current-page{% endif %}" href="{% url 'ingredients' %}">Ingredients</a>
-        <a class="nav-item{% if request.path == menu_url %} current-page{% endif %}" href="{% url 'menu' %}">Menu</a>
-        <a class="nav-item{% if request.path == purchases_url %} current-page{% endif %}" href="{% url 'purchases' %}">Purchases</a>
-        <a class="nav-item{% if request.path == reports_url %} current-page{% endif %}" href="{% url 'reports' %}">Reports</a>
+        <a class="nav-item{% if request.path == home_url %} current-page{% endif %}" href="{% url 'inventory:home' %}">Home</a>
+        <a class="nav-item{% if request.path == ingredients_url %} current-page{% endif %}" href="{% url 'inventory:ingredients' %}">Ingredients</a>
+        <a class="nav-item{% if request.path == menu_url %} current-page{% endif %}" href="{% url 'inventory:menu' %}">Menu</a>
+        <a class="nav-item{% if request.path == purchases_url %} current-page{% endif %}" href="{% url 'inventory:purchases' %}">Purchases</a>
+        <a class="nav-item{% if request.path == reports_url %} current-page{% endif %}" href="{% url 'inventory:reports' %}">Reports</a>
       </nav>
     {% endif %}
   </header>
