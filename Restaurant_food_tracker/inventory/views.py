@@ -53,139 +53,139 @@ from django.urls import reverse_lazy
 #     return Response(serializer.data)
 
 
-class MenuItemAPIList(generics.ListAPIView):
-    queryset = MenuItem.objects.all()
-    serializer_class = MenuItemSerializer
-
-
-class RecipeRequirementAPIList(generics.ListAPIView):
-    queryset = RecipeRequirement.objects.all()
-    serializer_class = RecipeRequirementSerializer
-
-
-class PurchasesAPIList(generics.ListAPIView):
-    queryset = Purchase.objects.all()
-    serializer_class = PurchaseSerializer
-
-
-class MenuItemAPIDetail(generics.RetrieveAPIView):
-    queryset = MenuItem.objects.all()
-    serializer_class = MenuItemSerializer
-
-
-class MenuItemAPICreate(generics.CreateAPIView):
-    queryset = MenuItem.objects.all()
-    serializer_class = MenuItemSerializer
-
-
-class MenuAPIUpdate(generics.UpdateAPIView):
-    serializer_class = MenuItemSerializer
-    queryset = MenuItem.objects.all()
-    lookup_field = 'pk'
-
-
-class MenuAPIDelete(generics.DestroyAPIView, generics.RetrieveAPIView):
-    serializer_class = MenuItemSerializer
-    queryset = MenuItem.objects.all()
-    lookup_field = 'pk'
-
-
-class IngredientAPIList(generics.ListAPIView):
-    queryset = Ingredient.objects.all()
-    serializer_class = IngredientSerializer
-
-
-class IngredientAPICreate(generics.CreateAPIView):
-    queryset = Ingredient.objects.all()
-    serializer_class = IngredientSerializer
-
-
-class IngredientAPIDetail(generics.RetrieveAPIView):
-    queryset = Ingredient.objects.all()
-    serializer_class = IngredientSerializer
-    lookup_field = 'pk'
-
-
-class IngredientAPIUpdate(generics.UpdateAPIView):
-    queryset = Ingredient.objects.all()
-    serializer_class = IngredientSerializer
-    lookup_field = 'pk'
-
-
-class IngredientAPIDelete(generics.RetrieveDestroyAPIView):
-    queryset = Ingredient.objects.all()
-    serializer_class = IngredientSerializer
-    lookup_field = 'pk'
-
-
-class RecipeRequirementAPIList(generics.ListAPIView):
-    queryset = RecipeRequirement.objects.all()
-    serializer_class = RecipeRequirementSerializer
-
-
-class RecipeRequirementAPICreate(generics.RetrieveAPIView):
-    queryset = RecipeRequirement.objects.all()
-    serializer_class = RecipeRequirementSerializer
-    lookup_field = 'pk'
-
-
-class RecipeRequirementAPIUpdate(generics.UpdateAPIView):
-    queryset = RecipeRequirement.objects.all()
-    serializer_class = RecipeRequirementSerializer
-    lookup_field = 'pk'
-
-
-class RecipeRequirementAPIDelete(generics.RetrieveDestroyAPIView):
-    queryset = RecipeRequirement.objects.all()
-    serializer_class = RecipeRequirementSerializer
-    lookup_field = 'pk'
-
-
-class RecipeRequirementsAPIDetail(generics.RetrieveAPIView):
-    queryset = RecipeRequirement.objects.all()
-    serializer_class = RecipeRequirementSerializer
-    lookup_field = 'pk'
-
-
-class PurchaseAPICreate(generics.CreateAPIView):
-    queryset = Purchase.objects.all()
-    serializer_class = PurchaseSerializer
-
-
-class PurchaseAPIDetail(generics.RetrieveAPIView):
-    queryset = Purchase.objects.all()
-    serializer_class = PurchaseSerializer
-    lookup_field = 'pk'
-
-
-class PurchaseAPIUpdate(generics.UpdateAPIView):
-    queryset = Purchase.objects.all()
-    serializer_class = PurchaseSerializer
-    lookup_field = 'pk'
-
-
-class PurchaseAPIDelete(generics.RetrieveDestroyAPIView):
-    queryset = Purchase.objects.all()
-    serializer_class = PurchaseSerializer
-    lookup_field = 'pk'
-
+# class MenuItemAPIList(generics.ListAPIView):
+#     queryset = MenuItem.objects.all()
+#     serializer_class = MenuItemSerializer
+#
+#
+# class RecipeRequirementAPIList(generics.ListAPIView):
+#     queryset = RecipeRequirement.objects.all()
+#     serializer_class = RecipeRequirementSerializer
+#
+#
+# class PurchasesAPIList(generics.ListAPIView):
+#     queryset = Purchase.objects.all()
+#     serializer_class = PurchaseSerializer
+#
+#
+# class MenuItemAPIDetail(generics.RetrieveAPIView):
+#     queryset = MenuItem.objects.all()
+#     serializer_class = MenuItemSerializer
+#
+#
+# class MenuItemAPICreate(generics.CreateAPIView):
+#     queryset = MenuItem.objects.all()
+#     serializer_class = MenuItemSerializer
+#
+#
+# class MenuAPIUpdate(generics.UpdateAPIView):
+#     serializer_class = MenuItemSerializer
+#     queryset = MenuItem.objects.all()
+#     lookup_field = 'pk'
+#
+#
+# class MenuAPIDelete(generics.DestroyAPIView, generics.RetrieveAPIView):
+#     serializer_class = MenuItemSerializer
+#     queryset = MenuItem.objects.all()
+#     lookup_field = 'pk'
+#
+#
+# class IngredientAPIList(generics.ListAPIView):
+#     queryset = Ingredient.objects.all()
+#     serializer_class = IngredientSerializer
+#
+#
+# class IngredientAPICreate(generics.CreateAPIView):
+#     queryset = Ingredient.objects.all()
+#     serializer_class = IngredientSerializer
+#
+#
+# class IngredientAPIDetail(generics.RetrieveAPIView):
+#     queryset = Ingredient.objects.all()
+#     serializer_class = IngredientSerializer
+#     lookup_field = 'pk'
+#
+#
+# class IngredientAPIUpdate(generics.UpdateAPIView):
+#     queryset = Ingredient.objects.all()
+#     serializer_class = IngredientSerializer
+#     lookup_field = 'pk'
+#
+#
+# class IngredientAPIDelete(generics.RetrieveDestroyAPIView):
+#     queryset = Ingredient.objects.all()
+#     serializer_class = IngredientSerializer
+#     lookup_field = 'pk'
+#
+#
+# class RecipeRequirementAPIList(generics.ListAPIView):
+#     queryset = RecipeRequirement.objects.all()
+#     serializer_class = RecipeRequirementSerializer
+#
+#
+# class RecipeRequirementAPICreate(generics.RetrieveAPIView):
+#     queryset = RecipeRequirement.objects.all()
+#     serializer_class = RecipeRequirementSerializer
+#     lookup_field = 'pk'
+#
+#
+# class RecipeRequirementAPIUpdate(generics.UpdateAPIView):
+#     queryset = RecipeRequirement.objects.all()
+#     serializer_class = RecipeRequirementSerializer
+#     lookup_field = 'pk'
+#
+#
+# class RecipeRequirementAPIDelete(generics.RetrieveDestroyAPIView):
+#     queryset = RecipeRequirement.objects.all()
+#     serializer_class = RecipeRequirementSerializer
+#     lookup_field = 'pk'
+#
+#
+# class RecipeRequirementsAPIDetail(generics.RetrieveAPIView):
+#     queryset = RecipeRequirement.objects.all()
+#     serializer_class = RecipeRequirementSerializer
+#     lookup_field = 'pk'
+#
+#
+# class PurchaseAPICreate(generics.CreateAPIView):
+#     queryset = Purchase.objects.all()
+#     serializer_class = PurchaseSerializer
+#
+#
+# class PurchaseAPIDetail(generics.RetrieveAPIView):
+#     queryset = Purchase.objects.all()
+#     serializer_class = PurchaseSerializer
+#     lookup_field = 'pk'
+#
+#
+# class PurchaseAPIUpdate(generics.UpdateAPIView):
+#     queryset = Purchase.objects.all()
+#     serializer_class = PurchaseSerializer
+#     lookup_field = 'pk'
+#
+#
+# class PurchaseAPIDelete(generics.RetrieveDestroyAPIView):
+#     queryset = Purchase.objects.all()
+#     serializer_class = PurchaseSerializer
+#     lookup_field = 'pk'
+#
 
 # class-based generic views
 
 
-class MenuItemUpdate(UpdateView):
+class MenuItemUpdate(LoginRequiredMixin, UpdateView):
     model = MenuItem
     queryset = MenuItem.objects.all()
     context_object_name = 'menuItem_update'
 
 
-class PurchaseUpdate(UpdateView):
+class PurchaseUpdate(LoginRequiredMixin, UpdateView):
     model = Purchase
     queryset = Purchase.objects.all()
     context_object_name = 'purchase_update'
 
 
-class RecipeDelete(generic.edit.DeleteView):
+class RecipeDelete(LoginRequiredMixin, generic.edit.DeleteView):
     queryset = RecipeRequirement.objects.all()
     model = RecipeRequirement
     context_object_name = 'recipe'
@@ -196,10 +196,9 @@ class RecipeDelete(generic.edit.DeleteView):
         return get_object_or_404(RecipeRequirement, pk=pk_)
 
 
-class IngredientDelete(generic.edit.DeleteView):
+class IngredientDelete(LoginRequiredMixin, generic.edit.DeleteView):
     queryset = Ingredient.objects.all()
     model = Ingredient
-    template_name = 'inventory/delete_ingredient.html'
     context_object_name = 'ingredient'
     success_url = reverse_lazy('inventory:ingredients')
 
@@ -208,10 +207,9 @@ class IngredientDelete(generic.edit.DeleteView):
         return get_object_or_404(Ingredient, pk=pk_)
 
 
-class MenuItemDelete(generic.edit.DeleteView):
+class MenuItemDelete(LoginRequiredMixin, generic.edit.DeleteView):
     model = MenuItem
     queryset = MenuItem.objects.all()
-    template_name = 'inventory/delete_menu.html'
     context_object_name = 'menu'
     success_url = reverse_lazy('inventory:menu')
 
@@ -220,37 +218,33 @@ class MenuItemDelete(generic.edit.DeleteView):
         return get_object_or_404(MenuItem, pk=pk_)
 
 
-class PurchaseDelete(generic.edit.DeleteView):
+class PurchaseDelete(LoginRequiredMixin, generic.edit.DeleteView):
     model = Purchase
     queryset = Purchase.objects.all()
     context_object_name = 'purchase'
-    template_name = 'inventory/delete_purchase.html'
     success_url = reverse_lazy('inventory:purchases')
 
     def get_object(self):
         pk_ = self.kwargs.get('pk')
         return get_object_or_404(Purchase, pk=pk_)
 
-
-class IngredientDetail(generic.DetailView):
-    queryset = Ingredient.objects.all()
-    # template_name = 'ingredient_detail.html'
-    context_object_name = 'ingredient'
-
-
-class MenuItemDetail(generic.DetailView):
-    queryset = MenuItem.objects.all()
-    # template_name = 'menu_detail.html'
-    context_object_name = 'menu_item'
-
-
-class PurchaseDetail(generic.DetailView):
-    queryset = Purchase.objects.all()
-    context_object_name = 'purchase'
-    # template_name = 'purchase_detail.html'
+#
+# class IngredientDetail(LoginRequiredMixin, generic.DetailView):
+#     queryset = Ingredient.objects.all()
+#     context_object_name = 'ingredient'
+#
+#
+# class MenuItemDetail(LoginRequiredMixin, generic.DetailView):
+#     queryset = MenuItem.objects.all()
+#     context_object_name = 'menu_item'
+#
+#
+# class PurchaseDetail(LoginRequiredMixin, generic.DetailView):
+#     queryset = Purchase.objects.all()
+#     context_object_name = 'purchase'
 
 
-class HomeView(generic.TemplateView):
+class HomeView(LoginRequiredMixin, generic.TemplateView):
     template_name = "inventory/home.html"
 
     def get_context_data(self, **kwargs):
@@ -261,7 +255,7 @@ class HomeView(generic.TemplateView):
         return context
 
 
-class IngredientList(generic.ListView):
+class IngredientList(LoginRequiredMixin, generic.ListView):
     model = Ingredient
     template_name = 'inventory/ingredients_list.html'
     context_object_name = 'object_list'
@@ -272,7 +266,7 @@ class IngredientList(generic.ListView):
         return context
 
 
-class PurchasesList(generic.ListView):
+class PurchasesList(LoginRequiredMixin, generic.ListView):
     model = Purchase
     template_name = 'inventory/purchase_list.html'
     context_object_name = 'object_list'
@@ -283,7 +277,7 @@ class PurchasesList(generic.ListView):
         return context
 
 
-class MenuList(generic.ListView):
+class MenuList(LoginRequiredMixin, generic.ListView):
     template_name = "inventory/menu_list.html"
     model = MenuItem
     context_object_name = 'object_list'
@@ -294,38 +288,32 @@ class MenuList(generic.ListView):
         return context
 
 
-class RecipeCreate(CreateView):
+class RecipeCreate(LoginRequiredMixin, CreateView):
     model = RecipeRequirement
     template_name = 'inventory/add_recipe_requirement.html'
     form_class = RecipeRequirementForm
 
 
-class IngredientCreate(CreateView):
+class IngredientCreate(LoginRequiredMixin, CreateView):
     model = Ingredient
     template_name = 'inventory/add_ingredient.html'
     form_class = IngredientForm
 
 
-class MenusItemCreate(CreateView):
+class MenusItemCreate(LoginRequiredMixin, CreateView):
     model = MenuItem
     template_name = 'inventory/add_menu_item.html'
     form_class = MenuItemForm
 
-#
-# class PurchaseCreate(CreateView):
-#     model = Purchase
-#     template_name = 'inventory/add_purchase.html'
-#     form_class = PurchaseForm
 
-
-class IngredientUpdate(UpdateView):
+class IngredientUpdate(LoginRequiredMixin, UpdateView):
     model = Ingredient
-    template_name = 'inventory/update_ingredient.html'
+    template_name = 'inventory/ingredient_update.html'
     form_class = IngredientForm
     success_url = 'ingredients/'
 
 
-class NewPurchaseView(generic.TemplateView):
+class NewPurchaseView(LoginRequiredMixin, generic.TemplateView):
     template_name = "inventory/add_purchase.html"
 
     def get_context_data(self, **kwargs):
@@ -338,6 +326,7 @@ class NewPurchaseView(generic.TemplateView):
         menu_item = MenuItem.objects.get(pk=menu_item_id)
         requirements = menu_item.reciperequirement_set
         purchase = Purchase(menu_item=menu_item)
+        form = PurchaseForm()
 
         for requirement in requirements.all():
             required_ingredient = requirement.ingredient
@@ -348,7 +337,7 @@ class NewPurchaseView(generic.TemplateView):
         return redirect("/purchases")
 
 
-class ReportView(generic.TemplateView):
+class ReportView(LoginRequiredMixin, generic.TemplateView):
     template_name = "inventory/reports.html"
 
     def get_context_data(self, **kwargs):
@@ -359,12 +348,12 @@ class ReportView(generic.TemplateView):
         total_cost = 0
         for purchase in Purchase.objects.all():
             for recipe_requirement in purchase.menu_item.reciperequirement_set.all():
-                total_cost += recipe_requirement.ingredient.price_per_unit * \
-                    recipe_requirement.quantity
+                total_cost += float(recipe_requirement.ingredient.price_per_unit) * \
+                    float(recipe_requirement.quantity)
 
         context["revenue"] = revenue
         context["total_cost"] = total_cost
-        context["profit"] = revenue - total_cost
+        context["profit"] = float(revenue) - float(total_cost)
 
 
 def log_out(request):
