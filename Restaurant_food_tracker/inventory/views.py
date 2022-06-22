@@ -6,14 +6,13 @@ from rest_framework.decorators import api_view
 from .serializers import IngredientSerializer, MenuItemSerializer, RecipeRequirementSerializer, PurchaseSerializer
 from rest_framework.response import Response
 from rest_framework import generics, mixins
-from django.db.models import Sum, F
+from django.db.models import Sum
 from .forms import IngredientForm, MenuItemForm, RecipeRequirementForm, PurchaseForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
 from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy
-
-
+from django.contrib.auth.models import User
 # Create your views here.
 # @api_view(['GET'])
 # def ingredients_list(request):
@@ -228,21 +227,6 @@ class PurchaseDelete(LoginRequiredMixin, generic.edit.DeleteView):
         pk_ = self.kwargs.get('pk')
         return get_object_or_404(Purchase, pk=pk_)
 
-#
-# class IngredientDetail(LoginRequiredMixin, generic.DetailView):
-#     queryset = Ingredient.objects.all()
-#     context_object_name = 'ingredient'
-#
-#
-# class MenuItemDetail(LoginRequiredMixin, generic.DetailView):
-#     queryset = MenuItem.objects.all()
-#     context_object_name = 'menu_item'
-#
-#
-# class PurchaseDetail(LoginRequiredMixin, generic.DetailView):
-#     queryset = Purchase.objects.all()
-#     context_object_name = 'purchase'
-
 
 class HomeView(LoginRequiredMixin, generic.TemplateView):
     template_name = "inventory/home.html"
@@ -326,7 +310,6 @@ class NewPurchaseView(LoginRequiredMixin, generic.TemplateView):
         menu_item = MenuItem.objects.get(pk=menu_item_id)
         requirements = menu_item.reciperequirement_set
         purchase = Purchase(menu_item=menu_item)
-        form = PurchaseForm()
 
         for requirement in requirements.all():
             required_ingredient = requirement.ingredient
@@ -337,6 +320,7 @@ class NewPurchaseView(LoginRequiredMixin, generic.TemplateView):
         return redirect("/purchases")
 
 
+# Does not work
 class ReportView(LoginRequiredMixin, generic.TemplateView):
     template_name = "inventory/reports.html"
 

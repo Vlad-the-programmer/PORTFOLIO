@@ -33,7 +33,6 @@ urlpatterns = [
     # path('purchase-delete/<int:pk>/', views.PurchaseAPIDelete.as_view(), name='purchases-delete'),
     # path('purchase-create/', views.PurchaseAPICreate.as_view(), name='purchases-create'),
 
-
     path("logout/", views.log_out, name="logout"),
     path('accounts/login/', auth_views.LoginView.as_view(), name="login"),
     path('', views.HomeView.as_view(), name='home'),

@@ -16,7 +16,7 @@
         {% for purchase in purchases %}
             <tr>
                 <td>{{ purchase.menu_item.title }}</td>
-                <td class="price">${{ purchase.menu_item.price|stringformat:".2f" }}</td>
+                <td >${{ purchase.menu_item.price|stringformat:".2f" }}</td>
                 <td>{{ purchase.timestamp }}</td>
             </tr>
         {% endfor %}
