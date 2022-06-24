@@ -338,6 +338,7 @@ class ReportView(LoginRequiredMixin, generic.TemplateView):
         context["revenue"] = revenue
         context["total_cost"] = total_cost
         context["profit"] = float(revenue) - float(total_cost)
+        return context
 
 
 def log_out(request):
