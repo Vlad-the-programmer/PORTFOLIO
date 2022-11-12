@@ -1,18 +1,40 @@
-from django.db import models
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import Post
+from django_countries.widgets import CountrySelectWidget
+from .models import Profile
+
 
 class UserUpdateForm(UserChangeForm):
     class Meta:
-        model = Post
-        fields = ('title', 'description', 'image', 'slug')
+        model = Profile
+        fields = (
+                  'email',
+                  'username',
+                  'first_name',
+                  'last_name',
+                  'country',
+                  'featured_img',
+                  'gender',
+                  )
+        exclude = ['password']
 
         
 class UserCreateForm(UserCreationForm):
+    class Meta(UserCreationForm):
+        model = Profile
+        fields = (
+                  'email',
+                  'username',
+                  'first_name',
+                  'last_name',
+                  'country',
+                  'featured_img',
+                  'gender',
+                )
+        widgets = {'country': CountrySelectWidget()}
+        
+class UserLoginForm(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = ('title', 'description', 'image', 'slug', 'tags')
-        # widgets = {
-        #     'tags': {''}
-        # }
+        model = Profile
+        fields = ('email', 'password')
+        widgets = {'password': forms.PasswordInput}

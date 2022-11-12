@@ -1,0 +1,11 @@
+{% extends '../base.html' %}
+
+{% block content %}
+    {{post.title}}
+    {{post.description}}
+    {{post.user.username}}
+    {% if profile.email == post.user.email %}
+    <li class="header__menuItem"><a href="{% url 'posts:post-delete' slug=post.slug %}" class="btn btn--sub">Delete</a></li>
+    <li class="header__menuItem"><a href="{% url 'posts:post-update' slug=post.slug %}" class="btn btn--sub">Update</a></li>
+    {% endif %}
+{% endblock content %}

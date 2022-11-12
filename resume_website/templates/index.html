@@ -1,8 +1,12 @@
-{% extends 'base.html' %}
+{% extends './base.html' %}
+
+{% block title %}Home{% endblock title %}
+
 {% block content %}
 
 
 <!-- Main Section -->
+
 <main class="projects">
     <section class="hero-section text-center">
         <div class="container container--narrow">
@@ -11,14 +15,15 @@
             </div>
 
             <div class="hero-section__search">
-                <form id='searchForm' class="form" action="{% url 'posts:posts-list' %}" method="get">
+                <form id='searchForm' class="d-flex" role="search" action="{% url 'posts:posts-list' %}" method="get">
                     <div class="form__field">
                         <label for="formInput#search">Search By Projects </label>
-                        <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                        <input class="form-control me-2" type="search" id="formInput#search"  name="search_query"
                             placeholder="Search by Project Title" value="{{search_query}}" />
                     </div>
 
-                    <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+
                 </form>
             </div>
         </div>
@@ -31,13 +36,14 @@
                 {% for post in posts %}
                 <div class="column">
                     <div class="card project">
+                        <p>{{post.created_at|date:"D d M Y"}}</p>
                         <a href="{% url 'posts:post-detail' post.slug %}" class="project">
-                            <img class="project__thumbnail" src="{{post.imageURL}}" alt="project thumbnail" />
+                            {% comment %} <img class="project__thumbnail" src="{{post.imageURL}}" alt="project thumbnail" /> {% endcomment %}
                             <div class="card__body">
                                 <h3 class="project__title">{{post.title}}</h3>
                                 {% comment %} <p><a class="project__author" href="{% url 'users:user-profile' project.author.id %}">By
                                         {{post.author.name}}</a>
-                                </p> {% endcomment %}
+                                    </p> {% endcomment %}
                                 {% comment %} <p class="project--rating">
                                     <span style="font-weight: bold;">{{project.vote_ratio}}%</span> Positive
                                     Feedback ({{project.vote_total}}) Vote{{project.vote_total|pluralize:"s"}}
@@ -52,6 +58,10 @@
                                 </div>
                             </div>
                         </a>
+                        <a href="{% url 'users:profile-detail' post.user.id %}">
+                        <img  src="{{post.user.imageURL}}" width=50 height=50 style="border-radius:50%;" />
+                        </a>
+                        <p class="project__author">{{post.user.username}}</p>
                     </div>
                 </div>
                 {% endfor %}
@@ -59,12 +69,11 @@
             </div>
         </div>
     </section>
-
+    
     {% comment %} {% include 'pagination.html' with queryset=projects custom_range=custom_range %} {% endcomment %}
-
+    
 </main>
+{% endblock content %}
 
 
 
-
-{% endblock %}

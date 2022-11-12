@@ -1,0 +1,16 @@
+{% extends '../base.html' %}
+
+{% block content %}
+    {{profile.first_name}}
+    {{profile.last_name}}
+    {{profile.username}}
+    {{profile.country}}
+
+    {% if profile.email == user.email %}
+    <li class="header__menuItem">
+        <a href="{% url 'users:profile-delete' pk=profile.id %}" class="btn btn--sub">Delete</a>
+        <a href="{% url 'users:profile-update' pk=profile.id %}" class="btn btn--sub">Update</a>
+
+    </li>
+    {% endif %}
+{% endblock content %}

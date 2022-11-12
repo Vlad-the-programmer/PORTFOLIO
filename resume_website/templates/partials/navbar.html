@@ -3,30 +3,47 @@
 <!-- Header Section -->
 <header class="header">
     <div class="container container--narrow">
-        {% comment %} <a href="{% url 'profiles' %}" class="header__logo">
-            <img src="{% static 'images/logo.svg' %} " alt="DevSearch Logo" />
-        </a> {% endcomment %}
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'posts:posts-list' %}">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'posts:posts-list' %}">Home</a>
+                  </li>
+            
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                  {% if request.user.is_authenticated %}
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url 'posts:post-create' %}">Add post</a></li>
+                      <li><a class="dropdown-item" href="{% url 'users:profile-detail' profile.id %}">Profile</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  {% endif %}
+                  </li>
+                 
+                </ul>
+              
+              </div>
+            </div>
+            {% if request.user.is_authenticated %}
+            {% comment %} <li class="header__menuItem"><a href="{% url 'inbox' %}">Inbox</a></li>
+            {% comment %} <li class="header__menuItem"><a href="{% url 'account' %}">Account</a></li> {% endcomment %}
+            <li class="btn btn-success"><a href="{% url 'users:logout' %}" class="btn btn--sub">Logout</a></li>
+            {% else %}
+            <li class="btn btn-success"><a href="{% url 'users:login' %}" class="btn btn--sub">Login/Sign Up</a></li> 
+            {% endif %}
+          </nav>
 
-        <nav class="header__nav">
-            {% comment %} <input type="checkbox" id="responsive-menu" />
-            <label for="responsive-menu" class="toggle-menu">
-                <span>Menu</span>
-                <div class="toggle-menu__lines"></div>
-            </label> {% endcomment %}
-            <ul class="header__menu">
-                {% comment %} <li class="header__menuItem"><a href="{% url 'projects:projects_list' %}">Developers</a></li> {% endcomment %}
-                {% comment %} <li class="header__menuItem"><a href="{% url 'projects' %}">Projects</a></li> {% endcomment %}
 
 
 
-                {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
-                {% comment %} <li class="header__menuItem"><a href="{% url 'inbox' %}">Inbox</a></li>
-                <li class="header__menuItem"><a href="{% url 'account' %}">Account</a></li>
-                <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Logout</a></li>
-                {% comment %} {% else %} {% endcomment %}
-                {% comment %} <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Login/Sign Up</a></li> {% endcomment %} 
-                {% comment %} {% endif %} {% endcomment %}
-            </ul>
-        </nav>
     </div>
 </header>

@@ -13,5 +13,5 @@ class CreateForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('title', 'description', 'image', 'slug', 'tags', 'category')
-        
+        # widgets = {'tags': forms.MultipleChoiceField()}
         

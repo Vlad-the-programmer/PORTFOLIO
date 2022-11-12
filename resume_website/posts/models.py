@@ -1,14 +1,13 @@
 import uuid
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import validate_slug, MaxLengthValidator
 
 class Post(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, unique=True,
-                          primary_key=True, editable=False)
+    # id = models.UUIDField(default=uuid.uuid4, unique=True,
+    #                       primary_key=True, editable=False)
     title = models.CharField(unique=True,
                              max_length=100,
                              validators=[
@@ -33,13 +32,16 @@ class Post(models.Model):
                                     )
                                 ]
                             )
-    created = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField('Tags', blank=True)
-    user = models.OneToOneField(User,
-                             related_name='author',
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             related_name='profile',
                              on_delete=models.CASCADE)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE, blank=True, null=True)
+    category = models.ForeignKey('Category',
+                                 on_delete=models.CASCADE,
+                                 blank=True,
+                                 null=True)
     
     def __str__(self):
         return self.title
@@ -69,8 +71,8 @@ class Post(models.Model):
         return url
         
 class Tags(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, unique=True,
-                          primary_key=True, editable=False)
+    # id = models.UUIDField(default=uuid.uuid4, unique=True,
+    #                       primary_key=True, editable=False)
     title = models.CharField(max_length=200,
                              validators=[
                               MaxLengthValidator(
@@ -79,7 +81,7 @@ class Tags(models.Model):
                                     )
                                 ]
                              )
-    created = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.title
@@ -89,8 +91,8 @@ class Tags(models.Model):
         verbose_name_plural = _("Tags")
         
 class Category(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, unique=True,
-                          primary_key=True, editable=False)
+    # id = models.UUIDField(default=uuid.uuid4, unique=True,
+    #                       primary_key=True, editable=False)
     name = models.CharField(max_length=100, blank=True, null=True)
     slug = models.SlugField(unique=True, max_length=100, blank=True, null=True)
     

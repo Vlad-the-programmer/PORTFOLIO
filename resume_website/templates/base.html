@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
+{% block head %}
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <!-- Icon - IconMonster -->
     <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
     <!-- Mumble UI -->
-    <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
+    {% comment %} <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" /> {% endcomment %}
     <!-- Dev Search UI -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
-
-    <title>DevSearch - Connect with Developers!</title>
-
+    
+    <title>{% block title %} Blog | {% endblock %}</title>
+    
 </head>
+{% endblock head %}
 
 <body>
     {% include 'partials/navbar.html' %}
@@ -44,12 +48,38 @@
 
     {% endif %}
 
-
+    {% if form.errors %}
+  
+    {% for error in form.errors %}
+    <div class="alert  alert--{{error.tags}}">
+        <p class="alert__message">{{error}}</p>
+        <button class="alert__close">x</button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    
     {% block content %}
 
     {% endblock content %}
 </body>
-{% comment %} <script src="{% static 'uikit/app.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script> {% endcomment %}
+{% comment %} <script src="{% static 'js/main.js' %}"></script> {% endcomment %}
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+</script>
 
 </html>

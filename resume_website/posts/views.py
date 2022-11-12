@@ -10,9 +10,7 @@ from .forms import UpdateForm, CreateForm
 
 class PostsView(ListView):
     queryset = Post.objects.filter(active=True)
-    model = Post
     template_name = 'index.html'
-    # context_object_name = 'posts'
     
     def get(self, request, *args, **kwargs):
         self.request = request
@@ -20,16 +18,17 @@ class PostsView(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        posts, search_query = searchPosts(self.request)
+        posts, search_query = searchPosts(self.request, self.get_queryset())
         # custom_range, projects = paginateProjects(self.request, projects, 6)
         context['search_query'] = search_query
-        context['posts'] = posts or self.get_queryset()
+        context['posts'] = posts
+        
         return context
     
     
 class PostDetail(DetailView):
         model = Post
-        template_name = 'index.html'
+        template_name = 'posts/post-detail.html'
         slug_url_kwarg = 'slug'
         
         def get_object(self):
@@ -39,8 +38,7 @@ class PostDetail(DetailView):
         
 
 class PostUpdate(UpdateView):
-    model = Post
-    template_name = 'post-create.html'
+    template_name = 'posts/post_create.html'
     form_class = UpdateForm
     
     def get_object(self):
@@ -70,21 +68,11 @@ class PostUpdate(UpdateView):
         context['form'] = UpdateForm(instance=post)
         return context
     
-
-class DeletePost(DeleteView):
-    model = Post
-    
-    def get_object(self):
-        user = self.request.user
-        _slug = self.kwargs.get('slug', '')
-        post = Post.objects.filter(user=user).get(slug=_slug)
-        return post
-    
     
 class CreatePost(CreateView):
     model = Post
     form_class = CreateForm
-    template_name = 'post-create.html'
+    template_name = 'posts/post_create.html'
     
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -98,7 +86,7 @@ class CreatePost(CreateView):
             messages.success(request, 'Created!')    
             return redirect(reverse('posts:post-detail', kwargs={'slug': post.slug}))
         
-        return redirect(reverse_lazy('post-create'))
+        return redirect(reverse_lazy('posts:post-create'))
     
     def form_invalid(self, form):
         messages.error(self.request, 'Invalid data!')    
@@ -109,3 +97,33 @@ class CreatePost(CreateView):
         context["form"] = self.form_class()
         return context
         
+
+class PostDelete(DeleteView):
+    template_name = 'posts/post_delete.html'
+    success_url = reverse_lazy('posts:posts-list')
+    
+    def get_object(self):
+        _slug = self.kwargs.get('slug', '')
+        # print(self.kwargs, _pk)
+        try:
+            post = Post.objects.filter(user=self.request.user).get(slug=_slug)
+        except:
+            post = None
+        return post
+    
+    def delete(self, request, *args, **kwargs):
+        self.request = request
+        return super().delete(request, *args, **kwargs)
+        
+    def form_valid(self, form):
+        post = self.get_object()
+        if post:
+            post.delete()
+            messages.success(self.request, 'Post deleted!')
+            return redirect(self.success_url)
+        else:
+            context={}
+            messages.error(self.request, 'Post does not exist!')
+            context['post'] = post
+            return render(self.request, self.template_name, context)
+

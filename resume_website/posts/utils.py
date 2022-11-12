@@ -32,19 +32,20 @@ def paginateProjects(request, projects, results):
     return custom_range, projects
 
 
-def searchPosts(request):
+def searchPosts(request, queryset=None):
 
     search_query = ''
-
+    posts = queryset
     if request.GET.get('search_query'):
         search_query = request.GET.get('search_query')
 
-    tags = Tags.objects.filter(title__icontains=search_query)
+        tags = Tags.objects.filter(title__icontains=search_query)
 
-    posts = Post.objects.distinct().filter(
-        Q(title__icontains=search_query) |
-        Q(description__icontains=search_query) |
-        # Q(owner__name__icontains=search_query) |
-        Q(tags__in=tags)
-    )
+        posts = Post.objects.distinct().filter(
+            Q(title__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            # Q(owner__name__icontains=search_query) |
+            Q(tags__in=tags)
+        )
+    
     return posts, search_query
