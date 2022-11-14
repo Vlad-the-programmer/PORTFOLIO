@@ -4,13 +4,14 @@ from django.contrib import messages
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from .utils import searchPosts
+from .utils import searchPosts, paginatePosts
 from .models import Post, Tags
 from .forms import UpdateForm, CreateForm
 
 class PostsView(ListView):
     queryset = Post.objects.filter(active=True)
     template_name = 'index.html'
+    paginate_by = 3
     
     def get(self, request, *args, **kwargs):
         self.request = request
@@ -19,7 +20,7 @@ class PostsView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         posts, search_query = searchPosts(self.request, self.get_queryset())
-        # custom_range, projects = paginateProjects(self.request, projects, 6)
+        # custom_range, posts = paginatePosts(self.request, posts, 6)
         context['search_query'] = search_query
         context['posts'] = posts
         
@@ -44,7 +45,7 @@ class PostUpdate(UpdateView):
     def get_object(self):
         user = self.request.user
         _slug = self.kwargs.get('slug', '')
-        post = Post.objects.filter(user=user).get(slug=_slug)
+        post = Post.objects.filter(author=user).get(slug=_slug)
         return post
     
     def post(self, request, slug, *args, **kwargs):
@@ -53,7 +54,7 @@ class PostUpdate(UpdateView):
         form = UpdateForm(instance=post, data=request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.user = user
+            post.author = user
             post.slug = post.title
             post.save()
             messages.success(request, 'Updated!')    
@@ -78,7 +79,7 @@ class CreatePost(CreateView):
         form = self.form_class(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.user = request.user
+            post.author = request.user
             if not post.slug:
                 post.slug = post.title
             post.save()
@@ -104,9 +105,8 @@ class PostDelete(DeleteView):
     
     def get_object(self):
         _slug = self.kwargs.get('slug', '')
-        # print(self.kwargs, _pk)
         try:
-            post = Post.objects.filter(user=self.request.user).get(slug=_slug)
+            post = Post.objects.filter(author=self.request.user).get(slug=_slug)
         except:
             post = None
         return post

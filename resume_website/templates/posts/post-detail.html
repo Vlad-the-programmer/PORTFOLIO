@@ -1,11 +1,24 @@
 {% extends '../base.html' %}
 
 {% block content %}
-    {{post.title}}
-    {{post.description}}
-    {{post.user.username}}
-    {% if profile.email == post.user.email %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 card mb-4  mt-3 left  top">
+        <div class="card-body">
+          <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+          <p class=" text-muted">{{ post.author }} | {{ post.created_at }}</p>
+          <p class="card-text ">{{ post.content | safe }}</p>
+        </div>
+      </div>
+      {% block sidebar %} {% include 'partials/sidebar.html' %} {% endblock sidebar %}
+    </div>
+  </div>
+  
+  {% if user.is_authenticated %}
+    {% if profile.email == post.author.email %}
     <li class="header__menuItem"><a href="{% url 'posts:post-delete' slug=post.slug %}" class="btn btn--sub">Delete</a></li>
     <li class="header__menuItem"><a href="{% url 'posts:post-update' slug=post.slug %}" class="btn btn--sub">Update</a></li>
     {% endif %}
+   {% endif %}
 {% endblock content %}

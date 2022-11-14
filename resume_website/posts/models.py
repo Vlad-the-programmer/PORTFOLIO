@@ -5,6 +5,11 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import validate_slug, MaxLengthValidator
 
+class STATUS(models.TextChoices):
+    DRAFT = "draft", _("Draft")
+    PUBLISH = "publish", _("Publish")
+    
+
 class Post(models.Model):
     # id = models.UUIDField(default=uuid.uuid4, unique=True,
     #                       primary_key=True, editable=False)
@@ -17,7 +22,7 @@ class Post(models.Model):
                                     )
                                 ]
                              )
-    description = models.TextField(null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True, default="default.jpg")
     active = models.BooleanField(verbose_name=_('Active'), default=True)
     slug = models.SlugField(max_length=100,
@@ -35,13 +40,18 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField('Tags', blank=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+    author = models.ForeignKey(settings.AUTH_USER_MODEL,
                              related_name='profile',
                              on_delete=models.CASCADE)
     category = models.ForeignKey('Category',
                                  on_delete=models.CASCADE,
                                  blank=True,
                                  null=True)
+    status = models.CharField(_('Status'),
+                              max_length=10,
+                              choices=STATUS.choices,
+                              default=STATUS.DRAFT,
+                              blank=True, null=True)
     
     def __str__(self):
         return self.title

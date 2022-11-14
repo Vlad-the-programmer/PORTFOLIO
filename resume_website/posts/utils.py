@@ -3,10 +3,10 @@ from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
-def paginateProjects(request, projects, results):
+def paginatePosts(request, posts, results):
 
     page = request.GET.get('page')
-    paginator = Paginator(projects, results)
+    paginator = Paginator(posts, results)
 
     try:
         projects = paginator.page(page)
@@ -29,7 +29,7 @@ def paginateProjects(request, projects, results):
 
     custom_range = range(leftIndex, rightIndex)
 
-    return custom_range, projects
+    return custom_range, posts
 
 
 def searchPosts(request, queryset=None):
@@ -43,7 +43,7 @@ def searchPosts(request, queryset=None):
 
         posts = Post.objects.distinct().filter(
             Q(title__icontains=search_query) |
-            Q(description__icontains=search_query) |
+            Q(content__icontains=search_query) |
             # Q(owner__name__icontains=search_query) |
             Q(tags__in=tags)
         )

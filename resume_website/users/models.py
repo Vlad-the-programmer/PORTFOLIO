@@ -1,7 +1,7 @@
 from django.db import models
 from django.core import validators
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Permission
 from django_countries.fields import CountryField
 from .managers import UserManager
 
@@ -35,14 +35,25 @@ class Profile(AbstractUser):
                                      upload_to='profiles', 
                                      default='profiles/profile_default.jpg')
     password = models.CharField(max_length=100, blank=True, null=True)
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
-    username = models.CharField(max_length=100, blank=True, null=True)
-    is_stuff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
+    username = models.CharField(unique=True, max_length=100, blank=True, null=True)
+    date_joined = models.DateTimeField(auto_now_add=True, null=True)
+    last_login = models.DateTimeField(_('Last logged in'), null=True, blank=True)
+    is_staff = models.BooleanField(default=False, blank=True, null=True)
+    is_active = models.BooleanField(default=False, blank=True, null=True)
+    is_superuser = models.BooleanField(default=False, blank=True, null=True)
     
     def __str__(self):
         return self.email
+    
+    def has_perm(self, perm, obj=None):
+        return self.is_superuser
+
+    def has_module_perms(self, app_label):
+        return True
+
+    @property
+    def is_staff(self):
+        return self.is_superuser
     
     def exists(self):
         email = self.email
@@ -57,7 +68,7 @@ class Profile(AbstractUser):
     @classmethod
     def get_user_by_email(cls, email):
         try:
-            user = cls.objects.get(email=email)
+            user = cls.objects.get(email__exact=email)
         except:
             user = None
         if user is not None:

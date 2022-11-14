@@ -15,8 +15,13 @@ class UserManager(BaseUserManager):
     def _create_user(self, email, password, first_name=None, gender=None, featured_img=None, username=None, last_name=None, **extra_fields):
         if not email:
             raise ValueError("User must have an email")
+        
         if not password:
             raise ValueError("User must have a password")
+        
+        if not username:
+            raise ValueError('User must have an username')
+        
         if email:
             email = self.normalize_email(email)
             self.email_validator(email)

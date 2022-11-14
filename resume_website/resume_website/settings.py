@@ -131,6 +131,16 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # User model
 AUTH_USER_MODEL = "users.Profile"
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend'
+    ]
+
 from django.urls import reverse_lazy
 
 LOGOUT_REDIRECT_URL = reverse_lazy('users:login')
+
+# Email sending credentials
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'a923489850d8ef'
+EMAIL_HOST_PASSWORD = 'a47074cae95d6b'
+EMAIL_PORT = '2525'

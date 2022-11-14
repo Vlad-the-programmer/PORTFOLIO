@@ -5,6 +5,7 @@ from .models import Profile
 
 
 class UserUpdateForm(UserChangeForm):
+    featured_img = forms.ImageField(required=False)
     class Meta:
         model = Profile
         fields = (
@@ -17,6 +18,8 @@ class UserUpdateForm(UserChangeForm):
                   'gender',
                   )
         exclude = ['password']
+        # def __init__(self):
+        #     self.featured_img.widget.attrs.update({'required': False})
 
         
 class UserCreateForm(UserCreationForm):
@@ -38,3 +41,12 @@ class UserLoginForm(forms.ModelForm):
         model = Profile
         fields = ('email', 'password')
         widgets = {'password': forms.PasswordInput}
+        
+
+class UserPasswordResetForm(forms.ModelForm):
+    confirm_password = forms.PasswordInput(attrs={'placeholder': 'Confirm password'})
+    class Meta:
+        model = Profile
+        fields = ('password',)
+        widgets = {'password': forms.PasswordInput(attrs={'placeholder': 'New password'})}
+        
