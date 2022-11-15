@@ -5,7 +5,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .utils import searchPosts, paginatePosts
+
+from comments.forms import CommentCreateForm
 from .models import Post, Tags
+from comments.models import Comment
 from .forms import UpdateForm, CreateForm
 
 class PostsView(ListView):
@@ -27,56 +30,13 @@ class PostsView(ListView):
         return context
     
     
-class PostDetail(DetailView):
-        model = Post
-        template_name = 'posts/post-detail.html'
-        slug_url_kwarg = 'slug'
-        
-        def get_object(self):
-            _slug = self.kwargs.get('slug', '')
-            post = Post.objects.filter(active=True).get(slug=_slug)
-            return post
-        
-
-class PostUpdate(UpdateView):
-    template_name = 'posts/post_create.html'
-    form_class = UpdateForm
-    
-    def get_object(self):
-        user = self.request.user
-        _slug = self.kwargs.get('slug', '')
-        post = Post.objects.filter(author=user).get(slug=_slug)
-        return post
-    
-    def post(self, request, slug, *args, **kwargs):
-        user = request.user
-        post = self.get_object()
-        form = UpdateForm(instance=post, data=request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = user
-            post.slug = post.title
-            post.save()
-            messages.success(request, 'Updated!')    
-            return redirect(reverse('posts:post-detail', kwargs={'slug': post.slug}))
-        
-        messages.error(request, 'Invalid data!')    
-        return redirect(reverse('posts:post-detail', kwargs={'slug': post.slug}))
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        post = self.get_object()
-        context['form'] = UpdateForm(instance=post)
-        return context
-    
-    
 class CreatePost(CreateView):
     model = Post
     form_class = CreateForm
     template_name = 'posts/post_create.html'
     
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -96,6 +56,60 @@ class CreatePost(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = self.form_class()
+        return context
+    
+      
+class PostDetail(DetailView):
+        model = Post
+        template_name = 'posts/post-detail.html'
+        slug_url_kwarg = 'slug'
+        
+        def get_object(self):
+            _slug = self.kwargs.get('slug', '')
+            post = Post.objects.filter(active=True).get(slug=_slug)
+            return post
+        
+        
+        def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            print(context)
+            post = context['post']
+            comments = Comment.objects.filter(post=post)
+            context['comment_form'] = CommentCreateForm
+            context['comments'] = comments
+            
+            return context
+        
+        
+class PostUpdate(UpdateView):
+    template_name = 'posts/post_create.html'
+    form_class = UpdateForm
+    
+    def get_object(self):
+        user = self.request.user
+        _slug = self.kwargs.get('slug', '')
+        post = Post.objects.filter(author=user).get(slug=_slug)
+        return post
+    
+    def post(self, request, slug, *args, **kwargs):
+        user = request.user
+        post = self.get_object()
+        form = UpdateForm(instance=post, data=request.POST, files=request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = user
+            post.slug = post.title
+            post.save()
+            messages.success(request, 'Updated!')    
+            return redirect(reverse('posts:post-detail', kwargs={'slug': post.slug}))
+        
+        messages.error(request, 'Invalid data!')    
+        return redirect(reverse('posts:post-detail', kwargs={'slug': post.slug}))
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        context['form'] = UpdateForm(instance=post)
         return context
         
 

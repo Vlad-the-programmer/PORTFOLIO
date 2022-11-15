@@ -23,7 +23,10 @@ class Post(models.Model):
                                 ]
                              )
     content = models.TextField(null=True, blank=True)
-    image = models.ImageField(null=True, blank=True, default="default.jpg")
+    image = models.ImageField(null=True, 
+                              blank=True, 
+                              default="default.jpg", 
+                              upload_to='posts')
     active = models.BooleanField(verbose_name=_('Active'), default=True)
     slug = models.SlugField(max_length=100,
                             unique=True,
@@ -52,6 +55,10 @@ class Post(models.Model):
                               choices=STATUS.choices,
                               default=STATUS.DRAFT,
                               blank=True, null=True)
+    # comments = models.ForeignKey('posts.Post',
+    #                          related_name='comment',
+    #                          on_delete=models.CASCADE)
+    
     
     def __str__(self):
         return self.title
@@ -59,7 +66,7 @@ class Post(models.Model):
     class Meta:
         verbose_name = _("Post")
         verbose_name_plural = _("Posts")
-        ordering = ['title']
+        ordering = ['-created_at']
 
     @property
     def imageURL(self):
@@ -70,7 +77,7 @@ class Post(models.Model):
         return 
         
     def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'slug': self.slug})
+        return reverse('posts:post-detail', kwargs={'slug': self.slug})
     
     @property
     def imageUrl(self):

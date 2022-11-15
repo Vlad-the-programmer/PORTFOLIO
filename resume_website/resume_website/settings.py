@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     "crispy_bootstrap5",
     'posts.apps.PostsConfig',
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'comments.apps.CommentsConfig',
     
 ]
 

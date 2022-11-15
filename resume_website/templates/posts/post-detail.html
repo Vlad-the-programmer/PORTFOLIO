@@ -9,16 +9,17 @@
           <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
           <p class=" text-muted">{{ post.author }} | {{ post.created_at }}</p>
           <p class="card-text ">{{ post.content | safe }}</p>
+          {% if user.is_authenticated %}
+            {% if profile.email == post.author.email %}
+            <li class="btn btn-danger"><a href="{% url 'posts:post-delete' slug=post.slug %}" class="btn btn--sub">Delete</a></li>
+            <li class="btn btn-info"><a href="{% url 'posts:post-update' slug=post.slug %}" class="btn btn--sub">Update</a></li>
+            {% endif %}
+           {% endif %}
         </div>
       </div>
       {% block sidebar %} {% include 'partials/sidebar.html' %} {% endblock sidebar %}
     </div>
   </div>
+  {% include 'partials/comments_list.html' with form=comment_form post=post comments=comments %}
   
-  {% if user.is_authenticated %}
-    {% if profile.email == post.author.email %}
-    <li class="header__menuItem"><a href="{% url 'posts:post-delete' slug=post.slug %}" class="btn btn--sub">Delete</a></li>
-    <li class="header__menuItem"><a href="{% url 'posts:post-update' slug=post.slug %}" class="btn btn--sub">Update</a></li>
-    {% endif %}
-   {% endif %}
 {% endblock content %}

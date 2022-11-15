@@ -55,15 +55,6 @@ class Profile(AbstractUser):
     def is_staff(self):
         return self.is_superuser
     
-    def exists(self):
-        email = self.email
-        try:
-            user = Profile.objects.get(email=email)
-        except:
-            user = None
-        if user is not None:
-            return True
-        return False 
     
     @classmethod
     def get_user_by_email(cls, email):

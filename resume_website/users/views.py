@@ -21,7 +21,7 @@ Profile = get_user_model()
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreateForm(request.POST or None)
+        form = UserCreateForm(request.POST, request.FILES)
         
         if form.is_valid():
             user = form.save(commit=False)
@@ -159,7 +159,7 @@ class ProfileUpdate(LoginRequiredMixin,
         self.request = request
         profile = self.get_object()
         if profile:
-            form = UserUpdateForm(instance=profile, data=request.POST)
+            form = UserUpdateForm(instance=profile, data=request.POST, files=request.FILES)
             if form.is_valid():
                 form.save()
                 messages.success(request, 'Updated!')
