@@ -14,7 +14,7 @@ from .forms import UpdateForm, CreateForm
 class PostsView(ListView):
     queryset = Post.objects.filter(active=True)
     template_name = 'index.html'
-    paginate_by = 3
+    paginate_by = 6
     
     def get(self, request, *args, **kwargs):
         self.request = request

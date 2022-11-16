@@ -12,6 +12,7 @@
               <p class=" text-muted">{{profile.country}}</p>
               <p class="card-text ">{{ profile.get_full_name }}</p>
               <p class="card-text ">{{ profile.username }}</p>
+              <p class="card-text ">{{ profile.email }}</p>
 
               {% if profile.email == user.email %}
                 <li class="header__menuItem">

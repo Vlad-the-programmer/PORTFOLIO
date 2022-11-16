@@ -44,6 +44,18 @@
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8 mt-3 left">
+            {% if page_obj %}
+            {% for post in page_obj %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_at}} </p>
+                        <p class="card-text">{{post.content|slice:":200" }}</p>
+                        <a href="{% url 'posts:post-detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% else %}
             {% for post in posts %}
             <div class="card mb-4">
                 <div class="card-body">
@@ -54,24 +66,35 @@
                 </div>
             </div>
             {% endfor %}
+            {% endif %}
         </div>
         {% include 'partials/sidebar.html' %}
     </div>
 </div>
 {% if is_paginated %}
-  <nav aria-label="Page navigation conatiner"></nav>
+  {% comment %} <nav aria-label="Page navigation conatiner"></nav> {% endcomment %}
   <ul class="pagination justify-content-center">
     {% if page_obj.has_previous %}
     <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+    {% else %}
+    <li class="disabled page-item"><span>&laquo;</span></li>
     {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="btn btn-info"><span>{{ i }}</span></li>
+      {% else %}
+        <li class="page-item"><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
     {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled page-item"><span>&raquo;</span></li>
     {% endif %}
   </ul>
-  </nav>
+  {% comment %} </nav> {% endcomment %}
+  {% endif %}
 </div>
-{% endif %}
 </main>
 {%endblock%}
 
