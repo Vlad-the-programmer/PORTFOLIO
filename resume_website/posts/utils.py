@@ -1,6 +1,7 @@
 from .models import Post, Tags
 from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from .filters import PostsFilter
 
 
 def paginatePosts(request, posts, results):
@@ -39,13 +40,20 @@ def searchPosts(request, queryset=None):
     if request.GET.get('search_query'):
         search_query = request.GET.get('search_query')
 
-        tags = Tags.objects.filter(title__icontains=search_query)
-
         posts = Post.objects.distinct().filter(
-            Q(title__icontains=search_query) |
-            Q(content__icontains=search_query) |
-            # Q(owner__name__icontains=search_query) |
-            Q(tags__in=tags)
+            Q(title__icontains=search_query) 
+            # Q(content__icontains=search_query) |
+            # # Q(owner__name__icontains=search_query) |
+            # Q(tags__in=tags)
         )
-    
+        
     return posts, search_query
+    
+
+def postsFilter(request, queryset=None):
+    filter = None
+    posts = None
+    if queryset is not None:
+        filter = PostsFilter(request.GET, queryset=queryset)
+        posts = filter.qs
+    return posts, filter

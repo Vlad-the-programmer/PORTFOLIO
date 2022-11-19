@@ -9,11 +9,12 @@
 <!-- Sidebar Widgets Column -->
 <div class="col-md-4 float-right ">
 <div class="card my-4">
-        <h5 class="card-header">About Us</h5>
+    <h5 class="card-header">Categories</h5>
     <div class="card-body">
-        <p class="card-text"> This awesome blog is made on the top of our Favourite full stack Framework 'Django', follow up the tutorial to learn how we made it..!</p>
-        <a href="https://djangocentral.com/building-a-blog-application-with-django"
-           class="btn btn-info">Know more!</a>
+        {% comment %} <p class="card-text"> </p> {% endcomment %}
+        {% for category in categories %}
+        <a href="{% url 'category:category-posts' category_slug=category.slug %}">{{category.title}}| {{category.post_set.all.count}} posts</a><br>
+        {% endfor %}
     </div>
 </div>
 </div>

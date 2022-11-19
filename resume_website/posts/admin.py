@@ -1,10 +1,8 @@
 from re import I
 from django.contrib import admin
-from posts.models import Post, Tags, Category
+from posts.models import Post, Tags
 
-class CategoryAdmin(admin.ModelAdmin):
-     prepopulated_fields = {"slug": ("name",)}
-     
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'status','created_at')
     list_filter = ("status",)
@@ -14,5 +12,4 @@ class PostAdmin(admin.ModelAdmin):
      
 admin.site.register(Post, PostAdmin)
 admin.site.register(Tags)
-admin.site.register(Category, CategoryAdmin)
 

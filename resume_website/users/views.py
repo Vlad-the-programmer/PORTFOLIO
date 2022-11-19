@@ -11,6 +11,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView
 # Email verification 
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_decode
 from .emails_handler import send_verification_email
 
 from .forms import UserCreateForm, UserUpdateForm
@@ -25,13 +27,18 @@ def register(request):
         
         if form.is_valid():
             user = form.save(commit=False)
-            print(user.is_stuff)
+            
             if Profile.get_user_by_email(user.email):
                 messages.info(request, 'User already exists!')
                 return redirect(reverse_lazy('users:login'))
+            
+            if not user.username:
+                user.username = user.email.split('@')[0]
+                
             user.username.lower()
             user.save()
             
+            # Sending email activation
             mail_subject = 'Please activate your account'
             template_email = 'accounts/account_verification_email.html'
             send_verification_email(request,
@@ -39,25 +46,27 @@ def register(request):
                                     template_email,
                                     mail_subject,
                                     is_activation_email=True)
+        else:
+            messages.error(request, f'{form.errors}')
+            return redirect(reverse_lazy('users:register'))
         
-        messages.error(request, 'Enter valid data!')
-        return redirect(reverse_lazy('users:register'))
     else:
         form = UserCreateForm()
+        
     context = {}
     context['form'] = form
     return render(request, 'auth/register.html', context)
  
  
-def activate(request, pk):
+def activate(request, uidb64, token):
     try:
-        user = Profile.objects.get(id=pk)
-    except (ValueError, Profile.DoesNotExist):
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = Profile.objects.get(id=uid)
+    except (TypeError, ValueError, OverflowError, Profile.DoesNotExist):
         user = None
         
-    if user is not None:
+    if user is not None and default_token_generator.check_token(user, token):
             user.is_active = True
-            # user.is_stuff = True
             user.save()
             
             messages.success(request, 'Congratulations! Your account is activated.')
@@ -71,16 +80,26 @@ def login_user(request):
     if request.method == 'POST':
         email = request.POST.get("email")
         password = request.POST.get("password")
-        print(email, password)
-        user = authenticate(username=email, password=password)
+        
+        user = authenticate(
+                                username=email,
+                                password=password
+                            )
         print(user)
+        
         if user is not None:
-            login(request, user)
+            login(
+                    request,
+                    user
+            )
+            
+            # Setting the time user logged in at
             user_logged_in.send(sender=user.__class__, request=request, user=user)
+            
             messages.success(request, f'Logged in as {user.username}')
             return redirect(reverse('users:profile-detail', kwargs={'pk': user.id}))
         
-        messages.error(request, 'Invalid credentials')
+        messages.error(request, 'Invalid credentials!')
         return redirect(reverse_lazy('users:login'))
     
     return render(request, 'auth/login.html')
@@ -92,8 +111,9 @@ class ProfileDetail(LoginRequiredMixin,
     model = Profile
     template_name = 'profile/profile_detail.html'
     context_object_name = 'profile'
-    
 
+    
+@login_required(login_url='login/')
 def logout_user(request):
     logout(request)
     return redirect(reverse_lazy('users:login'))

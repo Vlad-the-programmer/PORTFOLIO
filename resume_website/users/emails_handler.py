@@ -10,18 +10,20 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 
 def send_verification_email(request, user, template_email, mail_subject=None, is_activation_email=False):
-    # uuid = urlsafe_base64_encode(force_bytes(user.pk))
+    uuid = urlsafe_base64_encode(force_bytes(user.id))
     token = default_token_generator.make_token(user)
     current_site = get_current_site(request)
     message = render_to_string(template_email, {
         'user': user,
         'domain': current_site,
-        'uid': user.pk,
+        'uid': uuid,
         'token': token,
     })
     to_email = user.email
+    
     send_email = EmailMessage(mail_subject, message, to=[to_email])
     send_email.send()
+    
     if is_activation_email:
         messages.success(request, f'Thank you. We have sent you a verification email to your email address {to_email}. Please verify it.')
         return redirect('/accounts/login/?command=verification&email='+to_email)

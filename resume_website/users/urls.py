@@ -5,7 +5,7 @@ app_name='users'
 
 urlpatterns = [
     path('register/', views.register, name='register'),
-    path('activate/<int:pk>', views.activate, name='activate'),
+    path('activate/<uidb64>/<token>/', views.activate, name='activate'),
     path('login/', views.login_user, name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('profile/detail/<int:pk>/', views.ProfileDetail.as_view(),

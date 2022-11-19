@@ -51,10 +51,6 @@ class Profile(AbstractUser):
     def has_module_perms(self, app_label):
         return True
 
-    @property
-    def is_staff(self):
-        return self.is_superuser
-    
     
     @classmethod
     def get_user_by_email(cls, email):

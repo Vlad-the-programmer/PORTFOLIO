@@ -18,8 +18,6 @@ class UserUpdateForm(UserChangeForm):
                   'gender',
                   )
         exclude = ['password']
-        # def __init__(self):
-        #     self.featured_img.widget.attrs.update({'required': False})
 
         
 class UserCreateForm(UserCreationForm):

@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'users.apps.UsersConfig',
     'comments.apps.CommentsConfig',
+    'category.apps.CategoryConfig',
+    
     
 ]
 
@@ -61,7 +63,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'users.context_processors.template_context_processor'
+                'users.context_processors.template_context_processor',
+                'category.context_processors.all_categories_to_every_template',
             ],
         },
     },

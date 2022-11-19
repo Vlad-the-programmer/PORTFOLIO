@@ -9,6 +9,7 @@ urlpatterns = [
     path('', include('posts.urls', namespace='posts')),
     path('users/', include('users.urls', namespace='users')),
     path('comments/', include('comments.urls', namespace='comments')),
+    path('categories/', include('category.urls', namespace='category')),
     
 ]
 

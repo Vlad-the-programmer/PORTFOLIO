@@ -46,7 +46,7 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL,
                              related_name='profile',
                              on_delete=models.CASCADE)
-    category = models.ForeignKey('Category',
+    category = models.ForeignKey('category.Category',
                                  on_delete=models.CASCADE,
                                  blank=True,
                                  null=True)
@@ -55,10 +55,7 @@ class Post(models.Model):
                               choices=STATUS.choices,
                               default=STATUS.DRAFT,
                               blank=True, null=True)
-    # comments = models.ForeignKey('posts.Post',
-    #                          related_name='comment',
-    #                          on_delete=models.CASCADE)
-    
+  
     
     def __str__(self):
         return self.title
@@ -107,15 +104,3 @@ class Tags(models.Model):
         verbose_name = _("Tag")
         verbose_name_plural = _("Tags")
         
-class Category(models.Model):
-    # id = models.UUIDField(default=uuid.uuid4, unique=True,
-    #                       primary_key=True, editable=False)
-    name = models.CharField(max_length=100, blank=True, null=True)
-    slug = models.SlugField(unique=True, max_length=100, blank=True, null=True)
-    
-    def __str__(self):
-        return self.slug
-    
-    class Meta:
-        verbose_name = _("Category")
-        verbose_name_plural = _("Categories")

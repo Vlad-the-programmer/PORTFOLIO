@@ -11,3 +11,17 @@
     {% endfor %}
 
 {% endif %}
+
+{% if form.errors %}
+
+    {% for error in form.errors %}
+    <div id="message" class="container">
+    <div {% if error.tags %} class="alert alert-{{ error.tags }}"{% endif %} role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+        {% if error.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error: {% endif %}
+        {{ error }}
+    </div>
+    </div>
+    {% endfor %}
+
+{% endif %}

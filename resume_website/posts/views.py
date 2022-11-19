@@ -4,28 +4,37 @@ from django.contrib import messages
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from .utils import searchPosts, paginatePosts
+from .utils import searchPosts, postsFilter
 
 from comments.forms import CommentCreateForm
-from .models import Post, Tags
 from comments.models import Comment
+from .models import Post, Tags
 from .forms import UpdateForm, CreateForm
+
 
 class PostsView(ListView):
     queryset = Post.objects.filter(active=True)
     template_name = 'index.html'
-    paginate_by = 6
+    paginate_by = 5
+    
     
     def get(self, request, *args, **kwargs):
         self.request = request
         return super().get(request, *args, **kwargs)
     
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        posts, search_query = searchPosts(self.request, self.get_queryset())
-        # custom_range, posts = paginatePosts(self.request, posts, 6)
+        posts, filter = postsFilter(self.request, self.get_queryset())
+        
+        # Get post by querying posts by a search_query value
+        search_query = ''
+        if self.request.GET.get('search_query'):
+            posts, search_query = searchPosts(self.request, self.get_queryset())
+            
         context['search_query'] = search_query
         context['posts'] = posts
+        context['filter'] = filter
         
         return context
     
@@ -37,12 +46,18 @@ class CreatePost(CreateView):
     
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
+        
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             if not post.slug:
                 post.slug = post.title
             post.save()
+            
+            cleaned_tags = form.cleaned_data.get('tags')
+            for title in cleaned_tags:
+                tag = Tags.objects.get(title=title)
+                post.tags.add(tag)
             
             messages.success(request, 'Created!')    
             return redirect(reverse('posts:post-detail', kwargs={'slug': post.slug}))
@@ -72,7 +87,6 @@ class PostDetail(DetailView):
         
         def get_context_data(self, **kwargs):
             context = super().get_context_data(**kwargs)
-            print(context)
             post = context['post']
             comments = Comment.objects.filter(post=post)
             context['comment_form'] = CommentCreateForm
@@ -94,17 +108,28 @@ class PostUpdate(UpdateView):
     def post(self, request, slug, *args, **kwargs):
         user = request.user
         post = self.get_object()
+        
+        print(request.POST)
         form = UpdateForm(instance=post, data=request.POST, files=request.FILES)
+            
         if form.is_valid():
             post = form.save(commit=False)
+            print(post)
             post.author = user
             post.slug = post.title
             post.save()
+            
+            cleaned_tags = form.cleaned_data.get('tags')
+            for title in cleaned_tags:
+                tag = Tags.objects.get(title=title)
+                post.tags.add(tag)
+                
             messages.success(request, 'Updated!')    
             return redirect(reverse('posts:post-detail', kwargs={'slug': post.slug}))
         
         messages.error(request, 'Invalid data!')    
         return redirect(reverse('posts:post-detail', kwargs={'slug': post.slug}))
+
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -140,4 +165,5 @@ class PostDelete(DeleteView):
             messages.error(self.request, 'Post does not exist!')
             context['post'] = post
             return render(self.request, self.template_name, context)
+
 
