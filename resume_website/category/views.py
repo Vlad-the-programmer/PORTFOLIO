@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect, get_list_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView
-# Pagination
-from .utils import paginatePosts
-from .utils import searchCategoryPosts
+# Pagination and searching bu title
+from .utils import searchCategoryPosts_title, paginatePosts
 
 from .models import Category
 from posts.models import Post
@@ -33,7 +32,7 @@ class CategoryPostsList(ListView):
     def get_queryset(self):
         category_slug = self.kwargs.get('category_slug', '')
         try:
-            queryset = Post.objects.filter(category__slug=category_slug).distinct()
+            queryset = Post.objects.filter(category__slug__exact=category_slug).distinct()
         except Post.DoesNotExist:
             queryset = None
             
@@ -47,36 +46,33 @@ class CategoryPostsList(ListView):
     
     def get_context_data(self, **kwargs):
         category_posts = self.get_queryset()
-        # print(category_posts)
         if category_posts is not None:
             context = super().get_context_data(**kwargs) 
+            _ , context['filter'] = postsFilter(self.request, category_posts)
+            context['posts'] = category_posts
             
             # Get a category_slug for the search form in index.html
             category_slug = self.request.path.split('/')[2]
             
             # Search query and filtered posts
-            search_query = ''
-            if self.request.GET.get('search_query'):
-                posts, search_query = searchCategoryPosts(
-                                                            self.request, 
-                                                            category_posts,
-                                                            category_slug=category_posts
-                                                        )
+            if self.request.GET:
+                if self.request.GET.get('search_query'):
+                    
+                    posts, search_query = searchCategoryPosts_title(
+                                                                self.request, 
+                                                                category_posts,
+                                                                category_slug=category_slug
+                                                            )
+                    context['search_query'] = search_query
+                    print('Search_query ', search_query)
+                    
+                else:
+                    posts, _ = postsFilter(self.request, category_posts)
                 context['posts'] = posts
-                print('Search_query ', search_query)
-            else:    
-                posts, filter = postsFilter(self.request, category_posts)
-                context['filter'] = filter
-                context['posts'] = posts
-                
-                
-            print(posts)
-            print('Context', context)
-            context['category_slug'] = category_slug
-            context['search_query'] = search_query
             
-        else:   
-            context = {}
+            context['category_slug'] = category_slug
+            print('Context', context)
+            
         return context
      
 

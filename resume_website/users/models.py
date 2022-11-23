@@ -47,10 +47,24 @@ class Profile(AbstractUser):
     
     def has_perm(self, perm, obj=None):
         return self.is_superuser
+    
+    def has_add_permission(request):
+        if request.user.is_staff:
+            return True
+        return False
 
+    def has_change_permission(request):
+        if request.user.is_staff:
+            return True
+        return False
+    
+    def has_delete_permission(request):
+        if request.user.is_staff:
+            return True
+        return False
+    
     def has_module_perms(self, app_label):
         return True
-
     
     @classmethod
     def get_user_by_email(cls, email):
@@ -80,4 +94,3 @@ class Profile(AbstractUser):
     class Meta:
        verbose_name_plural = 'Users'
        ordering = ['email']
-    

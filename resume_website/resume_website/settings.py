@@ -142,6 +142,7 @@ AUTHENTICATION_BACKENDS = [
 
 from django.urls import reverse_lazy
 
+LOGIN_URL = reverse_lazy('users:login')
 LOGOUT_REDIRECT_URL = reverse_lazy('users:login')
 
 # Email sending credentials

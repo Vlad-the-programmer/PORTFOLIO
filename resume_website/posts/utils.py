@@ -42,9 +42,6 @@ def searchPosts(request, queryset=None):
 
         posts = Post.objects.distinct().filter(
             Q(title__icontains=search_query) 
-            # Q(content__icontains=search_query) |
-            # # Q(owner__name__icontains=search_query) |
-            # Q(tags__in=tags)
         )
         
     return posts, search_query
