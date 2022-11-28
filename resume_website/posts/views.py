@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.utils.text import slugify
 # Auth
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import permission_required
 from django.utils.decorators import method_decorator
 # Generic edit views
 from django.views.generic.edit import (
@@ -20,16 +20,14 @@ from comments.forms import CommentCreateForm
 from comments.models import Comment
 from .models import Post, Tags
 from .forms import UpdateForm, CreateForm
-from .utils import searchPosts, postsFilter
-
-# Import functions to check for permissions
-from base_utils.utils import check_is_admin
+from .utils import searchPosts, postsFilter, paginatePosts
 
 
 class PostsView(ListView):
     queryset = Post.objects.filter(active=True)
     template_name = 'index.html'
-    paginate_by = 5
+    context_object_name = 'posts'
+    # paginate_by = 5
     
     
     def get(self, request, *args, **kwargs):
@@ -39,21 +37,28 @@ class PostsView(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        posts, filter = postsFilter(self.request, self.get_queryset())
+        posts = context['posts']
+        _ , context['filter'] = postsFilter(self.request, self.get_queryset())
+        custom_range, page_obj = paginatePosts(self.request, posts, 5)
+        
+        if self.request.GET.get('content'):
+            posts, _ = postsFilter(self.request, self.get_queryset())
+            _ , page_obj = paginatePosts(self.request, posts, 5)
+            # context['is_filtered'] = False
         
         # Get post by querying posts by a search_query value
-        search_query = ''
         if self.request.GET.get('search_query'):
             posts, search_query = searchPosts(self.request, self.get_queryset())
+            _ , page_obj = paginatePosts(self.request, posts, 5)
+            context['search_query'] = search_query
             
-        context['search_query'] = search_query
-        context['posts'] = posts
-        context['filter'] = filter
-        
+        context['page_obj'] = page_obj
+        context['custom_range'] = custom_range
+        print(context)
         return context
     
     
-@method_decorator(user_passes_test(check_is_admin), name='dispatch')
+@method_decorator(permission_required("post.add", raise_exception=True), name='dispatch')
 class CreatePost(LoginRequiredMixin,
                     CreateView):
     model = Post
@@ -111,7 +116,8 @@ class PostDetail(DetailView):
             
             return context
         
-        
+ 
+@method_decorator(permission_required("post.update", raise_exception=True), name='dispatch')       
 class PostUpdate(LoginRequiredMixin,
                     UpdateView):
     template_name = 'posts/post_create.html'
@@ -158,6 +164,7 @@ class PostUpdate(LoginRequiredMixin,
         return context
         
 
+@method_decorator(permission_required("post.delete", raise_exception=True), name='dispatch')
 class PostDelete(LoginRequiredMixin,
                     DeleteView):
     template_name = 'posts/post_delete.html'

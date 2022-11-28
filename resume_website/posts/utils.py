@@ -10,13 +10,13 @@ def paginatePosts(request, posts, results):
     paginator = Paginator(posts, results)
 
     try:
-        projects = paginator.page(page)
+        posts = paginator.page(page)
     except PageNotAnInteger:
         page = 1
-        projects = paginator.page(page)
+        posts = paginator.page(page)
     except EmptyPage:
         page = paginator.num_pages
-        projects = paginator.page(page)
+        posts = paginator.page(page)
 
     leftIndex = (int(page) - 4)
 

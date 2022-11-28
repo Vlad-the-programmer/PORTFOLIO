@@ -66,6 +66,7 @@ class Profile(AbstractUser):
     def has_module_perms(self, app_label):
         return True
     
+    
     @classmethod
     def get_user_by_email(cls, email):
         try:
