@@ -43,7 +43,6 @@ class Comment(models.Model):
         return 
         
         
-    @property
     def get_absolute_url(self):
         return reverse('posts:post-detail', kwargs={'slug': self.post.slug})
     

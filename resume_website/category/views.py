@@ -13,7 +13,7 @@ from django.views.generic.edit import (
                                         DeleteView,
                                     )
 # Pagination and searching by title
-from .utils import searchCategoryPosts_title
+from .utils import searchCategoryPosts_title, paginatePosts
 
 from posts.models import Post
 from posts.utils import postsFilter
@@ -24,7 +24,6 @@ from .forms import CategoryUpdateCreateForm
 class CategoryPostsList(ListView):
     context_object_name = 'posts'
     template_name = 'index.html'
-    paginate_by = 5
     
     
     def get_queryset(self):
@@ -46,9 +45,11 @@ class CategoryPostsList(ListView):
         category_posts = self.get_queryset()
         if category_posts is not None:
             context = super().get_context_data(**kwargs) 
-            # Context when posts is not filtered
-            _ , context['filter'] = postsFilter(self.request, category_posts)
             
+            # Context when posts is not filtered
+            posts = category_posts
+            _ , context['filter'] = postsFilter(self.request, posts)
+            custom_range, page_obj = paginatePosts(self.request, posts, 5)
             
             # Get a category_slug for the search form in index.html
             category_slug = self.request.path.split('/')[2]
@@ -57,20 +58,24 @@ class CategoryPostsList(ListView):
             if self.request.GET:
                 if self.request.GET.get('search_query'):
                     
-                    page_obj, search_query = searchCategoryPosts_title(
-                                                                self.request, 
-                                                                category_posts,
-                                                                category_slug=category_slug
-                                                            )
+                    posts, search_query = searchCategoryPosts_title(
+                                                            self.request, 
+                                                            posts,
+                                                            category_slug=category_slug
+                                                        )
+                    _ , page_obj = paginatePosts(self.request, posts, 5)
+
                     context['search_query'] = search_query
-                    print('Search_query ', search_query)
                     
                 else:
-                    page_obj, _ = postsFilter(self.request, category_posts)
-                context['page_obj'] = page_obj
-                context['is_filtered'] = True
+                    posts, _ = postsFilter(self.request, category_posts)
+                    _ , page_obj = paginatePosts(self.request, posts, 5)
+                    
             
+            context['page_obj'] = page_obj
             context['category_slug'] = category_slug
+            context['custom_range'] = custom_range
+            context['posts'] = posts
             print('Context', context)
             
         return context

@@ -27,7 +27,6 @@ class PostsView(ListView):
     queryset = Post.objects.filter(active=True)
     template_name = 'index.html'
     context_object_name = 'posts'
-    # paginate_by = 5
     
     
     def get(self, request, *args, **kwargs):
@@ -44,7 +43,6 @@ class PostsView(ListView):
         if self.request.GET.get('content'):
             posts, _ = postsFilter(self.request, self.get_queryset())
             _ , page_obj = paginatePosts(self.request, posts, 5)
-            # context['is_filtered'] = False
         
         # Get post by querying posts by a search_query value
         if self.request.GET.get('search_query'):
@@ -54,6 +52,8 @@ class PostsView(ListView):
             
         context['page_obj'] = page_obj
         context['custom_range'] = custom_range
+        context['posts'] = posts 
+        
         print(context)
         return context
     

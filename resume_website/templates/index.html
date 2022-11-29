@@ -47,9 +47,7 @@
     {% if posts %}
       Results: {{posts.count}}
     {% endif %}
-    {% if page_obj %}
-      Results: {{page_obj.count}}
-    {% endif %}
+    
  
 <p>
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
@@ -89,7 +87,7 @@
                 {% empty %}
             <h3>Results: 0</h3>
             {% endfor %}
-            {% else %} 
+            {% comment %} {% else %} 
             {% for post in posts %}
             <div class="card mb-4">
               <div class="card-body">
@@ -106,7 +104,7 @@
             </div>
             {% empty %}
                 <h3>Results: 0</h3>
-            {% endfor %}
+            {% endfor %} {% endcomment %}
             {% endif %} 
 
         </div>
