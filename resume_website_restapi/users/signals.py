@@ -18,4 +18,3 @@ def create_user(sender, instance, created, *args, **kwargs):
         print('Token ', Token.objects.get(user=instance))
         print('user id ', instance.id)
         
-        

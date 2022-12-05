@@ -3,9 +3,12 @@ from django.contrib.auth import get_user_model
 # REST_FRAMEWORK
 from rest_framework import serializers
 from django_countries.serializer_fields import CountryField
-from dj_rest_auth.registration.serializers import RegisterSerializer
+
+
 from base_utils import emails_handler
 from .models import Gender
+from .exceptions import NotOwner
+
 
 Profile = get_user_model()
 
@@ -39,10 +42,12 @@ class UserSerializer(serializers.Serializer):
     is_stuff = serializers.BooleanField(
         default=False,
         allow_null=True,
+        read_only=True,
     )
     is_active = serializers.BooleanField(
         default=False,
         allow_null=True,
+        read_only=True,
     )
     
     
@@ -54,12 +59,27 @@ class UserSerializer(serializers.Serializer):
             'last_name':      self.validated_data.get('last_name', ''),
             'country':        self.validated_data.get('country', ''),
             'gender':         self.validated_data.get('gender', ''),
-            'featured_image': self.validated_data.get('featured_image', ''),
-            'username':       self.validated_data.get('username', ''),
-            'is_stuff':       self.validated_data.get('is_stuff', ''),
-            'is_active':      self.validated_data.get('is_active', ''),
-            
+            'featured_img': self.validated_data.get('featured_img', ''),
         }
+    
+    
+    def update(self, instance, validated_data):
+        request = self.context.get('request', None)
+        if Profile.objects.get(id=instance.id) != request.user:
+            raise NotOwner
+        
+        data = self.get_cleaned_data()
+        instance.username = data['username'].lower() or instance.username
+        instance.email = data['email'] or instance.email
+        instance.first_name = data['first_name'] or instance.first_name
+        instance.last_name = data['last_name'] or instance.last_name
+        instance.country = data['country'] or instance.country
+        instance.gender = data['gender'] or instance.gender
+        instance.featured_img = data['featured_img'] or instance.featured_img
+
+        instance.save()
+            
+        return instance
     
     
 class UserRegisterSerializer(serializers.ModelSerializer):
@@ -118,7 +138,7 @@ class PasswordResetSerializer(serializers.Serializer):
     
     def validate(self, attrs):
         email = attrs.get('email', '')
-        print(email, attrs)
+        
         user = Profile.objects.get(email=email)
         
         if not user:

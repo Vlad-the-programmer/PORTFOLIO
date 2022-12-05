@@ -35,7 +35,7 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
-    # 'jazzmin',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.sites',
     'allauth',
@@ -124,12 +124,13 @@ REST_FRAMEWORK = {
     ],
        'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
 
 REST_USE_JWT = True
+# JWT_AUTH_RETURN_EXPIRATION = True
 # Cookies
 JWT_AUTH_COOKIE = 'blog-auth'
 JWT_AUTH_REFRESH_COOKIE = 'blog-refresh-token'
