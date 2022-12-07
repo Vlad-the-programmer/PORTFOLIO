@@ -1,4 +1,5 @@
 from django.urls import path
+from rest_framework.permissions import IsAuthenticated
 from dj_rest_auth import views as dj_rest_auth_views
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -34,7 +35,9 @@ urlpatterns = [
           dj_rest_auth_views.LoginView.as_view(),
           name='login'),
      path('dj-rest-auth/logout/', 
-          custom_views.logout_user,
+          dj_rest_auth_views.LogoutView.as_view(
+                    permission_classes = (IsAuthenticated,)
+               ),
           name='logout'),
 
      path('token/', TokenObtainPairView.as_view(), 
@@ -46,6 +49,5 @@ urlpatterns = [
      path('profile/<uuid:pk>/', 
          custom_views.ProfileDetailUpdateDeleteApiView.as_view(), 
          name='profile-detail'),
-    
-    
+
 ]

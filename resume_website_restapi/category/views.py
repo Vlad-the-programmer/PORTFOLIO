@@ -1,3 +1,32 @@
-from django.shortcuts import render
+# REST FRAMEWORK
+from rest_framework.decorators import permission_classes
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+from .models import Category
+from .serializers import CategoryCreateSerializer
+
+
+class CategoryViewSet(ModelViewSet):
+    queryset = Category.objects.all()
+    lookup_field = 'slug'
+    serializer_class = CategoryCreateSerializer
+    
+    def get_object(self):
+        _slug = self.kwargs.get('slug', '')
+        try:
+            category = Category.objects.get(slug=_slug)
+        except Category.DoesNotExist:
+            category = None
+            
+        return category
+    
+    
+    def destroy(self, request, *args, **kwargs):
+        super().destroy(request, *args, **kwargs)
+        return Response(
+            {"detail": "Deleted successfully!"},
+            status=status.HTTP_200_OK,
+        )
+        

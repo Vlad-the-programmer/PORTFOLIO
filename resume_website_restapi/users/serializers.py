@@ -7,7 +7,7 @@ from django_countries.serializer_fields import CountryField
 
 from base_utils import emails_handler
 from .models import Gender
-from .exceptions import NotOwner
+from .exceptions import NotOwner, UserAlreadyExists
 
 
 Profile = get_user_model()
@@ -78,12 +78,11 @@ class UserSerializer(serializers.Serializer):
         instance.featured_img = data['featured_img'] or instance.featured_img
 
         instance.save()
-            
         return instance
     
     
 class UserRegisterSerializer(serializers.ModelSerializer):
-    country = CountryField(required=False, )
+    country = CountryField(required=False)
     password2 = serializers.CharField(
         max_length=100,
         allow_blank=True,
@@ -130,6 +129,9 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         if attrs.get('password', '') != attrs.get('password2', ''):
             raise ValueError(_("The two Passwords must be equal!"))
         
+        if Profile.objects.get(email=attrs.get('email', '')):
+            raise UserAlreadyExists
+        
         return attrs
     
 
@@ -175,8 +177,12 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
         
     
     def update(self, instance, validated_data):
+        request = self.context.get('request', None)
         print('Val data', validated_data)
         password = validated_data.get('password', '')
+        
+        if Profile.objects.get(instance.id) != request.user:
+            raise NotOwner
         
         instance.set_password(password)
         instance.save()
