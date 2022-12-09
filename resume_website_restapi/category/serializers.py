@@ -15,7 +15,7 @@ class CategorySerializer(serializers.Serializer):
     )
     
     
-class CategoryCreateSerializer(serializers.ModelSerializer):
+class CategoryCRUDSerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = (

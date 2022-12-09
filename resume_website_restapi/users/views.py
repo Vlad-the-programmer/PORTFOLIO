@@ -7,7 +7,6 @@ from django.contrib.auth import get_user_model, logout, login
 from allauth.account.utils import logout_on_password_change
 from django.contrib.auth.hashers import check_password
 # REST FRAMEWORK 
-from dj_rest_auth.registration.views import RegisterView
 from rest_framework.response import Response
 from rest_framework import permissions
 from rest_framework import status
@@ -21,6 +20,9 @@ from .serializers import (
                         PasswordResetSerializer,
                         ChangePasswordSerializer,
                     )
+
+from .exceptions import UserOrTokenNotValid
+
 
 Profile = get_user_model()
 
@@ -56,7 +58,7 @@ def activate_account(request, uuid, token):
         user.is_active = True
         user.save()
     else:
-        raise ValueError(_("User id or token is not valid!")) 
+        raise UserOrTokenNotValid
     
     return Response(
         {"200:Activated"},

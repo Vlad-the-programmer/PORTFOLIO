@@ -4,9 +4,10 @@ from . import views
 app_name = 'comments'
 
 urlpatterns = [
-    # path('comment/create/',          views.CommentCreate.as_view(), name='comment-create'),
-    # path('comment/update/<int:pk>/', views.CommentUpdate.as_view(), name='comment-update'),
-    # path('comment/delete/<int:pk>/', views.CommentDelete.as_view(), name='comment-delete'),
-    
-    
+    path('', 
+         views.CommentListCreateApiView.as_view(),
+         name='comment-list-create'),
+    path('comment/<slug:slug>/', 
+         views.CommentUpdateRetrieveApiView.as_view(), 
+         name='comment-update-retrieve-delete'),
 ]

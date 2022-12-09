@@ -5,13 +5,14 @@ from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
 
 from .models import Category
-from .serializers import CategoryCreateSerializer
+from .serializers import CategoryCRUDSerializer
 
 
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     lookup_field = 'slug'
-    serializer_class = CategoryCreateSerializer
+    serializer_class = CategoryCRUDSerializer
+    
     
     def get_object(self):
         _slug = self.kwargs.get('slug', '')

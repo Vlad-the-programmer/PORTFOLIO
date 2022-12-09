@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
 from users.serializers import UserSerializer
+from comments.serializers import CommentSerializer
 from category.serializers import CategorySerializer
 from category.models import Category
 
@@ -17,6 +18,7 @@ class TagsSerializer(serializers.Serializer):
 class PostListCreateSerializer(serializers.ModelSerializer):
     author = UserSerializer(read_only=True)
     tags = TagsSerializer(read_only=True, many=True)
+    comments = serializers.SerializerMethodField()
     add_tags = serializers.MultipleChoiceField(
                 write_only=True,
                 choices=list(Tags.objects.all()),
@@ -45,6 +47,7 @@ class PostListCreateSerializer(serializers.ModelSerializer):
             'add_tags',
             'category',
             'add_category',
+            'comments',
         )
         
     def create(self, validated_data):
@@ -102,6 +105,10 @@ class PostListCreateSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
         
+    
+    def get_comments(self, obj):
+        serializer = CommentSerializer(list(obj.comments.all()), many=True)
         
+        return serializer.data
         
         
