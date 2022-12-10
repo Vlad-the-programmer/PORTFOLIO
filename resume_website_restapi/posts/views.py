@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import permission_classes
 from rest_framework import permissions
+from rest_framework import pagination
 # Generic Api Views
 from rest_framework.generics import (
                                 ListCreateAPIView,
@@ -12,19 +13,25 @@ from rest_framework.generics import (
 
 from .models import Post
 from .serializers import PostListCreateSerializer
+from . import filters as custom_filters
+from django_filters import rest_framework as filters
 
 
 class ListCreatePostApiView(ListCreateAPIView):
     serializer_class = PostListCreateSerializer
-    
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = custom_filters.PostsFilter
+
     
     def get_queryset(self):
         queryset = Post.objects.filter(active=True)
         return queryset
     
-    @permission_classes([permissions.IsAdminUser])
+    
+    @method_decorator(permission_classes([permissions.IsAdminUser,]), name='dispatch')
     def post(self, request, *args, **kwargs):
         return super().post(request, *args, **kwargs)
+    
     
     def perform_create(self, serializer):
         serializer.is_valid(raise_exception=True)
@@ -36,6 +43,11 @@ class ListCreatePostApiView(ListCreateAPIView):
             )
         
 
+    @method_decorator(permission_classes([permissions.AllowAny,]), name='dispatch')
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+    
+    
 @method_decorator(permission_classes([permissions.IsAdminUser]), name='dispatch')
 class PostRetrieveUpdateDestroyApiView(RetrieveUpdateDestroyAPIView):
     serializer_class = PostListCreateSerializer
@@ -60,6 +72,7 @@ class PostRetrieveUpdateDestroyApiView(RetrieveUpdateDestroyAPIView):
             data={'Ok': 201}, 
             status=status.HTTP_200_OK
             )
+      
         
     def destroy(self, request, *args, **kwargs):
         super().destroy(request, *args, **kwargs)

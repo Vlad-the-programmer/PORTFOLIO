@@ -2,6 +2,7 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 # REST FRAMEWORK
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
 
 from users.serializers import UserSerializer
 from comments.serializers import CommentSerializer
@@ -31,6 +32,14 @@ class PostListCreateSerializer(serializers.ModelSerializer):
                 choices=list(Category.objects.all()),
                 allow_blank=True,
                 allow_null=True
+    )
+    slug = serializers.SlugField(
+        max_length=100, 
+        allow_blank=True,
+        required=False,
+        validators=[
+                        UniqueValidator(queryset=Post.objects.all()),
+                ]
     )
     class Meta:
         model = Post

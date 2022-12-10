@@ -8,6 +8,6 @@ urlpatterns = [
          views.CommentListCreateApiView.as_view(),
          name='comment-list-create'),
     path('comment/<slug:slug>/', 
-         views.CommentUpdateRetrieveApiView.as_view(), 
-         name='comment-update-retrieve-delete'),
+         views.CommentUpdateDestroyApiView.as_view(), 
+         name='comment-update-delete'),
 ]

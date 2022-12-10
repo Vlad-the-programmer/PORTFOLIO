@@ -2,6 +2,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 # DRF
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
 
 from .models import Comment
 from posts.models import Post
@@ -52,6 +53,9 @@ class CommentCRUDSerializer(serializers.ModelSerializer):
         max_length=100, 
         allow_blank=True,
         required=False,
+        validators=[
+                        UniqueValidator(queryset=Comment.objects.all()),
+                ]
     )
 
     class Meta:

@@ -13,7 +13,7 @@ class CommentListCreateApiView(generics.ListCreateAPIView):
     
     
     def get_queryset(self):
-        _post_slug = self.request.GET.get('post_slug', '')
+        _post_slug = self.request.query_params.get('post_slug', '')
         print(_post_slug)
         try:
             queryset = Comment.objects.filter(post__slug=_post_slug)
@@ -23,15 +23,19 @@ class CommentListCreateApiView(generics.ListCreateAPIView):
         return queryset
 
 
-class CommentUpdateRetrieveApiView(generics.RetrieveUpdateDestroyAPIView):
+class CommentUpdateDestroyApiView(generics.DestroyAPIView, 
+                                   generics.UpdateAPIView
+                                ):
     serializer_class = CommentCRUDSerializer
     lookup_field = 'slug'
     
     
     def get_object(self):
         _slug = self.kwargs.get('slug', '')
+        user = self.request.user
+        
         try:
-            comment = Comment.objects.get(slug=_slug)
+            comment = user.comments.get(slug=_slug)
         except Comment.DoesNotExist:
             comment = None
             

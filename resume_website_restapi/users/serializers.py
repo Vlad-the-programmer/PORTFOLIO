@@ -2,6 +2,8 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 # REST_FRAMEWORK
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
+
 from django_countries.serializer_fields import CountryField
 
 
@@ -24,6 +26,11 @@ class UserSerializer(serializers.Serializer):
     )
     email = serializers.EmailField(
         required=True,
+        validators=[
+            UniqueValidator(
+                            queryset=Profile.objects.filter(is_active=True),
+                        ),
+        ]
     )
     gender = serializers.ChoiceField(
         choices=Gender,
@@ -89,6 +96,14 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         allow_null=True,
         required=False,
         write_only=True,
+    )
+    email = serializers.EmailField(
+        required=True,
+        validators=[
+            UniqueValidator(
+                                queryset=Profile.objects.filter(is_active=True),
+                            ),
+      ]
     )
     class Meta:
         model = Profile

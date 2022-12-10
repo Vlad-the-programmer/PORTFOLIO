@@ -1,4 +1,6 @@
+# DRF
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
 
 from .models import Category
 
@@ -12,6 +14,10 @@ class CategorySerializer(serializers.Serializer):
     slug = serializers.SlugField(
         max_length=100,
         allow_blank=True,
+        required=False,
+        validators=[
+                        UniqueValidator(queryset=Category.objects.all()),
+                ]
     )
     
     
