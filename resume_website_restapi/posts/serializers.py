@@ -16,7 +16,7 @@ class TagsSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=100)
         
         
-class PostListCreateSerializer(serializers.ModelSerializer):
+class PostCRUDSerializer(serializers.ModelSerializer):
     author = UserSerializer(read_only=True)
     tags = TagsSerializer(read_only=True, many=True)
     comments = serializers.SerializerMethodField()

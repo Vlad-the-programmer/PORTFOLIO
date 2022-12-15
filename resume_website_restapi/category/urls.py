@@ -6,8 +6,20 @@ app_name = 'category'
 
 
 urlpatterns = [
-    # path('',        views.CategoryPostsList.as_view(),
-    #     name='category-posts'),
-  
-    
+    path('',       
+        views.CategoryListApiView.as_view(),
+        name='category-list'
+    ),
+    path('create/',       
+        views.CategoryCreateApiView.as_view(),
+        name='category-create'
+    ),
+    path('<slug:category_slug>/',       
+        views.CategoryUpdateDestroyApiView.as_view(),
+        name='category-update-delete'
+    ),
+    path('detail/<slug:category_slug>/',       
+        views.CategoryRetrieveApiView.as_view(),
+        name='category-retrieve'
+    ),  
 ]

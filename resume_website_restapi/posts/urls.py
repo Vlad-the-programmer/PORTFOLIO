@@ -4,13 +4,20 @@ from . import views
 app_name = 'posts'
 
 urlpatterns = [
-    path('',                         views.ListCreatePostApiView.as_view(), 
-         name='posts-list'),
-    path('post/<slug:slug>/',        views.PostRetrieveUpdateDestroyApiView.as_view(), 
-         name=''),
-    # path('post/update/<slug:slug>/', views.PostUpdate.as_view(), name='post-update'),
-    # path('post/create/',             views.CreatePost.as_view(), name='post-create'),
-    # path('post/delete/<slug:slug>/', views.PostDelete.as_view(), name='post-delete'),
-    
-    
+    path('', 
+         views.PostListApiView.as_view(), 
+         name='posts-list'
+    ),
+    path('create/',       
+         views.PostCreateApiView.as_view(),
+         name='post-create'
+    ),  
+    path('<slug:post_slug>/',  
+         views.PostUpdateDestroyApiView.as_view(), 
+         name='post-update-delete'
+    ),
+     path('detail/<slug:post_slug>/',       
+        views.PostRetrieveApiView.as_view(),
+        name='post-retrieve'
+    ),  
 ]

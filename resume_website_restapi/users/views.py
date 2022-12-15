@@ -3,14 +3,12 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
 # Auth
-from django.contrib.auth import get_user_model, logout, login
+from django.contrib.auth import get_user_model, logout
 from allauth.account.utils import logout_on_password_change
-from django.contrib.auth.hashers import check_password
 # REST FRAMEWORK 
 from rest_framework.response import Response
 from rest_framework import permissions
 from rest_framework import status
-from rest_framework.exceptions import ValidationError
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import generics
 
@@ -21,7 +19,7 @@ from .serializers import (
                         ChangePasswordSerializer,
                     )
 
-from .exceptions import UserOrTokenNotValid
+from . import exceptions as custom_exceptions
 
 
 Profile = get_user_model()
@@ -58,7 +56,7 @@ def activate_account(request, uuid, token):
         user.is_active = True
         user.save()
     else:
-        raise UserOrTokenNotValid
+        raise custom_exceptions.UserOrTokenNotValid
     
     return Response(
         {"200:Activated"},

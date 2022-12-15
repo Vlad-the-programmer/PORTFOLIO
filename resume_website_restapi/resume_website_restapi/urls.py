@@ -8,28 +8,21 @@ from django.contrib import admin
 from django.urls import path, include
 
 from category import views as category_views
-
-router = DefaultRouter()
-router.register('categories',
-                category_views.CategoryViewSet,
-                basename='categories'
-            )
-
+from posts import views as posts_views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',            include('posts.urls',    namespace='posts')),
+    path('admin/',      admin.site.urls),
+    path('posts/',      include('posts.urls',    namespace='posts')),
     path('users/',      include('users.urls',    namespace='users')),
     path('comments/',   include('comments.urls', namespace='comments')),
     path('categories/', include('category.urls', namespace='category')),
-    path('accounts/',   include('allauth.urls')),
-    # path('auth/', include('dj_rest_auth.urls')),
+    # path('auth/',     include('dj_rest_auth.urls')),
   
 ]
 
-# Router urls
-urlpatterns += router.urls
+# # Router urls
+# urlpatterns += router.urls
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

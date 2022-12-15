@@ -2,7 +2,6 @@
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework import status
-from rest_framework import permissions
 
 from .serializers import CommentCRUDSerializer
 from .models import Comment
@@ -23,9 +22,7 @@ class CommentListCreateApiView(generics.ListCreateAPIView):
         return queryset
 
 
-class CommentUpdateDestroyApiView(generics.DestroyAPIView, 
-                                   generics.UpdateAPIView
-                                ):
+class CommentRetrieveUpdateDestroyApiView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CommentCRUDSerializer
     lookup_field = 'slug'
     

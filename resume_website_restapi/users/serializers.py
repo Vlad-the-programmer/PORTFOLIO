@@ -46,7 +46,7 @@ class UserSerializer(serializers.Serializer):
         max_length=100,
         required=False,
     )
-    is_stuff = serializers.BooleanField(
+    is_staff = serializers.BooleanField(
         default=False,
         allow_null=True,
         read_only=True,

@@ -8,7 +8,7 @@ class Category(models.Model):
     slug = models.SlugField(unique=True, max_length=100, blank=True, null=True)
     
     def __str__(self):
-        return self.slug
+        return self.slug or self.title
     
     class Meta:
         verbose_name = _("Category")

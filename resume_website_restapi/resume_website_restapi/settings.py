@@ -121,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     # Permissions
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
     # Authentication
        'DEFAULT_AUTHENTICATION_CLASSES': [
