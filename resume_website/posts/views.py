@@ -101,6 +101,7 @@ class PostDetail(DetailView):
         template_name = 'posts/post-detail.html'
         slug_url_kwarg = 'slug'
         
+        
         def get_object(self):
             _slug = self.kwargs.get('slug', '')
             post = Post.objects.filter(active=True).get(slug=_slug)
@@ -126,7 +127,7 @@ class PostUpdate(LoginRequiredMixin,
     def get_object(self):
         user = self.request.user
         _slug = self.kwargs.get('slug', '')
-        post = Post.objects.filter(author=user).get(slug=_slug)
+        post = Post.objects.filter(active=True).get(slug=_slug)
         return post
     
     def post(self, request, slug, *args, **kwargs):
@@ -173,7 +174,7 @@ class PostDelete(LoginRequiredMixin,
     def get_object(self):
         _slug = self.kwargs.get('slug', '')
         try:
-            post = Post.objects.filter(author=self.request.user).get(slug=_slug)
+            post = Post.objects.filter(active=True).get(slug=_slug)
         except:
             post = None
         return post

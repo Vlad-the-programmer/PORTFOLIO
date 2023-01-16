@@ -74,35 +74,35 @@ def activate(request, uidb64, token):
     else:
         messages.error(request, 'Invalid activation link')
         return redirect(reverse_lazy('users:register')) 
-    
-    
-def login_user(request):
-    if request.method == 'POST':
-        email = request.POST.get("email")
-        password = request.POST.get("password")
+     
+
+# def login_user(request):
+    # if request.method == 'POST':
+    #     email = request.POST.get("email")
+    #     password = request.POST.get("password")
         
-        user = authenticate(
-                                username=email,
-                                password=password
-                            )
-        print(user)
+    #     user = authenticate(
+    #                             username=email,
+    #                             password=password
+    #                         )
+    #     print(user)
         
-        if user is not None:
-            login(
-                    request,
-                    user
-            )
+    #     if user is not None:
+    #         login(
+    #                 request,
+    #                 user
+    #         )
             
-            # Setting the time user logged in at
-            user_logged_in.send(sender=user.__class__, request=request, user=user)
+    #         # Setting the time user logged in at
+    #         user_logged_in.send(sender=user.__class__, request=request, user=user)
             
-            messages.success(request, f'Logged in as {user.username}')
-            return redirect(reverse('users:profile-detail', kwargs={'pk': user.id}))
+    #         messages.success(request, f'Logged in as {user.username}')
+    #         return redirect(reverse('users:profile-detail', kwargs={'pk': user.id}))
         
-        messages.error(request, 'Invalid credentials!')
-        return redirect(reverse_lazy('users:login'))
+    #     messages.error(request, 'Invalid credentials!')
+    #     return redirect(reverse_lazy('users:login'))
     
-    return render(request, 'auth/login.html')
+    # return render(request, 'auth/login.html')
 
 
 class ProfileDetail(LoginRequiredMixin,
@@ -111,12 +111,6 @@ class ProfileDetail(LoginRequiredMixin,
     model = Profile
     template_name = 'profile/profile_detail.html'
     context_object_name = 'profile'
-
-    
-@login_required(login_url='login/')
-def logout_user(request):
-    logout(request)
-    return redirect(reverse_lazy('users:login'))
 
 
 class ProfileDelete(LoginRequiredMixin,
@@ -244,3 +238,4 @@ def resetPassword(request, pk):
     else:
         return render(request, 'accounts/resetPassword.html', context={'pk': pk})
         
+

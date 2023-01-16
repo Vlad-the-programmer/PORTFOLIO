@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
+from django.contrib.sites.models import Site
 from django.contrib.auth import get_user_model
 
 Profile = get_user_model()
@@ -23,3 +23,12 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_filter = ()
     search_fields = ['email', 'username']
 admin.site.register(Profile, CustomUserAdmin)
+
+class SiteAdmin(admin.ModelAdmin):
+    model = Site
+    list_display = ['id', 'domain']
+
+admin.site.unregister(Site)
+admin.site.register(Site, SiteAdmin)
+
+

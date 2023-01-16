@@ -115,11 +115,11 @@ class CategoryUpdateView(UpdateView):
     def get_object(self):
         category_slug = self.kwargs.get('category_slug', '')
         try:
-            object = Category.objects.get(slug=category_slug)
+            category = Category.objects.get(slug=category_slug)
         except Category.DoesNotExist:
-            object = None
+            category = None
             
-        return object
+        return category
     
     
     def post(self, request, *args, **kwargs):

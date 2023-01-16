@@ -1,9 +1,12 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(BASE_DIR/ '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -15,28 +18,41 @@ SECRET_KEY = 'django-insecure-q*^a%2xa0@xmjqz79$cc3pek4()utb#%x!i&hr+8$9e%^4xgml
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+SITE_ID = 2
 
 # Application definition
 
 INSTALLED_APPS = [
+    # Admin Panel
     'jazzmin',
+    # contribs
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    # Third-party
     'rest_framework',
     'django_filters',
     'django_countries',
     'crispy_forms',
     "crispy_bootstrap5",
+    # All-auth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
+    
+    
+    # Custom apps
     'posts.apps.PostsConfig',
     'users.apps.UsersConfig',
     'comments.apps.CommentsConfig',
     'category.apps.CategoryConfig',
-    
     
 ]
 
@@ -55,7 +71,9 @@ ROOT_URLCONF = 'resume_website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR , 'templates'),
+                 os.path.join(BASE_DIR, 'templates', 'allauth'),
+                ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,10 +96,15 @@ WSGI_APPLICATION = 'resume_website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'blog',
+        'USER': 'vlad',
+        'PASSWORD': 'student123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
@@ -137,19 +160,87 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 AUTH_USER_MODEL = "users.Profile"
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend'
+    'django.contrib.auth.backends.ModelBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
     ]
 
 from django.urls import reverse_lazy
 
+# All auth
 LOGIN_URL = reverse_lazy('users:login')
 LOGOUT_REDIRECT_URL = reverse_lazy('users:login')
+LOGIN_REDIRECT_URL = reverse_lazy('posts:posts-list')
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
+ACCOUNT_USERNAME_REQUIRED = False
 
+
+# SocialAccount Auth
+SOCIALACCOUNT_PROVIDERS = {
+"github": {
+    "APP": {
+        "client_id": os.getenv("GitHub_OAUTH_CLIENT_ID", ''),
+        "secret": os.getenv("GitHub_OAUTH_SECRET", ''),
+    },
+    'SCOPE': [
+            'user',
+            'read:user',
+        ],
+},
+"google": {
+    "APP": {
+        "client_id": os.getenv("Google_OAUTH_CLIENT_ID", ''),
+        "secret": os.getenv("Google_OAUTH_SECRET", ''),
+    },
+     'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+},
+"facebook"
+    'APP': {
+        "client_id": os.getenv("Facebook_OAUTH_CLIENT_ID", ''),
+        "secret": os.getenv("Facebook_OAUTH_SECRET", ''),
+    },
+    'METHOD': 'oauth2',
+    'SCOPE': ['email', 'public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time',
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.12',
+}
+
+# Sign up with a socialAccount 
+ACCOUNT_ADAPTER = 'users.adapters.CustomAccountAdapter' 
+ACCOUNT_ALLOW_SIGNUPS = False
+   
+   
 # Email sending credentials
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = 'a923489850d8ef'
-EMAIL_HOST_PASSWORD = 'a47074cae95d6b'
-EMAIL_PORT = '2525'
+EMAIL_HOST = os.getenv('EMAIL_HOST', '')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
+EMAIL_PORT = os.getenv('EMAIL_PORT', '')
 
 #Custom admin panel with django-jazzmin
 JAZZMIN_SETTINGS = {

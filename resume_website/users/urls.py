@@ -1,13 +1,19 @@
 from django.urls import path
+from allauth.account import views as account
+
 from . import views
+from .forms import UserLoginForm
+
 
 app_name='users'
 
 urlpatterns = [
     path('register/', views.register, name='register'),
     path('activate/<uidb64>/<token>/', views.activate, name='activate'),
-    path('login/', views.login_user, name='login'),
-    path('logout/', views.logout_user, name='logout'),
+    path('login/', account.LoginView.as_view(
+                                                form_class=UserLoginForm,
+                                            ), name='login'),
+    path('logout/', account.LogoutView.as_view(), name='logout'),
     path('profile/detail/<int:pk>/', views.ProfileDetail.as_view(),
                                                         name='profile-detail'),
     path('profile/delete/<int:pk>/', views.ProfileDelete.as_view(),
