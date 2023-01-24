@@ -12,15 +12,17 @@ class UserManager(BaseUserManager):
         except ValidationError:
             raise ValueError(_("You must provide a valid email address"))
         
-    def _create_user(self, email, password, first_name=None, gender=None, featured_img=None, username=None, last_name=None, **extra_fields):
+    def _create_user(self, email, password,
+                     first_name=None, gender=None,
+                     featured_img=None, username=None, 
+                     last_name=None, **extra_fields):
+        
+        
         if not email:
             raise ValueError("User must have an email")
         
         if not password:
             raise ValueError("User must have a password")
-        
-        if not username:
-            raise ValueError('User must have an username')
         
         if email:
             email = self.normalize_email(email)
@@ -44,18 +46,23 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
     
-    def create_user(self, email, password, first_name=None, gender=None,
-                    featured_img=None, username=None, last_name=None, **extra_fields):
+    def create_user(self, email, password, 
+                    first_name=None, gender=None,
+                    featured_img=None, username=None,
+                    last_name=None, **extra_fields):
+        
+        
         user = self._create_user(email,
                                  password,
-                                 first_name=None,
-                                 gender=None, 
-                                 featured_img=None,
-                                 username=None,
-                                 last_name=None,
+                                 first_name,
+                                 gender, 
+                                 featured_img,
+                                 username,
+                                 last_name,
                                  **extra_fields
                                  )
         return user
+    
     
     def create_superuser(self, email, password, first_name=None, 
                          last_name=None, **extra_fields):

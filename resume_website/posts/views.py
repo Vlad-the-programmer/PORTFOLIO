@@ -125,7 +125,6 @@ class PostUpdate(LoginRequiredMixin,
     form_class = UpdateForm
     
     def get_object(self):
-        user = self.request.user
         _slug = self.kwargs.get('slug', '')
         post = Post.objects.filter(active=True).get(slug=_slug)
         return post
@@ -147,6 +146,7 @@ class PostUpdate(LoginRequiredMixin,
             
             cleaned_tags = form.cleaned_data.get('tags')
             post.tags.clear()
+            
             for cleaned_tag in cleaned_tags:
                 tag = Tags.objects.get(title=cleaned_tag.title)
                 post.tags.add(tag)
@@ -190,9 +190,11 @@ class PostDelete(LoginRequiredMixin,
             messages.success(self.request, 'Post deleted!')
             return redirect(self.success_url)
         else:
-            context={}
             messages.error(self.request, 'Post does not exist!')
+            
+            context={}
             context['post'] = post
+            
             return render(self.request, self.template_name, context)
 
 

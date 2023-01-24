@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.views import generic
@@ -68,9 +68,9 @@ class CommentUpdate(LoginRequiredMixin,
     
     
     def get_object(self):
-        _pk = self.kwargs.get('pk', '')
+        pk_ = self.kwargs.get('pk', '')
         try:
-            comment = Comment.objects.get(pk=_pk)
+            comment = Comment.objects.get(pk=pk_)
         except Comment.DoesNotExist:
             comment = None
         
@@ -112,9 +112,9 @@ class CommentDelete(LoginRequiredMixin,
     template_name = 'comments/comment_delete.html'
     
     def get_object(self):
-        _pk = self.kwargs.get('pk', '')
+        pk_ = self.kwargs.get('pk', '')
         try:
-            comment = Comment.objects.get(pk=_pk)
+            comment = Comment.objects.get(pk=pk_)
         except Comment.DoesNotExist:
             comment = None
         

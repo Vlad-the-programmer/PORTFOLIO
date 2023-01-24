@@ -12,7 +12,7 @@ load_dotenv(BASE_DIR/ '.env')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q*^a%2xa0@xmjqz79$cc3pek4()utb#%x!i&hr+8$9e%^4xgml'
+SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -98,8 +98,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'blog',
-        'USER': 'vlad',
-        'PASSWORD': 'student123',
+        'USER': os.getenv('USER', ''),
+        'PASSWORD': os.getenv('PostgresSuperuserPassword', ''),
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -201,9 +201,9 @@ SOCIALACCOUNT_PROVIDERS = {
         'AUTH_PARAMS': {
             'access_type': 'online',
         },
-        'OAUTH_PKCE_ENABLED': True,
+        'OAUTHpk_CE_ENABLED': True,
 },
-"facebook"
+"facebook":{
     'APP': {
         "client_id": os.getenv("Facebook_OAUTH_CLIENT_ID", ''),
         "secret": os.getenv("Facebook_OAUTH_SECRET", ''),
@@ -230,10 +230,20 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERIFIED_EMAIL': False,
         'VERSION': 'v2.12',
 }
+}
 
 # Sign up with a socialAccount 
-ACCOUNT_ADAPTER = 'users.adapters.CustomAccountAdapter' 
-ACCOUNT_ALLOW_SIGNUPS = False
+SOCIALACCOUNT_QUERY_EMAIL = ACCOUNT_EMAIL_REQUIRED
+
+# Allow user to sign up with a social account in SOCIALACCOUNT_ADAPTER
+ACCOUNT_ALLOW_SIGNUPS = True
+
+# Adapters
+SOCIALACCOUNT_ADAPTER = 'users.adapters.CustomSocialAccountAdapter' 
+ACCOUNT_ADAPTER = "users.adapters.MyLoginAccountAdapter"
+
+SOCIALACCOUNT_AUTO_SIGNUP = True
+SOCIALACCOUNT_EMAIL_REQUIRED = False
    
    
 # Email sending credentials

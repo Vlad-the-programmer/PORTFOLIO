@@ -2,7 +2,9 @@ from django.contrib import admin
 from django.contrib.sites.models import Site
 from django.contrib.auth import get_user_model
 
+
 Profile = get_user_model()
+
 
 class CustomUserAdmin(admin.ModelAdmin):
     model = Profile
@@ -23,6 +25,7 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_filter = ()
     search_fields = ['email', 'username']
 admin.site.register(Profile, CustomUserAdmin)
+
 
 class SiteAdmin(admin.ModelAdmin):
     model = Site

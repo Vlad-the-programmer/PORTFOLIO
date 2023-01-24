@@ -22,7 +22,9 @@ urlpatterns = [
                                                         name='profile-update'),
     
     path('forgot-password/', views.forgotPassword, name='forgotPassword'),
-    path('reset-password-validate/<int:pk>', views.reset_password_validate, name='reset-password-validate'),
+    path('reset-password-validate/<int:pk>', views.reset_password_validate,
+         name='reset-password-validate'),
     path('reset-password/<int:pk>', views.resetPassword, name='resetPassword'),
+    
     
 ]

@@ -54,15 +54,15 @@ Already verified? <a href="{% url 'login' %}">Login</a>
           </div> <!-- form-group// -->
       </form>
       </div> <!-- card-body.// -->
-      <a href="{% provider_login_url 'google' %}">Login with Google</a>
-      <a href="{% provider_login_url 'facebook' %}">Login with Facebook</a>
-      <a href="{% provider_login_url 'github' %}">Login with GitHub</a>
+      <a href="{% provider_login_url 'google' process='login'%}">Login with Google</a>
+      <a href="{% provider_login_url 'facebook' process='login'%}">Login with Facebook</a>
+      <a href="{% provider_login_url 'github' process='login'%}">Login with GitHub</a>
       {{auth_error.exception}}
 
 
     </div> <!-- card .// -->
 
-     <p class="text-center mt-4">Don't have account? <a href="{% url 'users:register' %}">Sign up</a></p>
+     <p class="text-center mt-4">Don't have an account? <a href="{% url 'users:register' %}">Sign up</a></p>
      <br><br>
 <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
 {% endif %}

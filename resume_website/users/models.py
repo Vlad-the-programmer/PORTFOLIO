@@ -20,6 +20,7 @@ class Profile(AbstractUser):
     email = models.EmailField(unique=True, 
                               blank=True,
                               null=True, 
+                              max_length=254,
                               validators=[
                                             validators.EmailValidator()
                                         ])
@@ -30,7 +31,10 @@ class Profile(AbstractUser):
                               choices=Gender.choices,
                               default=_('Male'),
                               null=True)
-    country = CountryField(blank_label=_('(select country)'), default='')
+    country = CountryField(blank_label=_('(select country)'),
+                           default='',
+                           max_length=50,
+                        )
     featured_img = models.ImageField(verbose_name=_('A profile image'),
                                      upload_to='profiles', 
                                      default='profiles/profile_default.jpg')

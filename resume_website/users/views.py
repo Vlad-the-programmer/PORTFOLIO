@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from allauth.account import views as allauth_views
 # Generic class-based views
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
@@ -13,10 +14,10 @@ from django.views.generic.edit import DeleteView, UpdateView
 # Email verification 
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_decode
+
+
 from .emails_handler import send_verification_email
-
 from .forms import UserCreateForm, UserUpdateForm
-
 
 Profile = get_user_model()
 
@@ -120,10 +121,10 @@ class ProfileDelete(LoginRequiredMixin,
     success_url = reverse_lazy('users:register')
     
     def get_object(self):
-        _pk = self.kwargs.get('pk', '')
-        # print(self.kwargs, _pk)
+        pk_ = self.kwargs.get('pk', '')
+        # print(self.kwargs, pk_)
         try:
-            profile = Profile.objects.get(pk=_pk)
+            profile = Profile.objects.get(pk=pk_)
         except:
             profile = None
         return profile
@@ -153,9 +154,9 @@ class ProfileUpdate(LoginRequiredMixin,
     
     
     def get_object(self):
-        _pk = self.kwargs.get('pk', '')
+        pk_ = self.kwargs.get('pk', '')
         try:
-            profile = get_object_or_404(Profile, id=_pk)
+            profile = get_object_or_404(Profile, id=pk_)
         except:
             profile = None
         return profile
@@ -194,6 +195,7 @@ def forgotPassword(request):
         email = request.POST.get('email')
         if Profile.get_user_by_email(email=email):
             user = Profile.objects.get(email__exact=email)
+            
              # Reset password email
             mail_subject = 'Reset Your Password'
             
@@ -203,7 +205,8 @@ def forgotPassword(request):
             return redirect('users:login')
         else:
             messages.error(request, 'Account does not exist!')
-            return redirect('users:forgotPassword')
+            return redirect('users:forgotPassword'), 400
+        
     return render(request, 'accounts/forgotPassword.html')
 
 
@@ -238,4 +241,5 @@ def resetPassword(request, pk):
     else:
         return render(request, 'accounts/resetPassword.html', context={'pk': pk})
         
-
+        
+    
