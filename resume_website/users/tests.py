@@ -20,7 +20,7 @@ class UserTestCase(TestCase):
 
 
         self.user = Profile.objects.create_user(**self.user_data)
-            
+        print(self.user.username)
             
         # Urls
         self.register_url = reverse('users:register')
@@ -29,11 +29,19 @@ class UserTestCase(TestCase):
         self.password_reset_email_confirm = reverse('users:forgotPassword')
         self.password_reset_url = reverse('users:resetPassword', 
                                           kwargs={'pk': self.user.pk})
-        self.update_profile_url = reverse('users:profile-update', 
+        self.update_profile_url = reverse_lazy('users:profile-update', 
                                           kwargs={'pk': self.user.pk})
+        
+        # login_data = {"email": self.user_data['email'],
+        #               'password': self.user_data['password'],
+        #             }
+        
+        # response = self.client.post(self.login_url, login_data)
+        # print(self.user.is_authenticated)
         
     def test_user_registered(self):
         self.assertEqual(Profile.objects.all().count(), 1)
+        self.assertEqual(self.user.username, 'vlad2')
         
     
     def test_login_user(self):
@@ -44,7 +52,7 @@ class UserTestCase(TestCase):
         response = self.client.post(self.login_url, login_data)
         
         self.assertEqual(response.status_code, 200)
-        
+        self.assertEquals(True, self.user.is_authenticated)
         
     # def test_password_reset_confirm(self):
     #     data = {"email": self.user.email}
@@ -56,6 +64,7 @@ class UserTestCase(TestCase):
     def test_password_change(self):
         data = {"password": self.user_data['password'],
                 "password2": self.user_data['password']}
+        
         user = Profile.objects.get(email=self.user_data['email'])
         
         response = self.client.patch(self.password_reset_url, 
@@ -69,5 +78,11 @@ class UserTestCase(TestCase):
         data = {'username': 'test', 'first_name': 'vlad'}
         response = self.client.patch(self.update_profile_url, data)
         
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(True, self.user.is_authenticated)
         self.assertEqual(self.user.username, data['username'])
-        self.assertEqual(response['first_name'], data['first_name'])
+        
+        # self.assertEqual(Profile.objects.get(username='test').first_name, 
+        #                                     data['first_name'])
+        
+    

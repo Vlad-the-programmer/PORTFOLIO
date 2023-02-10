@@ -1,9 +1,13 @@
 from django.db import models
+from django.shortcuts import get_object_or_404
 from django.core import validators
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import AbstractUser, Permission
+from django.contrib.auth.models import AbstractUser
 from django_countries.fields import CountryField
+
+
 from .managers import UserManager
+
 
 class Gender(models.TextChoices):
     MALE = "male", _("Male")
@@ -46,26 +50,36 @@ class Profile(AbstractUser):
     is_active = models.BooleanField(default=False, blank=True, null=True)
     is_superuser = models.BooleanField(default=False, blank=True, null=True)
     
+    
     def __str__(self):
         return self.email
+        
+        
+    def set_username(self):
+        return self.email.split('@')[0].lower()
+    
     
     def has_perm(self, perm, obj=None):
         return self.is_superuser
+    
     
     def has_add_permission(request):
         if request.user.is_staff:
             return True
         return False
 
+
     def has_change_permission(request):
         if request.user.is_staff:
             return True
         return False
     
+    
     def has_delete_permission(request):
         if request.user.is_staff:
             return True
         return False
+    
     
     def has_module_perms(self, app_label):
         return True
@@ -74,19 +88,18 @@ class Profile(AbstractUser):
     @classmethod
     def get_user_by_email(cls, email):
         try:
-            user = cls.objects.get(email__exact=email)
+            user = get_object_or_404(cls.__class__, email__exact=email)
         except:
             user = None
         if user is not None:
             return True
         return False 
     
+    
     @property
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
-    
-    def get_short_name(self):
-        return self.username
+
     
     @property
     def imageURL(self):
@@ -95,6 +108,7 @@ class Profile(AbstractUser):
         except:
             url = ''
         return url
+
 
     class Meta:
        verbose_name_plural = 'Users'

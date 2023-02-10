@@ -60,10 +60,12 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
     class Meta:
         verbose_name = _("Post")
         verbose_name_plural = _("Posts")
         ordering = ['-created_at']
+
 
     @property
     def imageURL(self):
@@ -73,16 +75,10 @@ class Post(models.Model):
             url = ''
         return 
         
+        
     def get_absolute_url(self):
         return reverse('posts:post-detail', kwargs={'slug': self.slug})
-    
-    @property
-    def imageUrl(self):
-        try:
-            url = self.image.url
-        except:
-            url = ''
-        return url
+        
         
 class Tags(models.Model):
     # id = models.UUIDField(default=uuid.uuid4, unique=True,

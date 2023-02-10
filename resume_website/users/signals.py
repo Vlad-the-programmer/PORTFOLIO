@@ -2,6 +2,8 @@ from django.dispatch import receiver
 from django.contrib import messages
 from django.contrib.auth.models import Group
 from django.contrib.auth import get_user_model
+from django.db.models.signals import post_save
+
 # AllAuth
 from allauth.account.signals import user_signed_up, email_confirmed
 from allauth.account.models import EmailAddress, EmailConfirmation
@@ -10,6 +12,16 @@ from allauth.account.models import EmailAddress, EmailConfirmation
 User = get_user_model()
 
 
+@receiver(post_save, sender=User)
+def save_user_profile(sender, created, instance, *args, **kwargs):
+    profile = instance
+    if created and profile:
+        if not profile.username:
+            profile.username = profile.set_username()
+
+        profile.save()
+                  
+            
 @receiver(user_signed_up)
 def user_signed_up_(request, user, **kwargs):
     user.is_active = False
@@ -36,3 +48,11 @@ def email_confirmed_(request, email_address, *args, **kwargs):
         email=email_address.email)
     user.is_active = True
     user.save()
+    
+    
+# @receiver(post_save, sender=User)
+# def update_user_profile(sender, created, instance, *args, **kwargs):
+#     profile = instance
+#     if not created and profile:
+#         print("Worked")
+#         profile.save()

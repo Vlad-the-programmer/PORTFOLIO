@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse, reverse_lazy
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.utils.text import slugify
 from django.contrib import messages
 # Permissions
@@ -115,7 +115,7 @@ class CategoryUpdateView(UpdateView):
     def get_object(self):
         category_slug = self.kwargs.get('category_slug', '')
         try:
-            category = Category.objects.get(slug=category_slug)
+            category = Category.objects.get_or_create(slug=category_slug)
         except Category.DoesNotExist:
             category = None
             
@@ -150,7 +150,7 @@ class CategoryDeleteView(DeleteView):
     def get_object(self):
         category_slug = self.kwargs.get('category_slug', '')
         try:
-            object = Category.objects.get(slug=category_slug)
+            object = get_object_or_404(Category, slug=category_slug)
         except Category.DoesNotExist:
             object = None
             

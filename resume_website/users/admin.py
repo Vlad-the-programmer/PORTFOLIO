@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.sites.models import Site
 from django.contrib.auth import get_user_model
-
+# from .models import Profile
 
 Profile = get_user_model()
 

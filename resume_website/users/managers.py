@@ -12,6 +12,7 @@ class UserManager(BaseUserManager):
         except ValidationError:
             raise ValueError(_("You must provide a valid email address"))
         
+        
     def _create_user(self, email, password,
                      first_name=None, gender=None,
                      featured_img=None, username=None, 
@@ -45,6 +46,7 @@ class UserManager(BaseUserManager):
         
         user.save(using=self._db)
         return user
+    
     
     def create_user(self, email, password, 
                     first_name=None, gender=None,

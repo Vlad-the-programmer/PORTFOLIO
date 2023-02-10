@@ -1,12 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
-from django.contrib.auth.signals import user_logged_in
 # Auth
 from django.contrib.auth import get_user_model
 from django.contrib import messages
-from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.decorators import login_required
-from allauth.account import views as allauth_views
 # Generic class-based views
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
@@ -33,10 +29,6 @@ def register(request):
                 messages.info(request, 'User already exists!')
                 return redirect(reverse_lazy('users:login'))
             
-            if not user.username:
-                user.username = user.email.split('@')[0]
-                
-            user.username.lower()
             user.save()
             
             # Sending email activation
@@ -62,7 +54,7 @@ def register(request):
 def activate(request, uidb64, token):
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
-        user = Profile.objects.get(id=uid)
+        user = get_object_or_404(Profile, id=uid)
     except (TypeError, ValueError, OverflowError, Profile.DoesNotExist):
         user = None
         
@@ -75,35 +67,6 @@ def activate(request, uidb64, token):
     else:
         messages.error(request, 'Invalid activation link')
         return redirect(reverse_lazy('users:register')) 
-     
-
-# def login_user(request):
-    # if request.method == 'POST':
-    #     email = request.POST.get("email")
-    #     password = request.POST.get("password")
-        
-    #     user = authenticate(
-    #                             username=email,
-    #                             password=password
-    #                         )
-    #     print(user)
-        
-    #     if user is not None:
-    #         login(
-    #                 request,
-    #                 user
-    #         )
-            
-    #         # Setting the time user logged in at
-    #         user_logged_in.send(sender=user.__class__, request=request, user=user)
-            
-    #         messages.success(request, f'Logged in as {user.username}')
-    #         return redirect(reverse('users:profile-detail', kwargs={'pk': user.id}))
-        
-    #     messages.error(request, 'Invalid credentials!')
-    #     return redirect(reverse_lazy('users:login'))
-    
-    # return render(request, 'auth/login.html')
 
 
 class ProfileDetail(LoginRequiredMixin,
@@ -122,7 +85,7 @@ class ProfileDelete(LoginRequiredMixin,
     
     def get_object(self):
         pk_ = self.kwargs.get('pk', '')
-        # print(self.kwargs, pk_)
+        
         try:
             profile = Profile.objects.get(pk=pk_)
         except:
@@ -161,6 +124,7 @@ class ProfileUpdate(LoginRequiredMixin,
             profile = None
         return profile
     
+    
     def get_success_url(self):
         profile = self.get_object()
         success_url = reverse('users:profile-detail', kwargs={
@@ -173,16 +137,26 @@ class ProfileUpdate(LoginRequiredMixin,
     def post(self, request, *args, **kwargs):
         self.request = request
         profile = self.get_object()
-        if profile:
-            form = UserUpdateForm(instance=profile, data=request.POST, files=request.FILES)
+        if profile is not None:
+            form = UserUpdateForm(instance=profile,
+                                  data=request.POST,
+                                  files=request.FILES,
+                                )
             if form.is_valid():
-                form.save()
+                profile = form.save(commit=False)
+                
+                if not profile.username:
+                    profile.username = profile.set_username()
+                    
+                profile.save()
+                   
                 messages.success(request, 'Updated!')
                 return redirect(self.get_success_url())
             else:
                 context={}
                 form = UserUpdateForm()
                 context['form'] = form
+                
             messages.error(request, 'Invalid data!')    
             return redirect(reverse('profile-update'), kwargs={'pk': profile.id})
         
@@ -194,9 +168,9 @@ def forgotPassword(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         if Profile.get_user_by_email(email=email):
-            user = Profile.objects.get(email__exact=email)
+            user = get_object_or_404(Profile, email__exact=email)
             
-             # Reset password email
+            # Reset password email
             mail_subject = 'Reset Your Password'
             
             template_email = 'accounts/reset_password_email.html'
@@ -212,7 +186,7 @@ def forgotPassword(request):
 
 def reset_password_validate(request, pk):
     try:
-        user = Profile.objects.get(id=pk)
+        user = get_object_or_404(Profile, id=pk)
     except (Profile.DoesNotExist, ValueError):
         user = None
 
@@ -230,7 +204,7 @@ def resetPassword(request, pk):
         confirm_password = request.POST.get('confirm_password')
         
         if password == confirm_password:
-            user = Profile.objects.get(id=pk)
+            user = get_object_or_404(Profile, id=pk)
             user.set_password(password)
             user.save()
             messages.success(request, 'Password reset successful')

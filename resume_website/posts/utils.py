@@ -1,4 +1,4 @@
-from .models import Post, Tags
+from .models import Post
 from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .filters import PostsFilter
