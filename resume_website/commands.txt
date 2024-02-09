@@ -1,1 +1,12 @@
 sudo service postgresql start
+
+alias start-pg='sudo service postgresql start'&& alias run-pg='sudo -u postgres psql'
+
+OP sustem user - vlad 
+PW - muxtar15
+
+user - postgres
+PW - muxtar15
+
+env_w/Scripts/activate.bat 
+cd resume_website && source env/bin/activate && python3 manage.py runserver

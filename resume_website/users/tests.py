@@ -32,12 +32,6 @@ class UserTestCase(TestCase):
         self.update_profile_url = reverse_lazy('users:profile-update', 
                                           kwargs={'pk': self.user.pk})
         
-        # login_data = {"email": self.user_data['email'],
-        #               'password': self.user_data['password'],
-        #             }
-        
-        # response = self.client.post(self.login_url, login_data)
-        # print(self.user.is_authenticated)
         
     def test_user_registered(self):
         self.assertEqual(Profile.objects.all().count(), 1)
@@ -54,11 +48,6 @@ class UserTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEquals(True, self.user.is_authenticated)
         
-    # def test_password_reset_confirm(self):
-    #     data = {"email": self.user.email}
-    #     response = self.client.post(self.password_reset_email_confirm, data)
-        
-    #     self.assertEqual(response.status_code, 302)
         
         
     def test_password_change(self):
@@ -86,3 +75,8 @@ class UserTestCase(TestCase):
         #                                     data['first_name'])
         
     
+    # def test_password_reset_confirm(self):
+    #     data = {"email": self.user.email}
+    #     response = self.client.post(self.password_reset_email_confirm, data)
+        
+    #     self.assertEqual(response.status_code, 302)

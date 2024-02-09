@@ -41,6 +41,7 @@ class PostCRUDSerializer(serializers.ModelSerializer):
                         UniqueValidator(queryset=Post.objects.all()),
                 ]
     )
+    
     class Meta:
         model = Post
         fields = (

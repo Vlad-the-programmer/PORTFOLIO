@@ -69,3 +69,18 @@ class CategoryUpdateDestroyApiView(generics.UpdateAPIView,
         )
          
     
+class CategoryPostsListApiView(generics.ListAPIView):
+    serializer_class = CategoryCRUDSerializer
+    
+    
+    def get_queryset(self):
+        _category_slug = self.kwargs.get('category_slug', '')
+        try:
+            category = Category.objects.get(slug=_category_slug)
+            posts = category.posts.all()
+        except Category.DoesNotExist:
+            category = None
+            posts = None
+            
+        return posts
+    

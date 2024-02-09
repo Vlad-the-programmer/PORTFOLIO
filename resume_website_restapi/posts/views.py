@@ -2,7 +2,6 @@ from django.utils.decorators import method_decorator
 # REST FRAMEWORK
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.decorators import permission_classes
 from rest_framework.permissions import (
                                             IsAdminUser, 
                                             AllowAny,
@@ -21,14 +20,14 @@ from . import filters as custom_filters
 class PostListApiView(generics.ListAPIView):
     queryset = Post.objects.filter(active=True)
     serializer_class = PostCRUDSerializer
-    permission_classes = (AllowAny,)
+    permission_classes = (AllowAny, )
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = custom_filters.PostsFilter
     
     
 class PostCreateApiView(generics.CreateAPIView):
     serializer_class = PostCRUDSerializer
-    permission_classes = (IsAdminUser,)
+    permission_classes = (IsAdminUser, )
     
     
     def perform_create(self, serializer):
@@ -45,7 +44,7 @@ class PostUpdateDestroyApiView(generics.UpdateAPIView,
                                generics.DestroyAPIView,
                             ):
     serializer_class = PostCRUDSerializer
-    permission_classes = (IsAdminUser,)
+    permission_classes = (IsAdminUser, )
     lookup_field = 'slug'
     lookup_url_kwarg = 'post_slug'
     

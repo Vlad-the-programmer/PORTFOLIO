@@ -43,7 +43,8 @@ class Profile(AbstractUser):
     password = models.CharField(max_length=100, blank=True, null=True)
     username = models.CharField(unique=True, max_length=100, blank=True, null=True)
     date_joined = models.DateTimeField(auto_now_add=True, null=True)
-    last_login = models.DateTimeField(_('Last logged in'), null=True, blank=True)
+    last_login = models.DateTimeField(_('Last logged in'), auto_now=True,
+                                      null=True, blank=True)
     is_staff = models.BooleanField(default=False, blank=True, null=True)
     is_active = models.BooleanField(default=False, blank=True, null=True)
     is_superuser = models.BooleanField(default=False, blank=True, null=True)

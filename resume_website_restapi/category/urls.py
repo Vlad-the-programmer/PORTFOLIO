@@ -10,6 +10,10 @@ urlpatterns = [
         views.CategoryListApiView.as_view(),
         name='category-list'
     ),
+    path('<slug:category_slug>/posts/',       
+        views.CategoryPostsListApiView.as_view(),
+        name='category-posts'
+    ),
     path('create/',       
         views.CategoryCreateApiView.as_view(),
         name='category-create'

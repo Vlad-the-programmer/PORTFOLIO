@@ -105,9 +105,11 @@ class UserRegisterSerializer(serializers.ModelSerializer):
                             ),
       ]
     )
+    last_login = serializers.DateTimeField(read_only=True)
     class Meta:
         model = Profile
         fields = (
+            'id',
             'email',
             'first_name',
             'last_name',
@@ -117,7 +119,10 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             'featured_img',
             'password',
             'password2',
-            
+            'date_joined',
+            'last_login',
+            'is_staff',
+            'is_active',
         )
         
 
@@ -141,11 +146,16 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     
     
     def validate(self, attrs):
+        try:
+            profile = Profile.objects.get(email=attrs.get('email', ''))
+        except Profile.DoesNotExist:
+            pass
+        else:
+            raise UserAlreadyExists
+        
+
         if attrs.get('password', '') != attrs.get('password2', ''):
             raise ValueError(_("The two Passwords must be equal!"))
-        
-        if Profile.objects.get(email=attrs.get('email', '')):
-            raise UserAlreadyExists
         
         return attrs
     
@@ -196,8 +206,8 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
         print('Val data', validated_data)
         password = validated_data.get('password', '')
         
-        if Profile.objects.get(instance.id) != request.user:
-            raise NotOwner
+        # if Profile.objects.get(id=instance.id) != request.user:
+        #     raise NotOwner
         
         instance.set_password(password)
         instance.save()

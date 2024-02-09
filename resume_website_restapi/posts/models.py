@@ -48,6 +48,7 @@ class Post(models.Model):
                              on_delete=models.CASCADE)
     category = models.ForeignKey('category.Category',
                                  on_delete=models.CASCADE,
+                                 related_name='posts',
                                  blank=True,
                                  null=True)
     status = models.CharField(_('Status'),
@@ -76,13 +77,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('posts:post-detail', kwargs={'slug': self.slug})
     
-    @property
-    def imageUrl(self):
-        try:
-            url = self.image.url
-        except:
-            url = ''
-        return url
+
         
 class Tags(models.Model):
     # id = models.UUIDField(default=uuid.uuid4, unique=True,

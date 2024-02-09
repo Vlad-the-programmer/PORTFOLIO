@@ -14,7 +14,7 @@ def create_user(sender, instance, created, *args, **kwargs):
         instance.username.lower()
         instance.save()
         
-        Token.objects.create(user=instance)
+        Token.objects.get_or_create(user=instance)
         print('Token ', Token.objects.get(user=instance))
         print('user id ', instance.id)
         

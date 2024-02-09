@@ -12,12 +12,14 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 from datetime import timedelta
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(BASE_DIR/ '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -29,29 +31,36 @@ SECRET_KEY = 'django-insecure-b#t)ywiymb&@+mv^%j$p&4*y)iq2z-1da*z@beo4s-6-qu9ba%
 DEBUG = True
 
 ALLOWED_HOSTS = []
+os.environ['HTTPS'] = "on"
 
-SITE_ID = 1
+SITE_ID = 2
 
 # Application definition
 
 INSTALLED_APPS = [
     'jazzmin',
     'django.contrib.admin',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    
+    # Third-party apps
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
     'django_filters',
     'django_countries',
+    
+    # Custom apps
     'posts.apps.PostsConfig',
     'users.apps.UsersConfig',
     'comments.apps.CommentsConfig',
@@ -126,7 +135,7 @@ REST_FRAMEWORK = {
     # Authentication
        'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        # 'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
     ],
     # django-filters
@@ -137,6 +146,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 3,
 }
+
 
 REST_USE_JWT = True
 # JWT_AUTH_RETURN_EXPIRATION = True
@@ -163,11 +173,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -178,9 +188,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # User model
 AUTH_USER_MODEL = "users.Profile"
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend'
-    ]
+
+AUTHENTICATION_BACKENDS = (
+# "social_core.backends.google.GoogleOAuth2",
+# "social_core.backends.facebook.FacebookOAuth2",
+# "social_core.backends.github.GitHubOAuth2",
+"allauth.account.auth_backends.AuthenticationBackend",
+"django.contrib.auth.backends.ModelBackend",
+
+)
+
 
 # JWT Auth
 SIMPLE_JWT = {
@@ -227,11 +244,43 @@ ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 ACCOUNT_USERNAME_REQUIRED = False
 
+
+# SocialAccount Auth
+SOCIALACCOUNT_PROVIDERS = {
+"github": {
+    "APP": {
+        "client_id": os.environ.get("GitHub_OAUTH_CLIENT_ID", ''),
+        "secret": os.environ.get("GitHub_OAUTH_SECRET", ''),
+    },
+},
+"google": {
+    "APP": {
+        "client_id": os.environ.get("Google_OAUTH_CLIENT_ID", ''),
+        "secret": os.environ.get("Google_OAUTH_SECRET", ''),
+    },
+     'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'offline',
+        }
+},
+"facebook": {
+    "APP": {
+        "client_id": os.environ.get("Facebook_OAUTH_CLIENT_ID", ''),
+        "secret": os.environ.get("Facebook_OAUTH_SECRET", ''),
+    },
+},
+}
+    
+    
 # Email sending credentials
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = 'a923489850d8ef'
-EMAIL_HOST_PASSWORD = 'a47074cae95d6b'
-EMAIL_PORT = '2525'
+EMAIL_HOST = os.environ.get('EMAIL_HOST', '')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_PORT = os.environ.get('EMAIL_PORT', '')
+
 
 #Custom admin panel with django-jazzmin
 JAZZMIN_SETTINGS = {

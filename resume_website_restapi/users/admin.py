@@ -1,10 +1,18 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
+from django.contrib.sites.models import Site
 from django.contrib.auth import get_user_model
 
 
 Profile = get_user_model()
 
+admin.site.unregister(Site)
+
+class SiteAdmin(admin.ModelAdmin): 
+    list_display = ('id', 'domain', 'name') 
+    
+    
+admin.site.register(Site, SiteAdmin)
+ 
 class CustomUserAdmin(admin.ModelAdmin):
     model = Profile
     list_display = ['id',

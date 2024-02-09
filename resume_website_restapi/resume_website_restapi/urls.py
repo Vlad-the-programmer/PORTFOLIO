@@ -7,9 +7,7 @@ from django.conf.urls.static  import static
 from django.contrib import admin
 from django.urls import path, include
 
-from category import views as category_views
-from posts import views as posts_views
-
+# from users import views as custom_views
 
 urlpatterns = [
     path('admin/',      admin.site.urls),
@@ -18,7 +16,8 @@ urlpatterns = [
     path('comments/',   include('comments.urls', namespace='comments')),
     path('categories/', include('category.urls', namespace='category')),
     # path('auth/',     include('dj_rest_auth.urls')),
-  
+    path('accounts/',   include('allauth.urls')),
+    
 ]
 
 # # Router urls
