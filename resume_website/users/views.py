@@ -25,6 +25,9 @@ def register(request):
         if form.is_valid():
             user = form.save(commit=False)
             
+            if not user.username:
+                    user.username = user.set_username()
+                    
             if Profile.get_user_by_email(user.email):
                 messages.info(request, 'User already exists!')
                 return redirect(reverse_lazy('users:login'))
@@ -90,7 +93,7 @@ class ProfileDelete(LoginRequiredMixin,
             profile = Profile.objects.get(pk=pk_)
         except:
             profile = None
-        return profile
+        return super().get_object()
     
     def delete(self, request, *args, **kwargs):
         self.request = request
@@ -154,10 +157,8 @@ class ProfileUpdate(LoginRequiredMixin,
                 return redirect(self.get_success_url())
             else:
                 context={}
-                form = UserUpdateForm()
-                context['form'] = form
-                
-            messages.error(request, 'Invalid data!')    
+                context['form'] = UserUpdateForm()
+                messages.error(request, 'Invalid data!')    
             return redirect(reverse('profile-update'), kwargs={'pk': profile.id})
         
         messages.error(request, 'Profile does not exist!') 

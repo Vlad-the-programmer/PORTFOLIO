@@ -23,7 +23,12 @@ class Comment(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True, null=True)
     content = models.TextField(max_length=500, blank=True, null=True)
-    image = models.ImageField(null=True, blank=True, upload_to='comments')
+    image = models.ImageField(  
+                              null=True, 
+                              blank=True, 
+                              upload_to=f'comments/{post.slug}'
+                              )
+    
     
     class Meta:
         verbose_name = _("Comments")
