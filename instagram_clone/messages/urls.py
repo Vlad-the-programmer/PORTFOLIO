@@ -1,23 +1,21 @@
 from django.urls import path
 from . import views
 
-app_name = 'messages'
+app_name = 'chats'
 
 urlpatterns = [
-    # path('messages/<slug:chat_slug',  views.CommentCreate.as_view(), 
-    #                                                 name='chat-messages'),
-    path('messages/create/',          views.CommentCreate.as_view(),    
+    path('messages/create/',          views.MessageCreateView.as_view(),    
                                                     name='messages-create'),
-    path('messages/update/<uuid:pk>/', views.CommentUpdate.as_view(), 
+    path('messages/update/<uuid:pk>/', views.MessageUpdateView.as_view(), 
                                                     name='messages-update'),
-    path('messages/delete/<uuid:pk>/', views.CommentDelete.as_view(),
+    path('messages/delete/<uuid:pk>/', views.MessageDeleteView.as_view(),
                                                     name='messages-delete'),
-    path('chats/<uuid:user_id>/',         views.CommentDelete.as_view(),
+    path('chats/<uuid:user_id>/',       views.ChatListView.as_view(),
                                                     name='user-chats'),
-    path('chat/<slug:chat_slug>/detail',    views.CommentDelete.as_view(),
+    path('chat/<slug:chat_slug>/detail',    views.ChatDetailView.as_view(),
                                                     name='chat-detail'),
-    path('chats/delete/<uuid:pk>/',    views.CommentDelete.as_view(),
+    path('chats/delete/<slug:chat_slug>/',  views.ChatDeleteView.as_view(),
                                                     name='chats-delete'),
-    path('chat/create/',          views.CommentCreate.as_view(),    
+    path('chat/create/<uuid:chat_to_user_id',   views.CreateChatView.as_view(),    
                                                     name='chat-create'),
 ]

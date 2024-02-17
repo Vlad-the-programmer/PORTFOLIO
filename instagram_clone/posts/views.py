@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.utils.text import slugify
@@ -6,15 +6,8 @@ from django.utils.text import slugify
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import permission_required
 from django.utils.decorators import method_decorator
-# Generic edit views
-from django.views.generic.edit import (
-                                       CreateView,
-                                       UpdateView,
-                                       DeleteView
-                                    )
 # Generic views
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from django.views.generic import list, detail, edit
 
 from comments.forms import CommentCreateForm
 from comments.models import Comment
@@ -23,7 +16,7 @@ from .forms import UpdateForm, CreateForm
 from .utils import searchPosts, postsFilter, paginatePosts
 
 
-class PostsView(ListView):
+class PostsListView(list.ListView):
     queryset = Post.objects.filter(active=True)
     template_name = 'index.html'
     context_object_name = 'posts'
@@ -33,7 +26,7 @@ class PostsView(ListView):
         self.request = request
         return super().get(request, *args, **kwargs)
     
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         posts = context['posts']
@@ -59,8 +52,7 @@ class PostsView(ListView):
     
     
 @method_decorator(permission_required("post.add", raise_exception=True), name='dispatch')
-class CreatePost(LoginRequiredMixin,
-                    CreateView):
+class CreatePostView(LoginRequiredMixin, edit.CreateView):
     model = Post
     form_class = CreateForm
     template_name = 'posts/post_create.html'
@@ -96,7 +88,7 @@ class CreatePost(LoginRequiredMixin,
         return context
     
       
-class PostDetail(DetailView):
+class PostDetailView(detail.DetailView):
         model = Post
         template_name = 'posts/post-detail.html'
         slug_url_kwarg = 'slug'
@@ -104,7 +96,10 @@ class PostDetail(DetailView):
         
         def get_object(self):
             _slug = self.kwargs.get('slug', '')
-            post = Post.objects.filter(active=True).get(slug=_slug)
+            try:
+                post = get_object_or_404(Post, slug=_slug, active=True)
+            except Post.DoesNotExist:
+                post = None
             return post
         
         
@@ -112,21 +107,28 @@ class PostDetail(DetailView):
             context = super().get_context_data(**kwargs)
             post = context['post']
             comments = Comment.objects.filter(post=post)
+            
+            custom_range, page_obj = paginatePosts(self.request, comments, 5)
+            
             context['comment_form'] = CommentCreateForm
             context['comments'] = comments
+            context['page_obj'] = page_obj
+            context['custom_range'] = custom_range
             
             return context
         
  
 @method_decorator(permission_required("post.update", raise_exception=True), name='dispatch')       
-class PostUpdate(LoginRequiredMixin,
-                    UpdateView):
+class PostUpdateView(LoginRequiredMixin, edit.UpdateView):
     template_name = 'posts/post_create.html'
     form_class = UpdateForm
     
     def get_object(self):
         _slug = self.kwargs.get('slug', '')
-        post = Post.objects.filter(active=True).get(slug=_slug)
+        try:
+            post = get_object_or_404(Post, slug=_slug, active=True)
+        except Post.DoesNotExist:
+            post = None
         return post
     
     def post(self, request, slug, *args, **kwargs):
@@ -166,16 +168,15 @@ class PostUpdate(LoginRequiredMixin,
         
 
 @method_decorator(permission_required("post.delete", raise_exception=True), name='dispatch')
-class PostDelete(LoginRequiredMixin,
-                    DeleteView):
+class PostDeleteView(LoginRequiredMixin, edit.DeleteView):
     template_name = 'posts/post_delete.html'
     success_url = reverse_lazy('posts:posts-list')
     
     def get_object(self):
         _slug = self.kwargs.get('slug', '')
         try:
-            post = Post.objects.filter(active=True).get(slug=_slug)
-        except:
+            post = get_object_or_404(Post, slug=_slug, active=True)
+        except Post.DoesNotExist:
             post = None
         return post
     

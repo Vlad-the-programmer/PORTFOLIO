@@ -58,7 +58,7 @@ class Chat(models.Model):
                                      + "-to-" + self.chat_to_user.username )
         
     def get_absolute_url(self):
-        return reverse('chats:chat-detail', kwargs={'chat_slug': self.slug})
+        return reverse('messages:chat-detail', kwargs={'chat_slug': self.slug})
     
     
 class Message(models.Model):
@@ -128,7 +128,7 @@ class Message(models.Model):
         
         
     def get_absolute_url(self):
-        return reverse('messages:chat-messages', kwargs={'chat_slug': self.chat.slug})
+        return reverse('messages:chat-detail', kwargs={'chat_slug': self.chat.slug})
     
     
     

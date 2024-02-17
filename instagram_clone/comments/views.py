@@ -1,15 +1,15 @@
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
-from django.views import generic
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic import edit
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import Comment
 from posts.models import Post
 from .forms import CommentCreateForm, CommentUpdateForm
 
 
-class CommentCreate(LoginRequiredMixin, generic.CreateView):
+class CommentCreateView(LoginRequiredMixin, edit.CreateView):
     model = Comment
     template_name = 'posts/post-detail.html'
     form_class = CommentCreateForm
@@ -57,9 +57,7 @@ class CommentCreate(LoginRequiredMixin, generic.CreateView):
        return context
    
    
-class CommentUpdate(LoginRequiredMixin,
-                    UpdateView
-                    ):
+class CommentUpdateView(LoginRequiredMixin, edit.UpdateView):
     template_name = 'comments/comment_update.html'
     form_class = CommentUpdateForm
     
@@ -76,20 +74,32 @@ class CommentUpdate(LoginRequiredMixin,
     
     def post(self, request, *args, **kwargs):
         comment = self.get_object()
-        form = CommentUpdateForm(instance=comment, data=request.POST, files=request.FILES)
+        form = CommentUpdateForm(   
+                                    instance=comment, 
+                                    data=request.POST, 
+                                    files=request.FILES
+                                )
         if form.is_valid() and comment is not None:
             form.save()
             
             messages.success(request, 'Updated!')
             return redirect(comment.get_absolute_url())
         
-        return redirect(reverse('comments:comment-update', kwargs={'pk': comment.pk}))
+        return redirect(reverse('comments:comment-update', kwargs={
+                                                            'pk': comment.pk
+                                                        }
+                                )
+                        )
     
     
     def form_invalid(self, form):
         comment = self.get_object()
         messages.error(self.request, 'Invalid data!')
-        return redirect(reverse('comments:comment-update', kwargs={'pk': comment.pk}))
+        return redirect(reverse('comments:comment-update', kwargs={
+                                                            'pk': comment.pk
+                                                        }
+                                )
+                        )
     
     
     def get_context_data(self, **kwargs):
@@ -103,9 +113,7 @@ class CommentUpdate(LoginRequiredMixin,
        return context
    
 
-class CommentDelete(LoginRequiredMixin,
-                    DeleteView
-                    ):
+class CommentDeleteView(LoginRequiredMixin, edit.DeleteView):
     template_name = 'comments/comment_delete.html'
     
     
@@ -128,5 +136,8 @@ class CommentDelete(LoginRequiredMixin,
             messages.success(request, 'Deleted!')
             return redirect(comment.get_absolute_url())
         
-        return redirect('comments:comment-delete', kwargs={'pk': comment.pk})
+        return redirect('comments:comment-delete', kwargs={
+                                                            'pk': comment.pk
+                                                        }
+                        )
             

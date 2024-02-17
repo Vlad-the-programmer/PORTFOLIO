@@ -5,8 +5,7 @@ from django.contrib.auth import get_user_model
 from django.contrib import messages
 # Generic class-based views
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import DeleteView, UpdateView
+from django.views.generic import detail, edit
 # Email verification 
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_decode
@@ -72,13 +71,13 @@ def activate(request, uidb64, token):
         return redirect(reverse_lazy('users:register')) 
 
 
-class ProfileDetail(LoginRequiredMixin, DetailView):
+class ProfileDetailView(LoginRequiredMixin, detail.DetailView):
     model = Profile
     template_name = 'profile/profile_detail.html'
     context_object_name = 'profile'
 
 
-class ProfileDelete(LoginRequiredMixin, DeleteView):
+class ProfileDeleteView(LoginRequiredMixin, edit.DeleteView):
     template_name = 'profile/profile_delete.html'
     success_url = reverse_lazy('users:register')
     
@@ -87,7 +86,7 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
         
         try:
             profile = Profile.objects.get(pk=pk_)
-        except:
+        except Profile.DoesNotExist:
             profile = None
         return super().get_object()
     
@@ -108,9 +107,7 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
             return render(self.request, self.template_name, context)
 
 
-class ProfileUpdate(LoginRequiredMixin,
-                    UpdateView
-                    ):
+class ProfileUpdateView(LoginRequiredMixin, edit.UpdateView):
     template_name = 'profile/profile-update.html'
     form_class = UserUpdateForm
     
@@ -119,7 +116,7 @@ class ProfileUpdate(LoginRequiredMixin,
         pk_ = self.kwargs.get('pk', '')
         try:
             profile = get_object_or_404(Profile, id=pk_)
-        except:
+        except Profile.DoesNotExist:
             profile = None
         return profile
     
