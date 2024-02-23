@@ -1,5 +1,5 @@
-from django.urls import reverse, reverse_lazy, redirect
-from django.shortcuts import get_object_or_404
+from django.urls import reverse, reverse_lazy
+from django.shortcuts import redirect, get_object_or_404
 from django.utils.text import slugify
 # Auth
 from django.contrib.auth import get_user_model
@@ -226,11 +226,9 @@ class MessageDeleteView(LoginRequiredMixin, edit.DeleteView):
         return context
     
     
-    def get_success_url(self):
-        return reverse('chats:user-chats', kwargs={
-                                            'user_id': self.request.user.id
-                                            }
-                        )
+    def get_success_url(self, *args, **kwargs):
+        message = self.get_object()
+        return reverse(message.chat.get_absolute_url())
             
     
     

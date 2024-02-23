@@ -4,12 +4,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('posts.urls', namespace='posts')),
-    path('users/', include('users.urls', namespace='users')),
+    path('admin/',    admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('likes/', include('likes.urls', namespace='likes')),
-    path('messages/', include('messages.urls', namespace='messages')),
+    path('',          include('posts.urls', namespace='posts')),
+    path('users/',    include('users.urls', namespace='users')),
+    path('likes/',    include('likes.urls', namespace='likes')),
+    path('chats/',    include('chats.urls', namespace='chats')),
     path('comments/', include('comments.urls', namespace='comments')),
 ]
 

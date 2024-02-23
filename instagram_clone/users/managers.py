@@ -16,7 +16,8 @@ class UserManager(BaseUserManager):
     def _create_user(self, email, password,
                      first_name=None, gender=None,
                      featured_img=None, username=None, 
-                     last_name=None, **extra_fields):
+                     last_name=None, followed_by=None, 
+                     following=None, **extra_fields):
         
         
         if not email:
@@ -30,13 +31,16 @@ class UserManager(BaseUserManager):
             self.email_validator(email)
 
         user = self.model(
-            email=email,
-            first_name = first_name, 
-            username = username, 
-            last_name = last_name, 
-            featured_img = featured_img,
-            gender = gender,
-            **extra_fields
+                            email=email,
+                            password=password,
+                            first_name=first_name,
+                            gender=gender, 
+                            featured_img=featured_img,
+                            username=username,
+                            last_name=last_name,
+                            followed_by=followed_by,
+                            following=following,
+                            **extra_fields
         )
         
         user.set_password(password)  # change password to hash
@@ -51,18 +55,26 @@ class UserManager(BaseUserManager):
     def create_user(self, email, password, 
                     first_name=None, gender=None,
                     featured_img=None, username=None,
-                    last_name=None, **extra_fields):
+                    last_name=None, followed_by=None, 
+                     following=None, **extra_fields):
         
+        for key in extra_fields:
+             print(f'{key} {extra_fields.get(key)}')
+             print("followed_by ", followed_by)
+             print("following ", following)
         
-        user = self._create_user(email,
-                                 password,
-                                 first_name,
-                                 gender, 
-                                 featured_img,
-                                 username,
-                                 last_name,
+        user = self._create_user(
+                                 email=email,
+                                 password=password,
+                                 first_name=first_name,
+                                 gender=gender, 
+                                 featured_img=featured_img,
+                                 username=username,
+                                 last_name=last_name,
+                                 followed_by=followed_by,
+                                 following=following,
                                  **extra_fields
-                                 )
+                                )
         return user
     
     
@@ -74,6 +86,9 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
         
+        # for key in extra_fields:
+        #      print(f'{key} {extra_fields.get(key)}')
+
         if extra_fields.get("is_superuser") is not True:
             raise ValueError(_("Superusers must have is_superuser=True"))
         
@@ -81,10 +96,10 @@ class UserManager(BaseUserManager):
             raise ValueError(_("Superusers must have is_staff=True"))
             
         user = self._create_user(
-            email, 
-            password,
-            first_name, 
-            last_name,
-            **extra_fields)
+                email=email, 
+                password=password,
+                first_name=first_name, 
+                last_name=last_name,
+                **extra_fields)
         
         return user

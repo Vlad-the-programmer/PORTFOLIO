@@ -24,12 +24,12 @@ def register(request):
         if form.is_valid():
             user = form.save(commit=False)
             
-            if not user.username:
-                    user.username = user.set_username()
-                    
             if Profile.get_user_by_email(user.email):
                 messages.info(request, 'User already exists!')
                 return redirect(reverse_lazy('users:login'))
+            
+            if not user.username:
+                    user.username = user.set_username()
             
             user.save()
             

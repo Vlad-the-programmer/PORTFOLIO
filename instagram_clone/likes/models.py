@@ -18,7 +18,7 @@ class Like(models.Model):
                             )
     post = models.ForeignKey( 
                                 "posts.Post",
-                                related_name='likes',
+                                related_name='post_likes',
                                 on_delete=models.CASCADE
                             )
     timestamp =  models.DateTimeField(auto_now_add=True)

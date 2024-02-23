@@ -6,7 +6,7 @@ from allauth.account import forms as login_form
 # # Signal 
 # from django.db.models.signals import post_save
 # from .signals import update_user_profile
-
+from chats.models import Message
 
 Profile = get_user_model()
 
@@ -24,7 +24,7 @@ class UserUpdateForm(UserChangeForm):
                   'featured_img',
                   'gender',
                   )
-        exclude = ['password']
+        exclude = ['password', 'following', 'followed_by']
 
     
     # def save(self, *args, **kwargs):
@@ -36,6 +36,16 @@ class UserUpdateForm(UserChangeForm):
     
 class UserCreateForm(UserCreationForm):
     class Meta(UserCreationForm):
+        followed_by = forms.ModelChoiceField(queryset=Profile.objects.all(),
+                                             required=False, 
+                                             widget=forms.widgets.HiddenInput(),
+                                             initial=None
+                                            )
+        following = forms.ModelChoiceField(queryset=Profile.objects.all(),
+                                             required=False,
+                                             widget=forms.widgets.HiddenInput(),
+                                             initial= None
+                                        )
         model = Profile
         fields = (
                   'email',
@@ -45,8 +55,11 @@ class UserCreateForm(UserCreationForm):
                   'country',
                   'featured_img',
                   'gender',
+                  'followed_by',
+                  'following',
                 )
         widgets = {'country': CountrySelectWidget()}
+        
         
         
 class UserLoginForm(login_form.LoginForm):

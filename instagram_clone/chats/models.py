@@ -34,7 +34,7 @@ class Chat(models.Model):
                             )
     author = models.ForeignKey( 
                                 settings.AUTH_USER_MODEL,
-                                related_name='chat',
+                                related_name='created_chat',
                                 on_delete=models.CASCADE
                             )
     chat_to_user = models.ForeignKey(   
@@ -58,7 +58,7 @@ class Chat(models.Model):
                                      + "-to-" + self.chat_to_user.username )
         
     def get_absolute_url(self):
-        return reverse('messages:chat-detail', kwargs={'chat_slug': self.slug})
+        return reverse('chats:chat-detail', kwargs={'chat_slug': self.slug})
     
     
 class Message(models.Model):
@@ -79,19 +79,19 @@ class Message(models.Model):
                                 )
                             ]
                         )
-    chat = models.ManyToOneRel( 
-                               'messages.Chat',
+    chat = models.ForeignKey( 
+                               Chat,
                                 related_name = 'messages',
                                 on_delete=models.CASCADE
                             )
     author = models.ForeignKey(
                                 settings.AUTH_USER_MODEL,
-                                related_name='chat',
+                                related_name='sent_message',
                                 on_delete=models.CASCADE
                             )
     sent_for = models.ForeignKey(  
                                     settings.AUTH_USER_MODEL,
-                                    related_name='chat',
+                                    related_name='received_message',
                                     on_delete=models.CASCADE
                                 )
     status = models.CharField(  
@@ -105,13 +105,13 @@ class Message(models.Model):
     image = models.ImageField(  
                                 null=True, 
                                 blank=True, 
-                                upload_to=f'chats/{chat.slug}'
+                                upload_to=f'messages/'
                             )
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True, null=True)
     
     class Meta:
-        verbose_name = _("Messages")
+        verbose_name = _("Message")
         verbose_name_plural = _("Messages")
         ordering = ['-date_created']
         
@@ -128,7 +128,7 @@ class Message(models.Model):
         
         
     def get_absolute_url(self):
-        return reverse('messages:chat-detail', kwargs={'chat_slug': self.chat.slug})
+        return reverse('chats:chat-detail', kwargs={'chat_slug': self.chat.slug})
     
     
     

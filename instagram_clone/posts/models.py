@@ -48,15 +48,8 @@ class Post(models.Model):
                             )
     likes = models.ForeignKey( 
                                 "likes.Like",
-                                related_name='post',
+                                related_name='likes',
                                 on_delete=models.CASCADE
-                            )
-    image = models.ImageField(  
-                                null=True, 
-                                blank=True, 
-                                default="default.jpg", 
-                                upload_to=f'posts/{author.username + " " \
-                                                            + str(author.id)}'
                             )
     # category = models.ForeignKey('category.Category',
     #                              on_delete=models.CASCADE,
@@ -71,6 +64,12 @@ class Post(models.Model):
                                 null=True
                             )
   
+    image = models.ImageField(  
+                                null=True, 
+                                blank=True, 
+                                default="default.jpg", 
+                                upload_to='posts'
+                            )
     
     def __str__(self):
         return self.title

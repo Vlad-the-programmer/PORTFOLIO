@@ -23,8 +23,9 @@ class Profile(AbstractUser):
     
     objects = UserManager()
     
-    id = models.UUIDField(default=uuid.uuid4, unique=True,
-                          primary_key=True, editable=False)
+    # id = models.UUIDField(default=uuid.uuid4, unique=True,
+    #                       primary_key=True, editable=False)
+    id = models.AutoField(primary_key=True)
     email = models.EmailField(  
                               unique=True, 
                               blank=True,
@@ -49,12 +50,16 @@ class Profile(AbstractUser):
     followed_by = models.ForeignKey(
                                     settings.AUTH_USER_MODEL,
                                     on_delete=models.CASCADE,
-                                    related_name='followed_by'
+                                    related_name='following_users',
+                                    blank=True, 
+                                    null=True
                                 )
     following = models.ForeignKey(
                                     settings.AUTH_USER_MODEL,
                                     on_delete=models.CASCADE,
-                                    related_name='following'
+                                    related_name='follower',
+                                    blank=True,
+                                    null=True
                                 )   
     password = models.CharField(max_length=100, blank=True, null=True)
     username = models.CharField(
@@ -68,7 +73,6 @@ class Profile(AbstractUser):
                                         upload_to=f'profiles/{username}', 
                                         default='profiles/profile_default.jpg'
                                     )
-    messages = models.ManyToManyField("Messages", blank=True)
     date_joined = models.DateTimeField(auto_now_add=True, null=True)
     last_login = models.DateTimeField(
                                         _('Last logged in'),
@@ -81,7 +85,7 @@ class Profile(AbstractUser):
     
     
     def __str__(self):
-        return f"{self.followed_by.id} is following {self.following.id}"
+        return f"{self.followed_by.username} is following {self.following.username}"
         
     def set_username(self):
         return self.email.split('@')[0].lower()

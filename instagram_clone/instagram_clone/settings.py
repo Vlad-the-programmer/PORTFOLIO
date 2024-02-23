@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
     # apps
     'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
-    'messages.apps.MessagesConfig',
+    'chats.apps.ChatsConfig',
     'likes.apps.LikesConfig',
     'comments.apps.CommentsConfig',
     

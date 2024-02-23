@@ -21,5 +21,5 @@ class CreateForm(forms.ModelForm):
         )
     class Meta:
         model = Post
-        fields = ('title', 'content', 'image', 'slug', 'tags', 'category')
+        fields = ('title', 'content', 'image', 'slug', 'tags')
         
