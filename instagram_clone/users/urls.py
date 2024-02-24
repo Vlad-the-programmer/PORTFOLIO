@@ -30,6 +30,4 @@ urlpatterns = [
                                             name='reset-password-validate'),
     path('reset-password/<int:pk>', views.resetPassword, 
                                             name='resetPassword'),
-    
-    
 ]

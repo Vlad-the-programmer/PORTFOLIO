@@ -85,7 +85,7 @@ class Profile(AbstractUser):
     
     
     def __str__(self):
-        return f"{self.followed_by.username} is following {self.following.username}"
+        return f"{self.username} has email {self.email}"
         
     def set_username(self):
         return self.email.split('@')[0].lower()
@@ -149,6 +149,12 @@ class Profile(AbstractUser):
         if self is None:
             return None
         return self.followed_by.filter(id=self.id)
+    
+    def count_followers(self):
+        return self.followed_by.count()
+    
+    def count_following(self):
+        return Profile.objects.filter(following=self).count()
     
     class Meta:
        verbose_name = _('User')

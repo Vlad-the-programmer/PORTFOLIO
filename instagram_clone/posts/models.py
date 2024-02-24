@@ -49,7 +49,9 @@ class Post(models.Model):
     likes = models.ForeignKey( 
                                 "likes.Like",
                                 related_name='likes',
-                                on_delete=models.CASCADE
+                                on_delete=models.CASCADE,
+                                blank=True, 
+                                null=True
                             )
     # category = models.ForeignKey('category.Category',
     #                              on_delete=models.CASCADE,

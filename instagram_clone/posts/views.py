@@ -31,8 +31,12 @@ class PostsListView(list.ListView):
         context = super().get_context_data(**kwargs)
         posts = context['posts']
         _ , context['filter'] = postsFilter(self.request, self.get_queryset())
-        custom_range, page_obj = paginatePosts(self.request, posts, 5)
         
+        if (len(posts) < 5):
+            custom_range, page_obj = paginatePosts(self.request, posts, 5) 
+        else:                         
+            custom_range, page_obj = paginatePosts(self.request, posts, 1)
+            
         if self.request.GET.get('content'):
             posts, _ = postsFilter(self.request, self.get_queryset())
             _ , page_obj = paginatePosts(self.request, posts, 5)

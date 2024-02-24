@@ -12,13 +12,15 @@ from allauth.account.models import EmailAddress, EmailConfirmation
 User = get_user_model()
 
 
-@receiver(post_save, sender=User)
-def save_user_profile(sender, created, instance, *args, **kwargs):
-    profile = instance
-    if not created and profile:
-        if not profile.username:
-            profile.username = profile.set_username()
-        profile.save()
+# @receiver(post_save, sender=User)
+# def save_user_profile(sender, created, instance, *args, **kwargs):
+#     profile = instance
+#     print(profile)
+#     print(created)
+#     if created == False and profile:
+#         if not profile.username:
+#             profile.username = profile.set_username()
+#         profile.save()
                   
             
 @receiver(user_signed_up)

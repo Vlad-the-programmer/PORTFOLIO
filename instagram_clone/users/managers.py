@@ -16,10 +16,9 @@ class UserManager(BaseUserManager):
     def _create_user(self, email, password,
                      first_name=None, gender=None,
                      featured_img=None, username=None, 
-                     last_name=None, followed_by=None, 
-                     following=None, **extra_fields):
+                     last_name=None, **extra_fields):
         
-        
+             
         if not email:
             raise ValueError("User must have an email")
         
@@ -38,8 +37,6 @@ class UserManager(BaseUserManager):
                             featured_img=featured_img,
                             username=username,
                             last_name=last_name,
-                            followed_by=followed_by,
-                            following=following,
                             **extra_fields
         )
         
@@ -55,13 +52,8 @@ class UserManager(BaseUserManager):
     def create_user(self, email, password, 
                     first_name=None, gender=None,
                     featured_img=None, username=None,
-                    last_name=None, followed_by=None, 
-                     following=None, **extra_fields):
+                    last_name=None, **extra_fields):
         
-        for key in extra_fields:
-             print(f'{key} {extra_fields.get(key)}')
-             print("followed_by ", followed_by)
-             print("following ", following)
         
         user = self._create_user(
                                  email=email,
@@ -71,8 +63,6 @@ class UserManager(BaseUserManager):
                                  featured_img=featured_img,
                                  username=username,
                                  last_name=last_name,
-                                 followed_by=followed_by,
-                                 following=following,
                                  **extra_fields
                                 )
         return user
@@ -86,8 +76,6 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
         
-        # for key in extra_fields:
-        #      print(f'{key} {extra_fields.get(key)}')
 
         if extra_fields.get("is_superuser") is not True:
             raise ValueError(_("Superusers must have is_superuser=True"))

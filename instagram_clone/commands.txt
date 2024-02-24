@@ -1,6 +1,6 @@
-sudo service postgresql start
 
-alias start-pg='sudo service postgresql start'&& alias run-pg='sudo -u postgres psql'
+
+alias start-pg='sudo service postgresql start'&& alias run-pg='sudo -u postgres psql' &&alias stop-pg='sudo service postgresql stop'
 
 OP sustem user - vlad 
 PW - muxtar15
