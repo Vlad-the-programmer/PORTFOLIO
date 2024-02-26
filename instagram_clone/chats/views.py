@@ -74,7 +74,7 @@ class CreateChatView(LoginRequiredMixin, edit.CreateView):
         chat_to_user_id = self.kwargs.get('chat_to_user_id', '')
         
         chat = form.save(commit=False)
-        chat.set_slug()
+        chat.set_slug() #- slug is AutoSlugField
         chat.author = self.request.user
         chat.chat_to_user = Profile.objects.get(id=chat_to_user_id)
         chat.save()

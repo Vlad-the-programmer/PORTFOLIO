@@ -68,8 +68,8 @@ class CreatePostView(LoginRequiredMixin, edit.CreateView):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            if not post.slug:
-                post.slug = slugify(post.title)
+            # if not post.slug:
+            #     post.slug = slugify(post.title) # slug - AutoSlugField
             post.save()
             
             cleaned_tags = form.cleaned_data.get('tags')
@@ -146,8 +146,8 @@ class PostUpdateView(LoginRequiredMixin, edit.UpdateView):
             post = form.save(commit=False)
             print(post)
             post.author = user
-            if not post.slug:
-                post.slug = slugify(post.title)
+            # if not post.slug:
+            #     post.slug = slugify(post.title) # slug - AutoSlugField
             post.save()
             
             cleaned_tags = form.cleaned_data.get('tags')

@@ -4,7 +4,9 @@ from django.core.validators import MaxLengthValidator, validate_slug
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
-import uuid
+from autoslug import AutoSlugField
+
+from common.models import TimeStampedUUIDModel
 
 
 class STATUS(models.TextChoices):
@@ -12,17 +14,11 @@ class STATUS(models.TextChoices):
     UNSENT = "unsent", _("Unsent")
     
     
-class Chat(models.Model):
-    id = models.UUIDField(  
-                            default=uuid.uuid4, 
+class Chat(TimeStampedUUIDModel):
+    slug = models.SlugField(   
                             unique=True,
-                            primary_key=True, 
-                            editable=False
-                        )
-    slug = models.SlugField(
-                            max_length=100, 
-                            unique=True,
-                            blank=True, 
+                            max_length=100,
+                            blank=True,
                             null=True,
                             validators=[
                                 validate_slug, 
@@ -30,8 +26,9 @@ class Chat(models.Model):
                                     limit_value=100,
                                     message="Slug is over 100 letters long!"
                                     )
-                                ]
-                            )
+                                ],
+                            verbose_name=_('Slug'),
+                        )
     author = models.ForeignKey( 
                                 settings.AUTH_USER_MODEL,
                                 related_name='created_chat',
@@ -40,15 +37,14 @@ class Chat(models.Model):
     chat_to_user = models.ForeignKey(   
                                         settings.AUTH_USER_MODEL,
                                         related_name='foreign_chat',
-                                        on_delete=models.CASCADE
+                                        on_delete=models.CASCADE,
+                                        verbose_name=_('User author chat to'),
                                     )
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
-    updated = models.DateTimeField(auto_now=True, null=True)
     
     class Meta:
         verbose_name = _("Chat")
         verbose_name_plural = _("Chats")
-        ordering = ['-date_created']
+        ordering = ['-created_at']
         
     def __str__(self):
         return self.slug
@@ -61,13 +57,7 @@ class Chat(models.Model):
         return reverse('chats:chat-detail', kwargs={'chat_slug': self.slug})
     
     
-class Message(models.Model):
-    id = models.UUIDField(  
-                            default=uuid.uuid4, 
-                            unique=True,
-                            primary_key=True, 
-                            editable=False
-                        )
+class Message(TimeStampedUUIDModel):
     message = models.TextField(
                             max_length=500,
                             blank=True, 
@@ -107,13 +97,12 @@ class Message(models.Model):
                                 blank=True, 
                                 upload_to=f'messages/'
                             )
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
-    updated = models.DateTimeField(auto_now=True, null=True)
+
     
     class Meta:
         verbose_name = _("Message")
         verbose_name_plural = _("Messages")
-        ordering = ['-date_created']
+        ordering = ['-created_at']
         
     def __str__(self):
         return self.id + " " + self.author.username
@@ -124,7 +113,7 @@ class Message(models.Model):
             url = self.image.url
         except:
             url = ''
-        return 
+        return url
         
         
     def get_absolute_url(self):

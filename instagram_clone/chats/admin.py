@@ -3,29 +3,38 @@ from .models import Message, Chat
 
 
 class ChatAdmin(admin.ModelAdmin):
-    list_display = ('id', 'author', 'slug', 'chat_to_user', 'date_created', 'updated')
+    list_display = (    
+                    'id',
+                    'author', 
+                    'slug', 
+                    'chat_to_user', 
+                    'created_at',
+                    'updated_at'
+                )
     list_filter = ("author__username",)
-    search_fields = ['post__slug', 'auhtor__username']
+    search_fields = ['post__slug', 'author__username', 'slug']
     prepopulated_fields = {}
 
 
 class MessageAdmin(admin.ModelAdmin):
-    list_display = (    
+    list_display = ( 
+                    'pkid',   
                     'id', 
                     'author', 
                     'chat',
                     'message',
                     'sent_for',
                     'status',
-                    'date_created',
-                    'updated'
+                    'created_at',
+                    'updated_at'
                 )
     list_filter = ("author__username", "sent_for__username")
-    search_fields = [   
+    search_fields = [ 
+                     'pkid',
                      'sent_for__username',
                      'auhtor__username', 
                      'status', 
-                     'date_created'
+                     'created_at'
                     ]
     prepopulated_fields = {}
 

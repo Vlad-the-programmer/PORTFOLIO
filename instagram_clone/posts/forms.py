@@ -10,7 +10,7 @@ class UpdateForm(forms.ModelForm):
         )
     class Meta:
         model = Post
-        fields = ('title', 'content', 'image', 'slug', 'tags')
+        fields = ('title', 'content', 'image', 'tags')
         
 
 class CreateForm(forms.ModelForm):
@@ -21,5 +21,5 @@ class CreateForm(forms.ModelForm):
         )
     class Meta:
         model = Post
-        fields = ('title', 'content', 'image', 'slug', 'tags')
+        fields = ('title', 'content', 'image', 'tags')
         

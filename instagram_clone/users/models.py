@@ -1,5 +1,4 @@
 from django.db import models
-from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.core import validators
 from django.utils.translation import gettext_lazy as _
@@ -18,15 +17,15 @@ class Gender(models.TextChoices):
 
 
 class Profile(AbstractUser):
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username", "first_name", "last_name"]
     
     objects = UserManager()
-    
-    # id = models.UUIDField(default=uuid.uuid4, unique=True,
-    #                       primary_key=True, editable=False)
-    id = models.AutoField(primary_key=True)
-    email = models.EmailField(  
+
+    pkid = models.BigAutoField(primary_key=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    email = models.EmailField( 
+                              verbose_name=_("Email"), 
                               unique=True, 
                               blank=True,
                               null=True, 
@@ -34,10 +33,20 @@ class Profile(AbstractUser):
                               validators=[
                                             validators.EmailValidator()
                                         ])
-    first_name = models.CharField(max_length=100, blank=True, null=True)
-    last_name = models.CharField(max_length=100, blank=True, null=True)
+    first_name = models.CharField(  
+                                  verbose_name=_("First Name"),
+                                  max_length=100, 
+                                  blank=True, 
+                                  null=True
+                                )
+    last_name = models.CharField(   
+                                 verbose_name=_("Last Name"),
+                                 max_length=100, 
+                                 blank=True, 
+                                 null=True
+                                )
     gender = models.CharField(
-                                _('Gender'),
+                                verbose_name=_('Gender'),
                                 max_length=10,
                                 choices=Gender.choices,
                                 default=_('Male'),
@@ -47,22 +56,27 @@ class Profile(AbstractUser):
                             default='',
                             max_length=50,
                         )
-    followed_by = models.ForeignKey(
-                                    settings.AUTH_USER_MODEL,
-                                    on_delete=models.CASCADE,
-                                    related_name='following_users',
-                                    blank=True, 
-                                    null=True
-                                )
-    following = models.ForeignKey(
-                                    settings.AUTH_USER_MODEL,
-                                    on_delete=models.CASCADE,
-                                    related_name='follower',
-                                    blank=True,
-                                    null=True
-                                )   
+    # followed_by = models.ManyToManyField(
+    #                                 'self',
+    #                                 on_delete=models.CASCADE,
+    #                                 related_name='following_users',
+    #                                 blank=True, 
+    #                                 null=True,
+    #                                 symmetrical=False,
+    #                                 verbose_name=_("Followers"),
+    #                             )
+    # following = models.ManyToManyRel(  
+    #                                 'self',
+    #                                 on_delete=models.CASCADE,
+    #                                 related_name='follower',
+    #                                 symmetrical=False,
+    #                                 blank=True,
+    #                                 null=True,
+    #                                 verbose_name=_("Followed users"),
+    #                             )   
     password = models.CharField(max_length=100, blank=True, null=True)
-    username = models.CharField(
+    username = models.CharField(    
+                                    verbose_name=_("Username"),
                                     unique=True, 
                                     max_length=100, 
                                     blank=True, 
@@ -108,14 +122,26 @@ class Profile(AbstractUser):
             return True
         return False
     
+    def has_follow_permission(request):
+        if request.user.is_authenticated:
+            return True
+        return False
+    
     def has_module_perms(self, app_label):
         return True
     
+    def has_admin_perms(self):
+        return self.is_superuser
+    
+    
     def get_user_perms(self):
         return {    
-                    'add': self.has_add_permission(),
+                    'post':   self.has_add_permission(),
                     'change': self.has_change_permission(),
-                    'delete': self.has_delete_permission()
+                    'delete': self.has_delete_permission(),
+                    'follow': self.has_follow_permission(),
+                    'admin':  self.has_admin_perms(),
+                    'chat':   self.has_add_permission()
                 }
         
     @classmethod
@@ -124,14 +150,19 @@ class Profile(AbstractUser):
             user = get_object_or_404(cls.__class__, email__exact=email)
         except:
             user = None
+            
         if user is not None:
             return True
         return False  
     
     @property
     def get_full_name(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.first_name.title()} {self.last_name.title()}"
     
+    @property
+    def get_short_name(self):
+        return self.username.title()
+        
     @property
     def imageURL(self):
         try:
@@ -140,23 +171,24 @@ class Profile(AbstractUser):
             url = ''
         return url
 
-    def is_following(self):
+    def following_users_list(self):
         if self is None:
             return None
-        return self.following.filter(id=self.id)
+        return self.following.all().filter(pkid=self.pkid)
     
-    def is_followed_by(self):
+    def followers_list(self):
         if self is None:
             return None
-        return self.followed_by.filter(id=self.id)
+        return self.followers.all().filter(pkid=self.pkid)
     
     def count_followers(self):
-        return self.followed_by.count()
+        return self.followers.all().count()
     
     def count_following(self):
-        return Profile.objects.filter(following=self).count()
+        return self.followers.all().count()
     
     class Meta:
        verbose_name = _('User')
        verbose_name_plural = _('Users')
        ordering = ['email']
+    #    unique_together = [['following', 'self'], ['followed_by', 'self']]

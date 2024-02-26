@@ -1,16 +1,10 @@
 from django.db import models
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
-import uuid
+from common.models import TimeStampedUUIDModel
 
 
-class Like(models.Model):
-    id = models.UUIDField(  
-                            default=uuid.uuid4, 
-                            unique=True,
-                            primary_key=True, 
-                            editable=False
-                        )
+class Like(TimeStampedUUIDModel):
     author = models.ForeignKey( 
                                 settings.AUTH_USER_MODEL,
                                 related_name='given_likes',
@@ -21,7 +15,6 @@ class Like(models.Model):
                                 related_name='post_likes',
                                 on_delete=models.CASCADE
                             )
-    timestamp =  models.DateTimeField(auto_now_add=True)
     
     
     def __str__(self):
@@ -31,4 +24,4 @@ class Like(models.Model):
     class Meta:
         verbose_name = _("Like")
         verbose_name_plural = _("Likes")
-        ordering = ['-timestamp']
+        ordering = ['-created_at']

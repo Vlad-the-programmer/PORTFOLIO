@@ -4,16 +4,19 @@ from django.conf import settings
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import validate_slug, MaxLengthValidator
+from autoslug import AutoSlugField
+
+from common.models import TimeStampedUUIDModel
+
 
 class STATUS(models.TextChoices):
     DRAFT = "draft", _("Draft")
     PUBLISH = "publish", _("Publish")
     
 
-class Post(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, unique=True,
-                          primary_key=True, editable=False)
-    title = models.CharField(
+class Post(TimeStampedUUIDModel):
+    title = models.CharField(   
+                             verbose_name=_('Title'),
                              unique=True,
                              max_length=100,
                              validators=[
@@ -23,13 +26,22 @@ class Post(models.Model):
                                     )
                                 ]
                              )
-    content = models.TextField(null=True, blank=True)
+    content = models.TextField( 
+                                verbose_name=_('Post content'), 
+                                null=True, 
+                                blank=True
+                            )
     active = models.BooleanField(
                                     verbose_name=_('Active'), 
                                     default=True
                                 )
-    slug = models.SlugField(max_length=100, unique=True,
-                            blank=True, null=True,
+    slug = AutoSlugField(   
+                            populate_from='title', 
+                            unique=True,
+                            always_update=True,
+                            max_length=100,
+                            blank=True,
+                            null=True,
                             validators=[
                                 validate_slug, 
                                 MaxLengthValidator(
@@ -37,9 +49,7 @@ class Post(models.Model):
                                     message="Slug is over 100 letters long!"
                                     )
                                 ]
-                            )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+                        )
     tags = models.ManyToManyField('Tags', blank=True)
     author = models.ForeignKey( 
                                 settings.AUTH_USER_MODEL,
@@ -58,7 +68,7 @@ class Post(models.Model):
     #                              blank=True,
     #                              null=True)
     status = models.CharField(  
-                                _('Status'), 
+                                verbose_name=_('Post Status'), 
                                 max_length=10,
                                 choices=STATUS, 
                                 default=STATUS.DRAFT,
@@ -67,6 +77,7 @@ class Post(models.Model):
                             )
   
     image = models.ImageField(  
+                                verbose_name=_('Post image'),
                                 null=True, 
                                 blank=True, 
                                 default="default.jpg", 
@@ -89,16 +100,14 @@ class Post(models.Model):
             url = self.image.url
         except:
             url = ''
-        return 
+        return url
         
         
     def get_absolute_url(self):
         return reverse('posts:post-detail', kwargs={'slug': self.slug})
         
         
-class Tags(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, unique=True,
-                          primary_key=True, editable=False)
+class Tags(TimeStampedUUIDModel):
     title = models.CharField(   
                              max_length=200,
                              validators=[
@@ -108,7 +117,6 @@ class Tags(models.Model):
                                     )
                                 ]
                              )
-    created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.title
@@ -116,4 +124,5 @@ class Tags(models.Model):
     class Meta:
         verbose_name = _("Tag")
         verbose_name_plural = _("Tags")
+        ordering = ['-created_at']
         

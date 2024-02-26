@@ -8,7 +8,8 @@ Profile = get_user_model()
 
 class CustomUserAdmin(admin.ModelAdmin):
     model = Profile
-    list_display = ['id',
+    list_display = ['pkid', 
+                    'id',
                     'email',
                     'username',
                     'featured_img',

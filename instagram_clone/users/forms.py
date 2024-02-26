@@ -24,7 +24,7 @@ class UserUpdateForm(UserChangeForm):
                   'featured_img',
                   'gender',
                   )
-        exclude = ['password', 'following', 'followed_by']
+        exclude = ['password']
 
     
     # def save(self, *args, **kwargs):
@@ -36,16 +36,6 @@ class UserUpdateForm(UserChangeForm):
     
 class UserCreateForm(UserCreationForm):
     class Meta(UserCreationForm):
-        followed_by = forms.ModelChoiceField(queryset=Profile.objects.all(),
-                                             required=False, 
-                                             widget=forms.widgets.HiddenInput(),
-                                             initial=None
-                                            )
-        following = forms.ModelChoiceField(queryset=Profile.objects.all(),
-                                             required=False,
-                                             widget=forms.widgets.HiddenInput(),
-                                             initial= None
-                                        )
         model = Profile
         fields = (
                   'email',
@@ -55,8 +45,6 @@ class UserCreateForm(UserCreationForm):
                   'country',
                   'featured_img',
                   'gender',
-                  'followed_by',
-                  'following',
                 )
         widgets = {'country': CountrySelectWidget()}
         

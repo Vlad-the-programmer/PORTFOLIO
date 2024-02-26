@@ -26,9 +26,9 @@ load_dotenv(os.path.join(BASE_DIR / '.env'))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", []).split(" ")
 
 
 # Application definition
@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'chats.apps.ChatsConfig',
     'likes.apps.LikesConfig',
     'comments.apps.CommentsConfig',
+    'followers.apps.FollowersConfig',
+    'common.apps.CommonConfig',
+    
     
     # Third-party
     'django_filters',
@@ -105,12 +108,12 @@ WSGI_APPLICATION = 'instagram_clone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'instagram',
-        'USER': os.getenv('USER', ''),
-        'PASSWORD': os.getenv('PostgresSuperuserPassword', ''),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': os.getenv('POSTGRES_ENGINE', ''),
+        'NAME': os.getenv('POSTGRES_DB', ''),
+        'USER': os.getenv('POSTGRES_USER', ''),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+        'HOST': os.getenv('PG_HOST', ''),
+        'PORT': os.getenv('PG_PORT', ''),
     }
 }
 
@@ -170,7 +173,7 @@ AUTH_USER_MODEL = "users.Profile"
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     "allauth.account.auth_backends.AuthenticationBackend",
-    ]
+]
 
 from django.urls import reverse_lazy
 
@@ -247,11 +250,13 @@ SOCIALACCOUNT_EMAIL_REQUIRED = False
    
    
 # Email sending credentials
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', '')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', False)
 EMAIL_HOST = os.getenv('EMAIL_HOST', '')
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
 EMAIL_PORT = os.getenv('EMAIL_PORT', '')
-
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', '')
 
 
 #Custom admin panel with django-jazzmin
@@ -351,3 +356,47 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-success",
     },
 }
+
+
+
+import logging
+import logging.config
+
+from django.utils.log import DEFAULT_LOGGING
+
+logger = logging.getLogger(__name__)
+
+LOG_LEVEL = "INFO"
+    
+    
+logging.config.dictConfig(
+    {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "console": {
+                "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
+            },
+            "file": {"format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s"},
+            "django.server": DEFAULT_LOGGING["formatters"]["django.server"],
+        },
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "formatter": "console",
+            },
+            "file": {
+                "level": "INFO",
+                "class": "logging.FileHandler",
+                "formatter": "file",
+                "filename": BASE_DIR / "logs/instagram.log",
+            },
+            "django.server": DEFAULT_LOGGING["handlers"]["django.server"],
+        },
+        "loggers": {
+            "": {"level": "INFO", "handlers": ["console", "file"], "propagate": False},
+            "apps": {"level": "INFO", "handlers": ["console"], "propagate": False},
+            "django.server": DEFAULT_LOGGING["loggers"]["django.server"],
+        },
+    }
+)

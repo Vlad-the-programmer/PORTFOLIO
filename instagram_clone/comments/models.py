@@ -3,29 +3,29 @@ from django.conf import settings
 from django.core.validators import MaxLengthValidator, validate_slug
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-import uuid
+from autoslug import AutoSlugField
 
-class Comment(models.Model):
-    id = models.UUIDField(  
-                          default=uuid.uuid4, 
-                          unique=True,
-                          primary_key=True, 
-                          editable=False
-                        )
+from common.models import TimeStampedUUIDModel
+
+
+class Comment(TimeStampedUUIDModel):
     content = models.TextField( 
-                             max_length=500,
-                             blank=True, 
-                             null=True,
-                             validators=[
-                                  MaxLengthValidator(
-                                    limit_value=100,
-                                    message="Comment is over 500 letters long!"
-                                    )
-                                ]
-                            )
-    slug = models.SlugField(    
-                            max_length=100,
+                                verbose_name=_('Comment content'),
+                                max_length=500,
+                                blank=True, 
+                                null=True,
+                                validators=[
+                                    MaxLengthValidator(
+                                        limit_value=100,
+                                        message="Comment is over 500 letters long!"
+                                        )
+                                    ]
+                                )
+    slug = AutoSlugField(   
+                            populate_from='title', 
                             unique=True,
+                            always_update=True,
+                            max_length=100,
                             blank=True,
                             null=True,
                             validators=[
@@ -35,7 +35,7 @@ class Comment(models.Model):
                                     message="Slug is over 100 letters long!"
                                     )
                                 ]
-                            )
+                        )
     author = models.ForeignKey( 
                                 settings.AUTH_USER_MODEL,
                                 related_name='comments',
@@ -46,9 +46,8 @@ class Comment(models.Model):
                                 related_name='comment',
                                 on_delete=models.CASCADE
                             )
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
-    updated = models.DateTimeField(auto_now=True, null=True)
-    title = models.CharField(
+    title = models.CharField(   
+                             verbose_name=_('Comment title'),
                              max_length=500,
                              blank=True, 
                              null=True,
@@ -59,7 +58,8 @@ class Comment(models.Model):
                                     )
                                 ]
                             )
-    image = models.ImageField(
+    image = models.ImageField(  
+                                verbose_name=_('Comment image'),
                                 null=True, 
                                 blank=True, 
                                 upload_to=f'comments/{slug}'
@@ -70,7 +70,7 @@ class Comment(models.Model):
     class Meta:
         verbose_name = _("Comments")
         verbose_name_plural = _("Comments")
-        ordering = ['-date_created']
+        ordering = ['-created_at']
         
     def __str__(self):
         return self.slug
@@ -82,7 +82,7 @@ class Comment(models.Model):
             url = self.image.url
         except:
             url = ''
-        return 
+        return url
         
         
     def get_absolute_url(self):

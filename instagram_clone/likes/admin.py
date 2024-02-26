@@ -3,9 +3,16 @@ from .models import Like
 
 
 class LikeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'author', 'post', 'timestamp')
+    list_display = (    
+                    'pkid',
+                    'id', 
+                    'author', 
+                    'post', 
+                    'created_at',
+                    'updated_at'
+                )
     list_filter = ("author__username",)
-    search_fields = ['post__slug', 'auhtor__username']
+    search_fields = ['pkid', 'post__slug', 'auhtor__username']
     prepopulated_fields = {}
 
      
