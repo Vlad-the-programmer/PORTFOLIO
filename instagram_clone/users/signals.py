@@ -1,3 +1,4 @@
+import logging
 from django.dispatch import receiver
 from django.contrib import messages
 from django.contrib.auth.models import Group
@@ -7,6 +8,8 @@ from django.db.models.signals import post_save
 # AllAuth
 from allauth.account.signals import user_signed_up, email_confirmed
 from allauth.account.models import EmailAddress, EmailConfirmation
+
+logger = logging.getLogger(__name__)
 
 
 User = get_user_model()
@@ -26,7 +29,6 @@ User = get_user_model()
 @receiver(user_signed_up)
 def user_signed_up_(request, user, **kwargs):
     user.is_active = False
-    print('u', user)
     # Group.objects.get(name='BlogManager').user_set.add(user)
 
     user.save()
@@ -41,14 +43,16 @@ def user_signed_up_(request, user, **kwargs):
         messages.INFO,
         message=f"Confirmation email has been sent to {user.email}",
     )
+    logger.info(f"{user}'s profile created and confirm. email sent")
      
      
 @receiver(email_confirmed)
 def email_confirmed_(request, email_address, *args, **kwargs):
-    user = User.objects.get(
-        email=email_address.email)
+    user = User.objects.get(email=email_address.email)
     user.is_active = True
     user.save()
+    
+    logger.info(f"{user}'s active and confirm. email is sent")
     
     
 # @receiver(post_save, sender=User)

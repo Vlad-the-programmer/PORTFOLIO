@@ -17,7 +17,7 @@ class PostAdmin(admin.ModelAdmin):
                 )
     list_filter = ("status", 'author__username',)
     search_fields = ['title', 'content', 'tags__title', 'slug', 'status']
-    prepopulated_fields = {'slug': ('title',)}
+    # prepopulated_fields = {'slug': ('title',)}
 
      
 admin.site.register(Post, PostAdmin)

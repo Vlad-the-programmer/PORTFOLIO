@@ -1,6 +1,6 @@
+import logging
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import redirect, get_object_or_404
-from django.utils.text import slugify
 # Auth
 from django.contrib.auth import get_user_model
 from django.contrib import messages
@@ -10,6 +10,10 @@ from django.views.generic import detail, edit, list
 
 from .forms import MessageCreateUpdateForm
 from .models import Chat, Message
+
+
+
+logger = logging.getLogger(__name__)
 
 Profile = get_user_model()
 
@@ -40,17 +44,24 @@ class ChatDetailView(LoginRequiredMixin, detail.DetailView):
     context_object_name = 'chat'
     slug_field = 'chat_slug'
     
-    def get(self, request, *args, **kwargs):
-        self.request = request
-        return super().get(request, *args, **kwargs)
-    
     def get_object(self):
         slug_ = self.kwargs.get(self.slug_field, '')
         try:
-            chat = get_object_or_404(Profile, id=slug_)
+            chat = get_object_or_404(Chat, slug=slug_)
         except Chat.DoesNotExist:
             chat = None
         return chat
+    
+    
+    def get(self, request, *args, **kwargs):
+        self.request = request
+        
+        chat = self.get_object()
+        if chat is None:
+            messages.error(request, 'Chat does not exist!')    
+            return redirect(chat.get_absolute_url())
+        return super().get(request, *args, **kwargs)
+    
         
     def get_context_data(self,*args, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -66,25 +77,31 @@ class CreateChatView(LoginRequiredMixin, edit.CreateView):
     
     def post(self, request, *args, **kwargs):
         self.request = request
-        messages.success(request, 'Created!')
-        return super().post(request, *args, **kwargs)
-    
-    # Chat chat_to_user_id ??
-    def form_valid(self, form):
+        
         chat_to_user_id = self.kwargs.get('chat_to_user_id', '')
         
-        chat = form.save(commit=False)
-        chat.set_slug() #- slug is AutoSlugField
-        chat.author = self.request.user
-        chat.chat_to_user = Profile.objects.get(id=chat_to_user_id)
-        chat.save()
-        return redirect(self.get_success_url())
+        chat, created = Chat.objects.get_or_create(id=chat_to_user_id)
+        if created:
+            chat.set_slug()
+            chat.author = self.request.user
+            chat.chat_to_user = Profile.objects.get(id=chat_to_user_id)
+            chat.save()
+            logging.info(f"Chat with {chat.chat_to_user.get_username()} \
+                was created by {chat.author.get_username()}")
+            
+        return redirect(chat.get_absolute_url())
     
-    def get_success_url(self, *args, **kwargs):
-        print(kwargs)
-        context = self.get_context_data(**kwargs)
-        chat = context['chat']
-        return chat.get_absolute_url()
+    
+    # # Chat chat_to_user_id ??
+    # def form_valid(self, form):
+    #     chat_to_user_id = self.kwargs.get('chat_to_user_id', '')
+        
+    #     chat = form.save(commit=False)
+    #     chat.set_slug() #- slug is AutoSlugField
+    #     chat.author = self.request.user
+    #     chat.chat_to_user = Profile.objects.get(id=chat_to_user_id)
+    #     chat.save()
+    #     return redirect(self.get_success_url())
       
       
 class ChatDeleteView(LoginRequiredMixin, edit.DeleteView):
@@ -103,6 +120,11 @@ class ChatDeleteView(LoginRequiredMixin, edit.DeleteView):
     
     def delete(self, request, *args, **kwargs):
         self.request = request
+        
+        chat = self.get_object()
+        if chat is None:
+            messages.error(request, 'Chat does not exist!')    
+            return redirect(chat.get_absolute_url())
         return super().delete(request, *args, **kwargs)
     
     
@@ -131,20 +153,22 @@ class MessageCreateView(LoginRequiredMixin, edit.CreateView):
     
  
     def form_valid(self, form):
-        chat = Chat.objects.filter(author=self.request.user)
+        chat_slug = self.kwargs.get('chat_slug', '')
+        author = self.request.user
+        chat = Chat.objects.filter(slug=chat_slug, author=author)
         
         message = form.save(commit=False)
-        message.author = self.request.user
+        message.author = author
         message.chat = chat
         message.sent_for = chat.chat_to_user
-        chat.save()
-        return redirect(self.get_success_url())
+        message.save()
+        return redirect(chat.get_absolute_url())
     
-    def get_success_url(self, *args, **kwargs):
-        print(kwargs)
-        context = self.get_context_data(**kwargs)
-        message = context['message']
-        return message.chat.get_absolute_url()
+    # def get_success_url(self, *args, **kwargs):
+    #     print(kwargs)
+    #     context = self.get_context_data(**kwargs)
+    #     message = context['message']
+    #     return message.chat.get_absolute_url()
         
         
 class MessageUpdateView(LoginRequiredMixin, edit.UpdateView):
@@ -165,6 +189,10 @@ class MessageUpdateView(LoginRequiredMixin, edit.UpdateView):
     def post(self, request, slug, *args, **kwargs):
         message = self.get_object()
         
+        if message is None:
+            messages.error(request, 'Message does not exist!')    
+            return redirect(message.chat.get_absolute_url())
+        
         print(request.POST)
         form = MessageCreateUpdateForm(
                                         instance=message,
@@ -174,7 +202,6 @@ class MessageUpdateView(LoginRequiredMixin, edit.UpdateView):
             
         if form.is_valid():
             message = form.save(commit=False)
-            print(message)
             
             message.author = request.user
             message.save()
@@ -217,6 +244,12 @@ class MessageDeleteView(LoginRequiredMixin, edit.DeleteView):
     
     def delete(self, request, *args, **kwargs):
         self.request = request
+        
+        message = self.get_object()
+        
+        if message is None:
+            messages.error(request, 'Message does not exist!')    
+            return redirect(message.chat.get_absolute_url())
         return super().delete(request, *args, **kwargs)
     
     

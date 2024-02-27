@@ -107,6 +107,17 @@ class PostDetailView(detail.DetailView):
             return post
         
         
+        def delete(self, request, *args, **kwargs):
+            self.request = request
+            
+            post = self.get_object()
+            
+            if post is None:
+                messages.error(request, 'Post does not exist!')    
+                return redirect(reverse_lazy("posts:posts-list"))
+            return super().delete(request, *args, **kwargs)
+    
+    
         def get_context_data(self, **kwargs):
             context = super().get_context_data(**kwargs)
             post = context['post']
@@ -138,6 +149,10 @@ class PostUpdateView(LoginRequiredMixin, edit.UpdateView):
     def post(self, request, slug, *args, **kwargs):
         user = request.user
         post = self.get_object()
+        
+        if post is None:
+            messages.error(request, 'Post does not exist!')    
+            return redirect(reverse_lazy("posts:posts-list"))
         
         print(request.POST)
         form = UpdateForm(instance=post, data=request.POST, files=request.FILES)

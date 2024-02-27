@@ -10,3 +10,10 @@ PW - muxtar15
 
 env_w/Scripts/activate.bat 
 cd instagram_clone && source env/bin/activate && python3 manage.py runserver 
+
+docker exec -it  docker-postgres-1  psql -U vlad
+-- table detail
+\d chats_chat 
+list all databases
+\l 
+GRANT ALL PRIVILEGES ON DATABASE instagram TO vlad;

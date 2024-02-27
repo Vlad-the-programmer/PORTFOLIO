@@ -15,7 +15,7 @@ class CommentAdmin(admin.ModelAdmin):
                 ]
     list_filter = ("author__username",)
     search_fields = ['pkid', 'post__slug', 'auhtor__username', 'title', 'slug']
-    prepopulated_fields = {'slug': ('title',)}
+    # prepopulated_fields = {'slug': ('title',)}
     
     
 admin.site.register(Comment, CommentAdmin)
