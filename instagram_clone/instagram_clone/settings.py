@@ -178,7 +178,7 @@ AUTHENTICATION_BACKENDS = [
 from django.urls import reverse_lazy
 
 # All auth
-SITE_ID = 5
+SITE_ID = 2
 LOGIN_URL = reverse_lazy('users:login')
 LOGOUT_REDIRECT_URL = reverse_lazy('posts:posts-list')
 LOGIN_REDIRECT_URL = reverse_lazy('posts:posts-list')

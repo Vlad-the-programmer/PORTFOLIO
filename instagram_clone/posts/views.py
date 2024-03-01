@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
-from django.utils.text import slugify
 # Auth
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import permission_required
@@ -11,7 +10,9 @@ from django.views.generic import list, detail, edit
 
 from comments.forms import CommentCreateForm
 from comments.models import Comment
+from comments.utils import paginateComments
 from .models import Post, Tags
+from likes.models import Like
 from .forms import UpdateForm, CreateForm
 from .utils import searchPosts, postsFilter, paginatePosts
 
@@ -121,15 +122,18 @@ class PostDetailView(detail.DetailView):
         def get_context_data(self, **kwargs):
             context = super().get_context_data(**kwargs)
             post = context['post']
-            comments = Comment.objects.filter(post=post)
             
-            custom_range, page_obj = paginatePosts(self.request, comments, 5)
+            comments = Comment.objects.filter(post=post)
+            likes = Like.objects.filter(post__slug=post.slug)
+            user_like = likes.filter(author=self.request.user).first()
+            
+            custom_range, page_obj = paginateComments(self.request, comments, 5)
             
             context['comment_form'] = CommentCreateForm
             context['comments'] = comments
             context['page_obj'] = page_obj
             context['custom_range'] = custom_range
-            
+            context['user_like'] = user_like
             return context
         
  

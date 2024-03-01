@@ -10,6 +10,7 @@ defusedxml==0.7.1
 dj-rest-auth==5.0.2
 Django==5.0.2
 django-allauth==0.61.1
+django-autoslug==1.9.9
 django-countries==7.5.1
 django-crispy-forms==2.1
 django-filter==23.5

@@ -1,5 +1,15 @@
-{% extends '../base.html' %} {% block content %}
+{% extends '../base.html' %} 
 
+    {% block scripts %}
+    <!-- Function to toggle like -->
+    <script>
+      function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
+      }
+    </script>
+    {% endblock %} 
+
+{% block content %}
 <div class="container">
   <div class="row">
     <div class="col-md-8 card mb-4 mt-3 left top">
@@ -29,12 +39,25 @@
           >
         </li>
         {% comment %} {% endif %} {% endcomment %} {% endif %}
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <a
+          name="like"
+          id="like"
+          class="btn btn-primary"
+          href="{% url 'likes:like-create-delete' post_slug=post.slug %}"
+          role="button"
+        >
+          <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+        </a>
       </div>
     </div>
-    {% block sidebar %} {% include 'partials/sidebar.html' %} {% endblock
-    sidebar %}
+    {% block sidebar %} 
+        {% include 'partials/sidebar.html' %}
+    {% endblock sidebar %}
   </div>
 </div>
-{% include 'partials/comments_list.html' with form=comment_form post=post
-comments=comments %} {% include 'partials/paginate-page-navigation.html'
-page_obj=page_obj custom_range=custom_range %} {% endblock content %}
+{% include 'partials/comments_list.html' with form=comment_form post=post page_obj=page_obj comments=comments %} 
+
+{% include 'partials/paginate-page-navigation.html' with page_obj=page_obj custom_range=custom_range %} 
+
+{% endblock content %}

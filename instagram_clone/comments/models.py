@@ -42,7 +42,7 @@ class Comment(TimeStampedUUIDModel):
                                 on_delete=models.CASCADE
                             )
     post = models.ForeignKey(   
-                                settings.AUTH_USER_MODEL,
+                                'posts.Post',
                                 related_name='comment',
                                 on_delete=models.CASCADE
                             )

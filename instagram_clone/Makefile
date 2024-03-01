@@ -18,16 +18,16 @@ show-logs:
 	docker compose logs
 
 migrate:
-	docker compose exec api python3 manage.py migrate
+	docker compose exec instagram python3 manage.py migrate
 
 makemigrations:
-	docker compose exec api python3 manage.py makemigrations
+	docker compose exec instagram python3 manage.py makemigrations
 
 superuser:
-	docker compose exec api python3 manage.py createsuperuser
+	docker compose exec instagram python3 manage.py createsuperuser
 
 collectstatic:
-	docker compose exec api python3 manage.py collectstatic --no-input --clear
+	docker compose exec instagram python3 manage.py collectstatic --no-input --clear
 
 down-v:
 	docker compose down -v
@@ -39,29 +39,29 @@ estate-db:
 	docker compose exec postgres-db psql --username=admin --dbname=estate
 
 test:
-	docker compose exec api pytest -p no:warnings --cov=.
+	docker compose exec instagram pytest -p no:warnings --cov=.
 
 test-html:
-	docker compose exec api pytest -p no:warnings --cov=. --cov-report html
+	docker compose exec instagram pytest -p no:warnings --cov=. --cov-report html
 
 flake8:
-	docker compose exec api flake8 .
+	docker compose exec instagram flake8 .
 
 black-check:
-	docker compose exec api black --check --exclude=migrations .
+	docker compose exec instagram black --check --exclude=migrations .
 
 black-diff:
-	docker compose exec api black --diff --exclude=migrations .
+	docker compose exec instagram black --diff --exclude=migrations .
 
 black:
-	docker compose exec api black --exclude=migrations .
+	docker compose exec instagram black --exclude=migrations .
 
 isort-check:
-	docker compose exec api isort . --check-only --skip env --skip migrations
+	docker compose exec instagram isort . --check-only --skip env --skip migrations
 
 isort-diff:
-	docker compose exec api isort . --diff --skip env --skip migrations
+	docker compose exec instagram isort . --diff --skip env --skip migrations
 
 isort:
-	docker compose exec api isort . --skip env --skip migrations
+	docker compose exec instagram isort . --skip env --skip migrations
 
