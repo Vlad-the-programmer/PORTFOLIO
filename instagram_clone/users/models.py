@@ -84,7 +84,7 @@ class Profile(AbstractUser):
                                 )
     featured_img = models.ImageField(
                                         verbose_name=_('A profile image'),
-                                        upload_to=f'profiles/{username}', 
+                                        upload_to=f'profiles/', 
                                         default='profiles/profile_default.jpg'
                                     )
     date_joined = models.DateTimeField(auto_now_add=True, null=True)

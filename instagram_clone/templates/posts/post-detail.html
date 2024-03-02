@@ -3,8 +3,32 @@
     {% block scripts %}
     <!-- Function to toggle like -->
     <script>
-      function myFunction(x) {
+      function handleLikeClick(x) {
         x.classList.toggle("fa-thumbs-down");
+        x.addEventListener('click', async(e) => {
+          createRemoveLikeRequest();
+        })
+      }
+
+      async function createRemoveLikeRequest(){
+        console.log(`{{post.slug}}`);
+        try {
+          const response = await fetch(
+            "{% url 'likes:like-create-delete' post_slug=post.slug %}",
+            {
+              method: "POST", 
+              headers: {
+                "X-CSRF-Token": '{{ csrf_token }}',
+                "Content-Type": "application/json",
+              },
+              body: '',
+            });
+
+          const data = await response.json();
+          console.log(data);
+        } catch(e){
+          console.error("Error:", e);
+        }
       }
     </script>
     {% endblock %} 
@@ -40,15 +64,19 @@
         </li>
         {% comment %} {% endif %} {% endcomment %} {% endif %}
         <!-- Use an element to toggle between a like/dislike icon -->
-        <a
+        <form method='POST' enctype="multipart/form-data">
+          {% csrf_token %} 
+          {{ form }}
+          <a
           name="like"
           id="like"
           class="btn btn-primary"
-          href="{% url 'likes:like-create-delete' post_slug=post.slug %}"
           role="button"
-        >
-          <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+          >
+          <i onclick="handleLikeClick(this)" id="#thumb-up" class="fa fa-thumbs-up"></i>
         </a>
+        <p>{{post_likes}}</p>
+      </form>
       </div>
     </div>
     {% block sidebar %} 

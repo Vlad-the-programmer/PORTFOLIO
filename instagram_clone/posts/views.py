@@ -105,6 +105,7 @@ class PostDetailView(detail.DetailView):
                 post = get_object_or_404(Post, slug=_slug, active=True)
             except Post.DoesNotExist:
                 post = None
+            print(post)
             return post
         
         
@@ -134,6 +135,7 @@ class PostDetailView(detail.DetailView):
             context['page_obj'] = page_obj
             context['custom_range'] = custom_range
             context['user_like'] = user_like
+            context['post_likes'] = likes.count()
             return context
         
  
