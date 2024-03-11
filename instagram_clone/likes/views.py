@@ -37,12 +37,14 @@ class LikeCreateDeleteView(LoginRequiredMixin, edit.CreateView):
         return like, created
     
 
-    @csrf_exempt
+    @csrf_protect
     def post(self, request, *args, **kwargs):
         like, created = self.get_object()
 
         if created:
             like.post = Post.objects.get(slug=self.kwargs.get('post_slug', ''))
+            print(like.post.name)
+            print(self.kwargs.get('post_slug') or None)
             like.author = request.user
             like.save()
             logger.info(f"Like created by {like.author.username} \

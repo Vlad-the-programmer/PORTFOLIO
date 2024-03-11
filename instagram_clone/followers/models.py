@@ -9,12 +9,12 @@ User = get_user_model()
 
 class UserFollowing(TimeStampedUUIDModel):
 
-    user_id = models.ForeignKey(    
+    user = models.ForeignKey(    
                                 User, 
                                 related_name="following", 
                                 on_delete=models.CASCADE
                             )
-    following_user_id = models.ForeignKey(  
+    following_user = models.ForeignKey(  
                                           User, 
                                           related_name="followers",
                                           on_delete=models.CASCADE

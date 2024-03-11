@@ -16,16 +16,16 @@
           const response = await fetch(
             "{% url 'likes:like-create-delete' post_slug=post.slug %}",
             {
-              method: "POST", 
               headers: {
                 "X-CSRF-Token": '{{ csrf_token }}',
                 "Content-Type": "application/json",
               },
+              method: "POST", 
               body: '',
             });
 
-          const data = await response.json();
-          console.log(data);
+          //const data = await response.json();
+          //console.log(data);
         } catch(e){
           console.error("Error:", e);
         }

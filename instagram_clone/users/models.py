@@ -171,10 +171,11 @@ class Profile(AbstractUser):
             url = ''
         return url
 
+    @property
     def following_users_list(self):
         if self is None:
             return None
-        return self.following.all().filter(pkid=self.pkid)
+        return self.following.all().filter(user=self)
     
     def followers_list(self):
         if self is None:
