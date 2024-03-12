@@ -175,12 +175,13 @@ class Profile(AbstractUser):
     def following_users_list(self):
         if self is None:
             return None
-        return self.following.all().filter(user=self)
+        return self.following.filter(user=self)
     
+    @property
     def followers_list(self):
         if self is None:
             return None
-        return self.followers.all().filter(pkid=self.pkid)
+        return self.followers.filter(user=self)
     
     def count_followers(self):
         return self.followers.all().count()
@@ -188,6 +189,17 @@ class Profile(AbstractUser):
     def count_following(self):
         return self.followers.all().count()
     
+    
+    def is_following(self, username):
+        return self.following_users_list.filter(
+                following_user__username=username
+            ).first() is not None
+        
+    def getFollowingUser(self, username):
+        return self.following_users_list.filter(
+                following_user__username=username
+            ).first()
+        
     class Meta:
        verbose_name = _('User')
        verbose_name_plural = _('Users')

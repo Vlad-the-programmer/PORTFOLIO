@@ -31,7 +31,7 @@ class UserFollowing(TimeStampedUUIDModel):
         ordering = ["-created_at"]
 
     def __str__(self):
-        f"{self.user_id} follows {self.following_user_id}"
+        return f"{self.user.username} follows {self.following_user.username}"
         
         
     def has_chat_to_user_perms(self, request, user_to_chat_id):

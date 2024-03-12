@@ -3923,3 +3923,820 @@ Traceback (most recent call last):
 TypeError: __str__ returned non-string (type NoneType)
 2024-03-11 18:23:12,595 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
 2024-03-11 18:23:13,517 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 11:26:20,562 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 11:26:24,977 django.request WARNING  Not Found: /images/favicon.ico
+2024-03-12 11:26:30,790 django.request WARNING  Not Found: /users/login/images/favicon.ico
+2024-03-12 11:47:02,451 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 11:47:03,449 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 11:52:09,021 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 11:52:09,851 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 11:56:11,692 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/urls.py changed, reloading.
+2024-03-12 11:56:12,535 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 11:57:15,884 django.request WARNING  Not Found: /users/profile/detail/6a25e8db-673d-4693-bf79-b3f6b7c2e477/
+2024-03-12 11:57:16,014 django.request WARNING  Not Found: /favicon.ico
+2024-03-12 11:57:40,637 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 11:57:41,403 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 11:57:58,604 django.request WARNING  Not Found: /users/profile/detail/6a25e8db-673d-4693-bf79-b3f6b7c2e477/
+2024-03-12 12:03:07,828 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/views.py changed, reloading.
+2024-03-12 12:03:08,564 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:03:20,356 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/views.py changed, reloading.
+2024-03-12 12:03:21,237 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:03:34,082 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/views.py changed, reloading.
+2024-03-12 12:03:34,914 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:03:39,574 django.request WARNING  Not Found: /users/profile/detail/6a25e8db-673d-4693-bf79-b3f6b7c2e477/
+2024-03-12 12:03:59,093 django.request WARNING  Not Found: /users/profile/detail/6a25e8db-673d-4693-bf79-b3f6b7c2e477/
+2024-03-12 12:12:35,321 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/views.py changed, reloading.
+2024-03-12 12:12:36,394 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:13:17,342 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 12:13:17,515 django.request WARNING  Not Found: /users/profile/detail/6a25e8db-673d-4693-bf79-b3f6b7c2e477/images/favicon.ico
+2024-03-12 12:14:09,354 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 12:15:36,467 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 12:15:36,572 django.request WARNING  Not Found: /users/profile/detail/e1cf9159-45fd-49a9-b853-23dce81ec2cb/images/favicon.ico
+2024-03-12 12:16:07,106 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 12:16:35,489 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 12:16:36,299 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:17:34,479 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 12:17:35,229 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:23:37,534 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 12:23:38,572 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:24:27,447 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 12:24:28,582 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:26:37,791 django.request ERROR    Internal Server Error: /users/profile/detail/6a25e8db-673d-4693-bf79-b3f6b7c2e477/
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+KeyError: 'profile.is_following(profile.username)'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 196, in compile_nodelist
+    return parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 975, in do_if
+    nodelist = parser.parse(("endif",))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 960, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 893, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/smartif.py", line 182, in translate_token
+    return self.create_var(token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 896, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 698, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(profile.username)' from 'profile.is_following(profile.username)'
+2024-03-12 12:32:49,306 django.request ERROR    Internal Server Error: /users/profile/detail/6a25e8db-673d-4693-bf79-b3f6b7c2e477/
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'is_following'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 196, in compile_nodelist
+    return parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 1096, in load
+    lib = find_library(parser, name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'is_following' is not a registered tag library. Must be one of:
+account
+admin_list
+admin_modify
+admin_urls
+allauth
+cache
+countries
+crispy_forms_field
+crispy_forms_filters
+crispy_forms_tags
+crispy_forms_utils
+i18n
+jazzmin
+l10n
+log
+socialaccount
+static
+tz
+2024-03-12 12:34:55,210 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 12:34:55,987 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:34:58,938 django.request ERROR    Internal Server Error: /users/profile/detail/6a25e8db-673d-4693-bf79-b3f6b7c2e477/
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+KeyError: '{%'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 196, in compile_nodelist
+    return parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 975, in do_if
+    nodelist = parser.parse(("endif",))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 960, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 893, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/smartif.py", line 182, in translate_token
+    return self.create_var(token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 896, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 698, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '{%' from '{%'
+2024-03-12 12:43:29,295 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/views.py changed, reloading.
+2024-03-12 12:43:30,164 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:45:27,842 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/templatetags/is_following.py changed, reloading.
+2024-03-12 12:45:28,772 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:52:19,300 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 12:52:20,151 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:54:02,497 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 12:54:03,384 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:54:26,588 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 12:54:27,598 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:54:52,809 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 12:54:53,719 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 12:59:12,225 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 12:59:13,082 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:00:04,039 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:00:22,814 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:00:22,964 django.request WARNING  Not Found: /post/detail/django/images/favicon.ico
+2024-03-12 13:04:10,310 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:04:12,182 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:04:17,669 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 26, in followUser
+    'is_following': is_following_user
+UnboundLocalError: local variable 'is_following_user' referenced before assignment
+2024-03-12 13:05:00,290 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:05:01,025 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:05:02,293 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:05:02,340 django.request WARNING  Not Found: /users/follow/images/favicon.ico
+2024-03-12 13:05:18,664 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:05:18,712 django.request WARNING  Not Found: /users/unfollow/images/favicon.ico
+2024-03-12 13:05:58,976 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:06:19,663 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:38:20,003 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:38:48,510 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:38:49,246 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:38:51,991 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 77, in unFollowUser
+    print(followingUser)
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 13:39:17,974 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:39:18,695 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:39:19,484 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:39:27,201 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 77, in unFollowUser
+    print(followingUser.user.username)
+AttributeError: 'NoneType' object has no attribute 'user'
+2024-03-12 13:40:04,409 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:40:05,179 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:40:06,656 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 77, in unFollowUser
+    print(followingUser.username)
+AttributeError: 'NoneType' object has no attribute 'username'
+2024-03-12 13:40:25,412 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:40:26,333 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:40:27,911 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 77, in unFollowUser
+    print(followingUser.username or None)
+AttributeError: 'NoneType' object has no attribute 'username'
+2024-03-12 13:40:34,299 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:40:35,051 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:40:35,712 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:40:35,856 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:40:54,420 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:40:59,090 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:41:06,235 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 77, in unFollowUser
+    print(followingUser or None)
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 13:41:34,741 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 77, in unFollowUser
+    print(followingUser or None)
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 13:41:37,297 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:41:38,343 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:41:39,624 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:41:41,228 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:41:55,201 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:44:15,086 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:44:15,953 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:45:20,215 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 13:45:21,205 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:45:22,754 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:45:23,572 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:45:35,334 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:45:36,218 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:46:13,854 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:46:14,766 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:46:16,286 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 22, in followUser
+    is_following_user = currentUser.is_following(user.username)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py", line 196, in is_following
+    ).first().exists()
+AttributeError: 'UserFollowing' object has no attribute 'exists'
+2024-03-12 13:49:13,355 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:49:14,130 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:49:21,957 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 22, in followUser
+    is_following_user = currentUser.is_following(user.username)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py", line 196, in is_following
+    ).first().exists()
+AttributeError: 'UserFollowing' object has no attribute 'exists'
+2024-03-12 13:49:28,454 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 13:49:29,175 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:49:31,777 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 23, in followUser
+    print(currentUser.getFollowingUser(user.username))
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 13:51:08,751 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:51:09,652 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:51:10,966 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 23, in followUser
+    print(currentUser.getFollowingUser(user.username) or None)
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 13:52:33,372 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:52:34,304 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:52:37,456 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 23, in followUser
+    render_func = render(request,
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 326, in render
+    return nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1042, in render_value_in_context
+    value = str(value)
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 13:53:47,919 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 13:53:48,768 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:53:57,373 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 39, in followUser
+    print(currentUser.getFollowingUser(user.username))
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 13:54:39,720 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:54:40,584 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:54:41,845 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 40, in followUser
+    if followingUser.exists():
+AttributeError: 'UserFollowing' object has no attribute 'exists'
+2024-03-12 13:54:41,997 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 40, in followUser
+    if followingUser.exists():
+AttributeError: 'UserFollowing' object has no attribute 'exists'
+2024-03-12 13:55:06,835 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 13:55:07,702 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:55:10,696 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:55:17,974 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:56:11,024 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/urls.py changed, reloading.
+2024-03-12 13:56:11,827 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 13:59:18,077 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:59:22,906 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:59:32,468 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:59:45,025 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:59:49,152 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:59:52,380 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 13:59:55,275 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:00:12,423 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:00:21,290 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:04:31,754 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 14:04:32,738 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:04:39,660 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:05:12,561 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:05:16,263 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:05:28,160 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:06:52,205 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:08:55,447 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 14:08:56,300 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:09:00,542 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:09:17,468 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 14:09:18,274 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:09:19,567 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:09:30,125 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 22, in followUser
+    is_following_user = currentUser.is_following(user.username)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py", line 195, in is_following
+    print(self.following_users_list.filter(
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 14:09:59,002 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 14:10:00,005 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:10:01,425 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:10:06,837 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:10:32,263 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:10:52,292 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:11:05,386 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 14:11:06,268 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:12:39,480 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:15:54,673 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 14:15:55,531 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:16:20,384 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:16:25,315 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 77, in unFollowUser
+    print(followingUser)
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 14:17:04,160 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/models.py changed, reloading.
+2024-03-12 14:17:04,884 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:17:07,758 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 77, in unFollowUser
+    print(followingUser)
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 14:17:49,804 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/models.py changed, reloading.
+2024-03-12 14:17:50,719 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:17:52,015 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 77, in unFollowUser
+    print(followingUser)
+TypeError: __str__ returned non-string (type NoneType)
+2024-03-12 14:18:13,868 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/models.py changed, reloading.
+2024-03-12 14:18:14,683 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:18:15,854 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:18:31,623 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:19:29,292 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 14:19:30,083 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:20:21,958 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 14:20:22,955 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:20:34,087 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:21:33,493 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 14:21:34,353 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:21:37,389 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:22:18,508 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:22:38,926 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:22:44,348 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:22:47,769 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:27:57,905 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:34:20,693 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 14:34:21,524 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:34:23,003 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:49:52,040 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 14:49:52,890 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:49:54,543 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:51:01,032 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:51:38,733 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 14:51:39,603 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:51:41,151 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:52:03,471 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:52:55,275 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 14:52:56,020 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 14:52:58,581 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:53:04,910 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 14:53:11,536 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:08:38,525 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 15:08:39,257 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:08:43,715 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:10:00,145 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:10:19,306 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:10:23,335 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:10:26,587 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:10:28,346 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:10:48,683 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:10:51,062 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:36,497 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:39,634 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:41,465 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:43,945 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:45,956 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:48,063 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:49,695 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:54,680 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:56,296 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:11:57,955 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:13:29,121 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:13:54,083 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:13:56,805 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:14:44,646 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:14:51,200 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:14:57,115 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:14:58,309 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:14:59,860 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:19:38,764 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 15:19:39,644 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:19:47,018 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:19:49,809 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:19:52,860 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:22:57,415 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 15:22:58,249 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:23:02,032 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:23:06,681 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:23:27,433 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:23:38,154 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-12 15:23:38,993 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:23:41,665 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:30:20,092 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:30:21,597 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:30:23,350 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:30:27,203 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:31:18,847 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:31:33,400 django.request WARNING  Not Found: /users/logout/images/favicon.ico
+2024-03-12 15:31:57,202 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:31:59,261 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:32:01,356 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:32:08,630 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:32:12,304 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:32:18,250 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:32:51,635 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:33:39,736 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:40:25,191 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 15:40:26,047 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:40:34,088 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:40:38,168 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:40:40,048 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:41:39,936 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:41:42,505 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:42:36,550 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:43:09,226 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:43:13,116 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:43:14,735 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:44:29,031 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:44:32,262 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:46:34,070 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 15:46:34,930 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:47:41,704 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:47:43,311 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:47:47,091 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:48:39,872 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 15:48:40,844 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:50:50,725 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-12 15:50:51,489 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:50:58,101 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:51:01,456 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:51:03,120 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:51:06,064 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:51:45,124 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/context_processors.py changed, reloading.
+2024-03-12 15:51:46,136 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:53:00,244 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:55:37,109 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:56:06,791 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:56:22,109 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:57:00,268 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/context_processors.py changed, reloading.
+2024-03-12 15:57:01,258 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-12 15:57:04,037 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:57:07,339 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:59:25,315 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:59:27,985 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 15:59:59,540 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 16:00:00,906 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 16:00:26,857 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 16:00:56,469 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 24, in followUser
+    render_func = render(request,
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 196, in compile_nodelist
+    return parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 975, in do_if
+    nodelist = parser.parse(("endif",))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 481, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 698, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' - profile' from 'profile - profile'
+2024-03-12 16:01:11,817 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 16:01:24,448 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 16:01:30,521 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-12 16:01:32,735 django.request WARNING  Not Found: /media/profiles/profile_default.jpg

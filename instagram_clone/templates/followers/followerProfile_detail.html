@@ -1,0 +1,56 @@
+{% extends '../base.html' %} 
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4 mt-3 left top">
+      <img src="{{user.imageURL}}" width="50" class="rounded-circle mr-2" />
+
+      <div class="card-body">
+        <h1>{% block title %} {{ Profile }} {% endblock title %}</h1>
+        <p class="text-muted">{{ follower_profile.country }}</p>
+        <p class="card-text">{{ followingUser.get_full_name }}</p>
+        <p class="card-text">{{ followingUser.username }}</p>
+        <p class="card-text">{{ followingUser.email }}</p>
+          {{user}}
+        {% if followingUser.email == user.email %}
+        <li class="header__menuItem">
+          <a
+            href="{% url 'users:profile-delete' pk=followingUser.id %}"
+            class="btn btn-danger"
+            >Delete</a
+          >
+          <a
+            href="{% url 'users:profile-update' pk=followingUser.id %}"
+            class="btn btn-info"
+            >Update</a
+          >
+        </li>
+        {% else %} 
+        {{ is_following }}
+        Profile - {{profile}}
+        <li class="header__menuItem">
+          {% if is_following %}
+          <a
+            href="{% url 'users:unfollow-user' username=followingUser.username %}"
+            class="btn btn-danger"
+          >
+            UnFollow
+          </a>
+          {% else %}
+          <a
+            href="{% url 'users:follow-user' username=followingUser.username %}"
+            class="btn btn-info"
+          >
+            Follow
+          </a>
+          {% endif %}
+        </li>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

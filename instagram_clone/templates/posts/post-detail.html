@@ -44,10 +44,14 @@
         </a>
         {% endfor %}
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-        <p class="text-muted">{{ post.author }} | {{ post.created_at }}</p>
+        {% comment %} <p class="text-muted">{{ post.author.username }} | {{ post.created_at }}</p> {% endcomment %}
+        <li class="header__menuItem">
+          <a href="{% url 'users:profile-detail' pk=post.author.id %}" 
+          class="btn btn-danger">{{ post.author.username }} | {{ post.created_at }}
+          </a>
+        </li>
         <p class="card-text">{{ post.content | safe }}</p>
-        {% if user.is_staff %} {% comment %} {% if profile.email ==
-        post.author.email %} {% endcomment %}
+         {% if profile.email == post.author.email %} 
         <li class="btn btn-danger">
           <a
             href="{% url 'posts:post-delete' slug=post.slug %}"
@@ -62,7 +66,7 @@
             >Update</a
           >
         </li>
-        {% comment %} {% endif %} {% endcomment %} {% endif %}
+        {% endif %}
         <!-- Use an element to toggle between a like/dislike icon -->
         <form method='POST' enctype="multipart/form-data">
           {% csrf_token %} 

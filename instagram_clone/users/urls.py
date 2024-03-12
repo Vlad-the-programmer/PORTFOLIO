@@ -30,6 +30,8 @@ urlpatterns = [
                                             name='reset-password-validate'),
     path('reset-password/<uuid:pk>',  views.resetPassword, 
                                             name='resetPassword'),
-    path('follow/<str:username>',          follower_views.followUser, 
+    path('follow/<str:username>',     follower_views.followUser, 
                                             name='follow-user'),
+    path('unfollow/<str:username>',   follower_views.unFollowUser, 
+                                            name='unfollow-user'),
 ]

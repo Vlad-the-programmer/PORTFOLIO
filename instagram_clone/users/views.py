@@ -13,6 +13,8 @@ from django.utils.http import urlsafe_base64_decode
 
 from .emails_handler import send_verification_email
 from .forms import UserCreateForm, UserUpdateForm
+from . import mixins as custom_mixins
+
 
 Profile = get_user_model()
 
@@ -71,24 +73,27 @@ def activate(request, uidb64, token):
         return redirect(reverse_lazy('users:register')) 
 
 
-class ProfileDetailView(LoginRequiredMixin, detail.DetailView):
+class ProfileDetailView(custom_mixins.GetObjectMixin, detail.DetailView):
     model = Profile
     template_name = 'profile/profile_detail.html'
     context_object_name = 'profile'
+    
+    
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.info(request, "Login first!")
+            return redirect(reverse_lazy("users:login"))
+        return super().get(request, *args, **kwargs)
+        
 
-
-class ProfileDeleteView(LoginRequiredMixin, edit.DeleteView):
+class ProfileDeleteView(    
+                        LoginRequiredMixin,
+                        custom_mixins.GetObjectMixin, 
+                        edit.DeleteView
+                    ):
     template_name = 'profile/profile_delete.html'
     success_url = reverse_lazy('users:register')
     
-    def get_object(self):
-        pk_ = self.kwargs.get('pk', '')
-        
-        try:
-            profile = Profile.objects.get(pk=pk_)
-        except Profile.DoesNotExist:
-            profile = None
-        return super().get_object()
     
     def delete(self, request, *args, **kwargs):
         self.request = request
@@ -107,20 +112,15 @@ class ProfileDeleteView(LoginRequiredMixin, edit.DeleteView):
             return render(self.request, self.template_name, context)
 
 
-class ProfileUpdateView(LoginRequiredMixin, edit.UpdateView):
+class ProfileUpdateView(    
+                        LoginRequiredMixin,
+                        custom_mixins.GetObjectMixin, 
+                        edit.UpdateView
+                    ):
     template_name = 'profile/profile-update.html'
     form_class = UserUpdateForm
-    
-    
-    def get_object(self):
-        pk_ = self.kwargs.get('pk', '')
-        try:
-            profile = get_object_or_404(Profile, id=pk_)
-        except Profile.DoesNotExist:
-            profile = None
-        return profile
-    
-    
+
+
     def get_success_url(self):
         profile = self.get_object()
         success_url = reverse('users:profile-detail', kwargs={
