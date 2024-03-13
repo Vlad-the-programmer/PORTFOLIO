@@ -23,7 +23,7 @@ class UserFollowing(TimeStampedUUIDModel):
     class Meta:
         constraints = [
             models.UniqueConstraint(    
-                                    fields=['user_id','following_user_id'],
+                                    fields=['user','following_user'],
                                     name="unique_followers"
                                 )
         ]

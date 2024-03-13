@@ -1,6 +1,7 @@
 import logging
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import redirect, get_object_or_404, render
+from django.http import Http404
 # Auth
 from django.contrib.auth import get_user_model
 from django.contrib import messages
@@ -9,6 +10,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import detail, edit
 
 from .models import UserFollowing
+from posts.models import Post
+
 
 logger = logging.getLogger(__name__)
 
@@ -42,6 +45,7 @@ def followUser(request, username):
         return render_func
     
     followingUser = currentUser.getFollowingUser(user.username)
+    # followingUser = UserFollowing.objects.filter(following_user=user).first()
     print('following user')
     print(followingUser)
     if followingUser:
@@ -76,13 +80,14 @@ def unFollowUser(request, username):
                         }
                     )
     
-    
     if user.username == currentUser.username:
         messages.info(request, "You cannot follow yourself!")
         return render_func
     
     followingUser = currentUser.getFollowingUser(user.username)
-    print('Unfollow following user')
+    # followingUser = UserFollowing.objects.filter(following_user=user).first()
+    
+    print('Unfollow-following user is')
     print(followingUser)
     if followingUser:
         messages.info(request, "User unfollowed!")
@@ -91,3 +96,28 @@ def unFollowUser(request, username):
     
     messages.info(request, "Your are not following the user!")
     return render_func
+
+
+class FollowingProfileDetailView(detail.DetailView):
+    model = Profile
+    template_name = "followers/followerProfile_detail.html"
+    context_object_name = 'followingUser'
+    pk_url_kwarg = 'username'
+    
+    
+    def get_object(self):
+        username_ = self.kwargs.get('username', '')
+        
+        try:
+            profile = Profile.objects.filter(username=username_).first()
+        except Profile.DoesNotExist:
+            return Http404("User not found")
+        return profile
+    
+    
+    def get(self, request, *args, **kwargs):
+        print("Request user profile-detail ", request.user)
+        if not request.user.is_authenticated:
+            messages.info(request, "Login first!")
+            return redirect(reverse_lazy("users:login"))
+        return super().get(request, *args, **kwargs)

@@ -45,11 +45,9 @@
         {% endfor %}
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
         {% comment %} <p class="text-muted">{{ post.author.username }} | {{ post.created_at }}</p> {% endcomment %}
-        <li class="header__menuItem">
-          <a href="{% url 'users:profile-detail' pk=post.author.id %}" 
-          class="btn btn-danger">{{ post.author.username }} | {{ post.created_at }}
-          </a>
-        </li>
+        <a href="{% url 'users:following-user-profile' username=post.author.username %}" 
+        class="btn btn-danger">{{ post.author.username }} | {{ post.created_at }}
+        </a>
         <p class="card-text">{{ post.content | safe }}</p>
          {% if profile.email == post.author.email %} 
         <li class="btn btn-danger">

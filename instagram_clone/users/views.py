@@ -80,6 +80,7 @@ class ProfileDetailView(custom_mixins.GetObjectMixin, detail.DetailView):
     
     
     def get(self, request, *args, **kwargs):
+        print("Request user profile-detail ", request.user)
         if not request.user.is_authenticated:
             messages.info(request, "Login first!")
             return redirect(reverse_lazy("users:login"))

@@ -175,13 +175,13 @@ class Profile(AbstractUser):
     def following_users_list(self):
         if self is None:
             return None
-        return self.following.filter(user=self)
+        return self.following.all()
     
     @property
     def followers_list(self):
         if self is None:
             return None
-        return self.followers.filter(user=self)
+        return self.followers.all()
     
     def count_followers(self):
         return self.followers.all().count()
@@ -191,9 +191,12 @@ class Profile(AbstractUser):
     
     
     def is_following(self, username):
+        print("exists ", self.following_users_list.filter(
+                following_user__username=username
+            ).exists())
         return self.following_users_list.filter(
                 following_user__username=username
-            ).first() is not None
+            ).exists()
         
     def getFollowingUser(self, username):
         return self.following_users_list.filter(

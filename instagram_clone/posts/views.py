@@ -126,7 +126,7 @@ class PostDetailView(detail.DetailView):
             
             comments = Comment.objects.filter(post=post)
             likes = Like.objects.filter(post__slug=post.slug)
-            user_like = likes.filter(author=self.request.user).first()
+            user_like = likes.filter(author=self.request.user.pk).first()
             
             custom_range, page_obj = paginateComments(self.request, comments, 5)
             

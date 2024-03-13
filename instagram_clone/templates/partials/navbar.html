@@ -28,7 +28,6 @@
                   <li><a class="dropdown-item" href="{% url 'posts:post-create' %}">Add post</a></li>
                   {% endif %}
                   <li><a class="dropdown-item" href="{% url 'users:profile-detail' profile.id %}">Profile</a></li>
-                  {{profile.email}}
                   <li><hr class="dropdown-divider"></li>
                 </ul>
               {% endif %}

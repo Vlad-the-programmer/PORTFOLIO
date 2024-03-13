@@ -13,7 +13,6 @@
         <p class="card-text">{{ followingUser.get_full_name }}</p>
         <p class="card-text">{{ followingUser.username }}</p>
         <p class="card-text">{{ followingUser.email }}</p>
-          {{user}}
         {% if followingUser.email == user.email %}
         <li class="header__menuItem">
           <a
@@ -29,8 +28,6 @@
         </li>
         {% else %} 
         {{ is_following }}
-        Profile - {{profile}}
-        <li class="header__menuItem">
           {% if is_following %}
           <a
             href="{% url 'users:unfollow-user' username=followingUser.username %}"
@@ -46,7 +43,6 @@
             Follow
           </a>
           {% endif %}
-        </li>
         {% endif %}
       </div>
     </div>
