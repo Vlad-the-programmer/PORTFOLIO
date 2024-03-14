@@ -36,7 +36,7 @@ class UserFollowing(TimeStampedUUIDModel):
         
     def has_chat_to_user_perms(self, request, user_to_chat_id):
         if request.user.is_authenticated \
-                            and self.following_user_id == user_to_chat_id:
+                            and self.following_user == user_to_chat_id:
             return True
         return False
     

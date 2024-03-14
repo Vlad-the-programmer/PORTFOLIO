@@ -5287,3 +5287,336 @@ ValueError: Cannot assign "UUID('e1cf9159-45fd-49a9-b853-23dce81ec2cb')": "UserF
 2024-03-13 16:53:43,029 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
 2024-03-13 16:53:44,888 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
 2024-03-13 16:53:46,948 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-13 16:55:29,128 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-13 16:55:34,321 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-13 16:55:35,593 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-13 16:55:36,953 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-13 16:55:38,492 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-13 16:55:39,777 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:30:18,950 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 12:32:00,349 django.request WARNING  Not Found: /users/login/images/favicon.ico
+2024-03-14 12:32:13,518 django.request WARNING  Not Found: /images/favicon.ico
+2024-03-14 12:32:16,059 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:32:16,168 django.request WARNING  Not Found: /post/detail/django/images/favicon.ico
+2024-03-14 12:32:17,384 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:32:17,445 django.request WARNING  Not Found: /users/user-profile/images/favicon.ico
+2024-03-14 12:32:19,990 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:32:20,203 django.request WARNING  Not Found: /users/follow/images/favicon.ico
+2024-03-14 12:36:11,055 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 12:36:11,689 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 12:36:17,352 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:36:23,967 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:36:24,035 django.request WARNING  Not Found: /users/unfollow/images/favicon.ico
+2024-03-14 12:36:25,536 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:36:36,081 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:36:37,128 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:36:47,828 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:43:15,368 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 12:43:15,937 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 12:43:27,872 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:43:29,483 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:43:36,800 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:43:54,260 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:44:48,609 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 12:44:49,191 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 12:44:57,957 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:45:09,547 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:48:17,022 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 12:48:17,656 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 12:48:26,919 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:48:28,579 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:48:30,082 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:48:45,775 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 12:48:46,324 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 12:49:51,054 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 12:49:51,616 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 12:50:22,260 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:50:24,007 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:50:26,651 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:55:43,399 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 12:55:43,963 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 12:56:00,410 django.request WARNING  Not Found: /u
+2024-03-14 12:56:00,479 django.request WARNING  Not Found: /favicon.ico
+2024-03-14 12:56:16,803 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:56:19,888 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 12:56:24,259 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:04:31,550 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/models.py changed, reloading.
+2024-03-14 13:04:32,591 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:08:42,638 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:08:51,109 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:08:53,149 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:08:54,633 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 27, in followUser
+    is_following_user = UserFollowing.objects.filter(user_id=currentUser.pkid) \
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1495, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1307, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1772, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'following_user' into field. Choices are: created_at, following_user_id, following_user_id_id, id, pkid, updated_at, user_id, user_id_id
+2024-03-14 13:11:30,958 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 13:11:31,975 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:11:33,489 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 63, in followUser
+    followingUser = UserFollowing.objects.create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 677, in create
+    obj = self.model(**kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/base.py", line 543, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 284, in __set__
+    raise ValueError(
+ValueError: Cannot assign "6": "UserFollowing.user_id" must be a "Profile" instance.
+2024-03-14 13:11:58,676 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 13:11:59,665 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:12:00,792 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:12:03,592 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 44, in followUser
+    print(currentUser.following_users_list)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 379, in __repr__
+    return "<%s %r>" % (self.__class__.__name__, data)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/base.py", line 588, in __repr__
+    return "<%s: %s>" % (self.__class__.__name__, self)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/models.py", line 34, in __str__
+    return f"{self.user.username} follows {self.following_user.username}"
+AttributeError: 'UserFollowing' object has no attribute 'user'
+2024-03-14 13:12:29,697 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/models.py changed, reloading.
+2024-03-14 13:12:30,764 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:12:48,035 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 13:12:48,940 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:12:50,812 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:12:54,975 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:12:58,258 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:12:59,905 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:13:02,001 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:17:45,295 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:19:41,342 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 13:19:42,343 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:28:28,374 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-14 13:28:29,508 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:28:53,815 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:28:55,419 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:28:56,817 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column followers_userfollowing.user_id does not exist
+LINE 1: ...CT 1 AS "a" FROM "followers_userfollowing" WHERE ("followers...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "followers_userfollowing.user_id_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 29, in followUser
+    ).exists()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1288, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 659, in has_results
+    return compiler.has_results()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column followers_userfollowing.user_id does not exist
+LINE 1: ...CT 1 AS "a" FROM "followers_userfollowing" WHERE ("followers...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "followers_userfollowing.user_id_id".
+
+2024-03-14 13:29:25,581 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-14 13:29:26,622 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 13:29:34,938 django.request WARNING  Not Found: /media/profiles/profile_default.jpg
+2024-03-14 13:29:36,348 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column followers_userfollowing.following_user_id does not exist
+LINE 1: ..._userfollowing" INNER JOIN "users_profile" T3 ON ("followers...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "followers_userfollowing.following_user_id_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 26, in followUser
+    is_following_user = currentUser.is_following(user.username)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py", line 196, in is_following
+    ).exists())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1288, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 659, in has_results
+    return compiler.has_results()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column followers_userfollowing.following_user_id does not exist
+LINE 1: ..._userfollowing" INNER JOIN "users_profile" T3 ON ("followers...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "followers_userfollowing.following_user_id_id".
+
+2024-03-14 16:15:34,484 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-14 16:15:35,294 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 16:15:38,897 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column followers_userfollowing.following_user_id does not exist
+LINE 1: ..._userfollowing" INNER JOIN "users_profile" T3 ON ("followers...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "followers_userfollowing.following_user_id_id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 26, in followUser
+    is_following_user = currentUser.is_following(user.username)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py", line 196, in is_following
+    ).exists())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1288, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 659, in has_results
+    return compiler.has_results()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column followers_userfollowing.following_user_id does not exist
+LINE 1: ..._userfollowing" INNER JOIN "users_profile" T3 ON ("followers...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "followers_userfollowing.following_user_id_id".
+
+2024-03-14 16:27:26,379 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 16:28:21,271 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-14 16:29:24,274 users.signals INFO     admin has email admin@gmail.com's active and confirm. email is sent
+2024-03-14 16:29:30,821 django.request WARNING  Not Found: /users/register/images/favicon.ico
+2024-03-14 16:30:54,749 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:30:58,545 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:31:02,215 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:31:04,214 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:31:06,670 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:31:28,966 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:32:16,782 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:32:17,851 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:33:34,521 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:33:39,101 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:33:45,016 django.request WARNING  Not Found: /post/create/images/favicon.ico
+2024-03-14 16:33:59,253 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:34:41,346 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:34:43,104 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:34:48,584 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:34:52,860 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:35:22,770 django.request WARNING  Not Found: /users/profile/detail/b7a70ec2-5cb0-494b-a370-d7632493692e/images/favicon.ico
+2024-03-14 16:35:25,535 django.request WARNING  Not Found: /users/logout/images/favicon.ico
+2024-03-14 16:37:20,760 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:37:24,244 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:37:26,224 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:37:32,409 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-14 16:38:05,869 users.signals INFO     vkook has email vladyslavklymchuk1@gmail.com's active and confirm. email is sent
+2024-03-14 16:38:31,174 django.request ERROR    Internal Server Error: /users/follow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 26, in followUser
+    is_following_user = currentUser.is_following(user.username)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py", line 197, in is_following
+    return self.following_users_list.filter(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 452, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+2024-03-14 16:38:49,334 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-14 16:38:50,007 django.utils.autoreload INFO     Watching for file changes with StatReloader

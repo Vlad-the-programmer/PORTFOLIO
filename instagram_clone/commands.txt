@@ -16,4 +16,10 @@ docker exec -it  docker-postgres-1  psql -U vlad
 \d chats_chat 
 list all databases
 \l 
+
+-- do not connect to the database in psql with \c instagram
+drop databases instagram;
+create databases instagram;
 GRANT ALL PRIVILEGES ON DATABASE instagram TO vlad;
+
+select * from followers_userfollowing;
