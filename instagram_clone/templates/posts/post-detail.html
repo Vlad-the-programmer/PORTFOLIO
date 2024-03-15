@@ -17,11 +17,11 @@
             "{% url 'likes:like-create-delete' post_slug=post.slug %}",
             {
               headers: {
-                "X-CSRF-Token": '{{ csrf_token }}',
+                "X-CSRFToken": '{{ csrf_token }}',
                 "Content-Type": "application/json",
               },
               method: "POST", 
-              body: '',
+              body: "",
             });
 
           //const data = await response.json();
@@ -66,9 +66,9 @@
         </li>
         {% endif %}
         <!-- Use an element to toggle between a like/dislike icon -->
-        <form method='POST' enctype="multipart/form-data">
+        <form method='POST' action="">
           {% csrf_token %} 
-          {{ form }}
+          {% comment %} {{ form }} {% endcomment %}
           <a
           name="like"
           id="like"

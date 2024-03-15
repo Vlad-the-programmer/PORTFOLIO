@@ -15,6 +15,7 @@ from .models import Post, Tags
 from likes.models import Like
 from .forms import UpdateForm, CreateForm
 from .utils import searchPosts, postsFilter, paginatePosts
+from . import mixins
 
 
 class PostsListView(list.ListView):
@@ -93,20 +94,13 @@ class CreatePostView(LoginRequiredMixin, edit.CreateView):
         return context
     
       
-class PostDetailView(detail.DetailView):
+class PostDetailView(   
+                        mixins.GetPostObjectMixin,
+                        detail.DetailView
+                    ):
         model = Post
         template_name = 'posts/post-detail.html'
         slug_url_kwarg = 'slug'
-        
-        
-        def get_object(self):
-            _slug = self.kwargs.get('slug', '')
-            try:
-                post = get_object_or_404(Post, slug=_slug, active=True)
-            except Post.DoesNotExist:
-                post = None
-            print(post)
-            return post
         
         
         def delete(self, request, *args, **kwargs):
@@ -140,17 +134,14 @@ class PostDetailView(detail.DetailView):
         
  
 @method_decorator(permission_required("post.update", raise_exception=True), name='dispatch')       
-class PostUpdateView(LoginRequiredMixin, edit.UpdateView):
+class PostUpdateView(   
+                        LoginRequiredMixin,  
+                        mixins.GetPostObjectMixin, 
+                        edit.UpdateView
+                    ):
     template_name = 'posts/post_create.html'
     form_class = UpdateForm
     
-    def get_object(self):
-        _slug = self.kwargs.get('slug', '')
-        try:
-            post = get_object_or_404(Post, slug=_slug, active=True)
-        except Post.DoesNotExist:
-            post = None
-        return post
     
     def post(self, request, slug, *args, **kwargs):
         user = request.user
@@ -193,21 +184,19 @@ class PostUpdateView(LoginRequiredMixin, edit.UpdateView):
         
 
 @method_decorator(permission_required("post.delete", raise_exception=True), name='dispatch')
-class PostDeleteView(LoginRequiredMixin, edit.DeleteView):
+class PostDeleteView(   
+                        LoginRequiredMixin,   
+                        mixins.GetPostObjectMixin,
+                        edit.DeleteView
+                    ):
     template_name = 'posts/post_delete.html'
     success_url = reverse_lazy('posts:posts-list')
     
-    def get_object(self):
-        _slug = self.kwargs.get('slug', '')
-        try:
-            post = get_object_or_404(Post, slug=_slug, active=True)
-        except Post.DoesNotExist:
-            post = None
-        return post
     
     def delete(self, request, *args, **kwargs):
         self.request = request
         return super().delete(request, *args, **kwargs)
+        
         
     def form_valid(self, form):
         post = self.get_object()

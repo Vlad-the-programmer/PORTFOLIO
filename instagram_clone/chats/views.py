@@ -10,7 +10,7 @@ from django.views.generic import detail, edit, list
 
 from .forms import MessageCreateUpdateForm
 from .models import Chat, Message
-
+from . import mixins
 
 
 logger = logging.getLogger(__name__)
@@ -38,19 +38,15 @@ class ChatListView(LoginRequiredMixin, list.ListView):
         return context
     
     
-class ChatDetailView(LoginRequiredMixin, detail.DetailView):
+class ChatDetailView(   
+                        LoginRequiredMixin,
+                        mixins.GetChatObjectMixin,
+                        detail.DetailView
+                    ):
     model = Chat
     template_name = 'chats/chat-detail.html'
     context_object_name = 'chat'
     slug_field = 'chat_slug'
-    
-    def get_object(self):
-        slug_ = self.kwargs.get(self.slug_field, '')
-        try:
-            chat = get_object_or_404(Chat, slug=slug_)
-        except Chat.DoesNotExist:
-            chat = None
-        return chat
     
     
     def get(self, request, *args, **kwargs):
@@ -104,20 +100,16 @@ class CreateChatView(LoginRequiredMixin, edit.CreateView):
     #     return redirect(self.get_success_url())
       
       
-class ChatDeleteView(LoginRequiredMixin, edit.DeleteView):
+class ChatDeleteView(   
+                        LoginRequiredMixin, 
+                        mixins.GetChatObjectMixin,
+                        edit.DeleteView
+                    ):
     model = Chat
     context_object_name = 'chat'
     template_name = 'chats/chats-list.html'
     
-    def get_object(self):
-        _slug = self.kwargs.get('chat_slug', '')
-        try:
-            chat = get_object_or_404(Chat, slug=_slug)
-        except Chat.DoesNotExist:
-            chat = None
-        return chat
-    
-    
+
     def delete(self, request, *args, **kwargs):
         self.request = request
         
@@ -171,19 +163,14 @@ class MessageCreateView(LoginRequiredMixin, edit.CreateView):
     #     return message.chat.get_absolute_url()
         
         
-class MessageUpdateView(LoginRequiredMixin, edit.UpdateView):
+class MessageUpdateView(    
+                            LoginRequiredMixin,
+                            mixins.GetMessageObjectMixin,
+                            edit.UpdateView
+                        ):
     template_name = 'chats/chat-detail.html'
     context_object_name = 'message'
     form_class = MessageCreateUpdateForm
-    
-    
-    def get_object(self):
-        _slug = self.kwargs.get('slug', '')
-        try:
-            message = get_object_or_404(Message, slug=_slug)
-        except Message.DoesNotExist:
-            message = None
-        return message
     
     
     def post(self, request, slug, *args, **kwargs):
@@ -228,18 +215,14 @@ class MessageUpdateView(LoginRequiredMixin, edit.UpdateView):
         return message.chat.get_absolute_url()
         
 
-class MessageDeleteView(LoginRequiredMixin, edit.DeleteView):
+class MessageDeleteView(    
+                            LoginRequiredMixin,
+                            mixins.GetMessageObjectMixin, 
+                            edit.DeleteView
+                        ):
     model = Message
     context_object_name = 'message'
     template_name = 'chats/chat-detail.html'
-    
-    def get_object(self):
-        _pk = self.kwargs.get('pk', '')
-        try:
-            message = get_object_or_404(Message, id=_pk)
-        except Message.DoesNotExist:
-            message = None
-        return message
     
     
     def delete(self, request, *args, **kwargs):

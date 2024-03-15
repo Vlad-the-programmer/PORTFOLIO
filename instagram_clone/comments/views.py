@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, render
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from django.views.generic import edit
@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Comment
 from posts.models import Post
 from .forms import CommentCreateForm, CommentUpdateForm
-
+from . import mixins
 
 class CommentCreateView(LoginRequiredMixin, edit.CreateView):
     model = Comment
@@ -33,12 +33,8 @@ class CommentCreateView(LoginRequiredMixin, edit.CreateView):
             
             messages.success(request, 'Comment added!')
             return redirect(comment.get_absolute_url())
-        
-        context = {}
-        # context['post'] = post 
-        # context['form'] = self.form_class
-        # context['comments'] = Comment.objects.filter(post=post)
-        return redirect(reverse_lazy('comments:comment-create'))
+ 
+        return redirect(post.get_absolute_url())
     
     
     def form_invalid(self, form):
@@ -57,19 +53,13 @@ class CommentCreateView(LoginRequiredMixin, edit.CreateView):
        return context
    
    
-class CommentUpdateView(LoginRequiredMixin, edit.UpdateView):
+class CommentUpdateView(    
+                            LoginRequiredMixin, 
+                            mixins.GetCommentObjectMixin,
+                            edit.UpdateView
+                        ):
     template_name = 'comments/comment_update.html'
     form_class = CommentUpdateForm
-    
-    
-    def get_object(self):
-        pk_ = self.kwargs.get('pk', '')
-        try:
-            comment = get_object_or_404(Comment, pk=pk_)
-        except Comment.DoesNotExist:
-            comment = None
-
-        return comment
     
     
     def post(self, request, *args, **kwargs):
@@ -86,7 +76,7 @@ class CommentUpdateView(LoginRequiredMixin, edit.UpdateView):
             return redirect(comment.get_absolute_url())
         
         return redirect(reverse('comments:comment-update', kwargs={
-                                                            'pk': comment.pk
+                                                            'pk': comment.id
                                                         }
                                 )
                         )
@@ -96,7 +86,7 @@ class CommentUpdateView(LoginRequiredMixin, edit.UpdateView):
         comment = self.get_object()
         messages.error(self.request, 'Invalid data!')
         return redirect(reverse('comments:comment-update', kwargs={
-                                                            'pk': comment.pk
+                                                            'pk': comment.id
                                                         }
                                 )
                         )
@@ -113,18 +103,12 @@ class CommentUpdateView(LoginRequiredMixin, edit.UpdateView):
        return context
    
 
-class CommentDeleteView(LoginRequiredMixin, edit.DeleteView):
+class CommentDeleteView(    
+                            LoginRequiredMixin, 
+                            mixins.GetCommentObjectMixin,
+                            edit.DeleteView
+                        ):
     template_name = 'comments/comment_delete.html'
-    
-    
-    def get_object(self):
-        pk_ = self.kwargs.get('pk', '')
-        try:
-            comment = get_object_or_404(Comment, pk=pk_)
-        except Comment.DoesNotExist:
-            comment = None
-        
-        return comment
         
         
     def post(self, request, *args, **kwargs):
@@ -137,7 +121,7 @@ class CommentDeleteView(LoginRequiredMixin, edit.DeleteView):
             return redirect(comment.get_absolute_url())
         
         return redirect('comments:comment-delete', kwargs={
-                                                            'pk': comment.pk
+                                                            'pk': comment.id
                                                         }
                         )
             
