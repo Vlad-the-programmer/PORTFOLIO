@@ -6834,3 +6834,350 @@ AttributeError: 'NoneType' object has no attribute 'delete'
 2024-03-15 16:13:45,105 likes.views  INFO     Like created by admin                                 for post Django
 2024-03-15 16:15:31,887 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
 2024-03-15 16:15:33,090 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 13:53:49,207 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 13:54:26,682 jazzmin.templatetags.jazzmin WARNING  avatar field must be an ImageField/URLField on the user model, or a callable
+2024-03-16 13:54:29,606 django.request WARNING  Not Found: /images/favicon.ico
+2024-03-16 13:54:33,292 django.request WARNING  Not Found: /users/logout/images/favicon.ico
+2024-03-16 13:54:37,463 django.request WARNING  Not Found: /post/detail/django/images/favicon.ico
+2024-03-16 13:54:44,737 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 72, in post
+    like.delete()
+AttributeError: 'NoneType' object has no attribute 'delete'
+2024-03-16 13:56:50,941 likes.views  INFO     Like created by admin                                 for post Django
+2024-03-16 13:57:02,533 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 72, in post
+    like.delete()
+AttributeError: 'NoneType' object has no attribute 'delete'
+2024-03-16 13:57:02,535 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 72, in post
+    like.delete()
+AttributeError: 'NoneType' object has no attribute 'delete'
+2024-03-16 13:57:02,552 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 72, in post
+    like.delete()
+AttributeError: 'NoneType' object has no attribute 'delete'
+2024-03-16 13:57:21,090 likes.views  INFO     Like created by admin                                 for post Django
+2024-03-16 13:57:37,480 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 72, in post
+    like.delete()
+AttributeError: 'NoneType' object has no attribute 'delete'
+2024-03-16 13:57:37,501 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 72, in post
+    like.delete()
+AttributeError: 'NoneType' object has no attribute 'delete'
+2024-03-16 13:57:37,512 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 72, in post
+    like.delete()
+AttributeError: 'NoneType' object has no attribute 'delete'
+2024-03-16 14:08:22,373 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 14:08:22,913 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 14:08:46,805 likes.views  INFO     Like created by admin                                     for post Django
+2024-03-16 14:09:40,918 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 14:09:41,459 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 14:16:22,030 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 14:16:22,584 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 14:17:07,348 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 14:17:07,367 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 14:17:07,372 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 14:18:52,070 likes.views  INFO     Like created by admin                                     for post Django
+2024-03-16 14:25:36,885 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 14:25:36,907 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 14:25:36,920 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 14:30:43,257 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 14:30:43,881 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 14:31:12,607 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 15:15:41,718 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 15:16:27,018 django.request WARNING  Not Found: /post/detail/django/images/favicon.ico
+2024-03-16 15:56:09,560 likes.views  INFO     Like created by admin                                     for post Django
+2024-03-16 16:10:12,582 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 16:10:12,584 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 16:10:12,603 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 16:14:42,265 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 16:14:42,844 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 16:15:01,608 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 78, in post
+    return redirect(reverse("posts:post-detail", {
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 30, in reverse
+    resolver = get_resolver(urlconf)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 111, in get_resolver
+    return _get_cached_resolver(urlconf)
+TypeError: unhashable type: 'dict'
+2024-03-16 16:15:32,344 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 16:15:32,853 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 16:17:43,882 likes.views  INFO     Like created by admin                                     for post Django
+2024-03-16 16:20:53,451 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 16:20:53,985 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 16:23:25,245 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 16:23:25,831 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 16:29:42,441 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 16:29:43,091 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-16 16:31:06,004 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-16 16:31:06,601 django.utils.autoreload INFO     Watching for file changes with StatReloader

@@ -4,8 +4,13 @@
     <!-- Function to toggle like -->
     <script>
       function handleLikeClick(x) {
-        x.classList.toggle("fa-thumbs-down");
-        x.addEventListener('click', async(e) => {
+        console.log(x.classList[1])
+        if(x.classList[1] == "fa-thumbs-up"){
+          x.classList.toggle("fa-thumbs-down");
+        } else {
+          x.classList.toggle("fa-thumbs-up");
+        }
+        x.addEventListener('click', (e) => {
           createRemoveLikeRequest();
         })
       }
@@ -24,8 +29,6 @@
               body: "",
             });
 
-          //const data = await response.json();
-          //console.log(data);
         } catch(e){
           console.error("Error:", e);
         }

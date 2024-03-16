@@ -51,45 +51,67 @@ class LikeCreateDeleteView(LoginRequiredMixin, edit.CreateView):
             created = True
             like = Like.objects.create(post=post, author=self.request.user)
         
-        return like, created
+        return like, created, post
     
     
     def post(self, request, *args, **kwargs):
         self.request = request
-        like, created = self.get_object()
+        like, created, post = self.get_object()
         print("Created", created)
-        if created:
-            like.post = Post.objects.get(slug=self.kwargs.get('post_slug', ''))
-            print("Create like post: ", like.post.title)
-            print("Post slug ", self.kwargs.get('post_slug') or None)
-            like.author = request.user
-            like.save()
-            logger.info(f"Like created by {like.author.username} \
-                                for post {like.post.title}"
-                        )
-            return redirect(self.get_success_url())
-        else:
-            like.delete()
-            messages.success(request, f"Like deleted for {like.post.title}")
+        print("Request data ", request.POST)
+        
+        if like is not None:
+            if created:
+                print("Create like post: ", like.post.title)
+                print("Post slug ", self.kwargs.get('post_slug') or None)
+                like.post = post
+                like.author = request.user
+                like.save()
+                logger.info(f"Like created by {like.author.username} \
+                                    for post {like.post.title}"
+                            )
+                return redirect(self.get_success_url())
+            else:
+                like.delete()
+                messages.success(request, f"Like deleted for {like.post.title}")
+                return redirect(self.get_success_url())
             
-        return redirect(self.get_success_url())
+        return redirect(reverse("posts:post-detail", kwargs={
+                                                            'slug': post.slug
+                                                    }
+                                )
+                        )
+    \
+    def form_valid(self, form):
+        like, created, _ = self.get_object()
+        print("Form ", form)
+        if created:
+            logger.info(f"Like created by {like.author.username} \
+                                        for post {like.post.title}"
+                        )
+        else:
+            logger.info(f"Like deleted by {like.author.username} \
+                                        for post {like.post.title}"
+                        )
+        
+        return self.get_success_url()
     
     
     def get_success_url(self):
-        like, _ = self.get_object()
-        return like.post.get_absolute_url()
+        like, _, post = self.get_object()
+        return post.get_absolute_url()
     
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         _slug = self.kwargs.get('post_slug', '')
         
-        context['post'] = Post.objects.get(slug=_slug)
-        post = context['post']
+        like, _, post = self.get_object()
+        context['post'] = post
         
         comments = Comment.objects.filter(post=post)
-        likes = Like.objects.filter(post__slug=post.slug)
-        user_like = likes.filter(author=self.request.user.pk).first()
+        likes = Like.objects.filter(post__slug=post.slug).all()
+        user_like = like
         
         custom_range, page_obj = paginateComments(self.request, comments, 5)
         
