@@ -25,3 +25,26 @@ class Like(TimeStampedUUIDModel):
         verbose_name = _("Like")
         verbose_name_plural = _("Likes")
         ordering = ['-created_at']
+        
+        
+class Dislike(TimeStampedUUIDModel):
+    author = models.ForeignKey( 
+                                settings.AUTH_USER_MODEL,
+                                related_name='given_dislikes',
+                                on_delete=models.CASCADE
+                            )
+    post = models.ForeignKey( 
+                                "posts.Post",
+                                related_name='post_dislikes',
+                                on_delete=models.CASCADE
+                            )
+    
+    
+    def __str__(self):
+        return f"For post: {self.post.slug} given by {self.author.username}"
+
+
+    class Meta:
+        verbose_name = _("Dislike")
+        verbose_name_plural = _("Dislikes")
+        ordering = ['-created_at']

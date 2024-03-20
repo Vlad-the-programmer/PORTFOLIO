@@ -7181,3 +7181,58 @@ TypeError: unhashable type: 'dict'
 2024-03-16 16:29:43,091 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2024-03-16 16:31:06,004 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
 2024-03-16 16:31:06,601 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 14:46:22,167 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 14:46:29,016 django.request WARNING  Not Found: /post/detail/django/images/favicon.ico
+2024-03-20 14:57:30,393 likes.views  INFO     Like created by admin                                     for post Django
+2024-03-20 14:59:32,151 likes.views  INFO     Like created by admin                                     for post Django
+2024-03-20 15:03:53,314 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 15:03:53,871 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:04:18,440 likes.views  INFO     Like created by admin                                     for post Django
+2024-03-20 15:08:56,319 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 15:08:56,882 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:25:32,752 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-20 15:25:33,297 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:25:45,888 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-20 15:25:46,396 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:38:29,963 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:38:51,623 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 15:38:52,117 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:39:11,895 likes.views  INFO     Dislike created by admin                                 for post Django
+2024-03-20 15:39:29,375 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 15:39:29,957 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:40:16,323 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 15:40:16,967 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:43:35,359 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 15:43:35,942 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:46:10,740 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 15:46:11,350 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:53:51,878 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 15:53:52,527 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 15:53:57,252 likes.views  INFO     Like created by admin                                 for post Django
+2024-03-20 15:54:07,777 likes.views  INFO     Dislike created by admin                                 for post Django
+2024-03-20 16:02:07,964 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 16:02:08,488 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 16:03:39,871 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 16:03:40,461 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 16:05:54,560 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 16:05:55,157 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 16:05:59,536 likes.views  INFO     Dislike created by admin                                 for post Django
+2024-03-20 16:06:58,028 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 16:06:58,609 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 16:07:05,137 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 16:07:05,679 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 16:13:52,110 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 16:13:52,712 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 16:14:12,223 likes.views  INFO     Dislike created by admin                                 for post Django
+2024-03-20 16:15:46,538 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 16:15:47,143 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 16:16:20,211 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 16:16:20,763 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-20 16:21:27,792 django.request WARNING  Not Found: /users/user-profile/images/favicon.ico
+2024-03-20 16:21:31,295 django.request WARNING  Not Found: /users/logout/images/favicon.ico
+2024-03-20 16:21:33,775 django.request WARNING  Not Found: /images/favicon.ico
+2024-03-20 16:21:37,694 django.request WARNING  Not Found: /users/login/images/favicon.ico
+2024-03-20 16:22:33,709 django.request WARNING  Not Found: /users/follow/images/favicon.ico
+2024-03-20 16:23:05,109 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-20 16:26:25,402 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-20 16:26:26,363 django.utils.autoreload INFO     Watching for file changes with StatReloader

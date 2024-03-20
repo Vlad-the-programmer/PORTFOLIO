@@ -4,35 +4,47 @@
     <!-- Function to toggle like -->
     <script>
       function handleLikeClick(x) {
-        console.log(x.classList[1])
-        if(x.classList[1] == "fa-thumbs-up"){
-          x.classList.toggle("fa-thumbs-down");
-        } else {
-          x.classList.toggle("fa-thumbs-up");
-        }
         x.addEventListener('click', (e) => {
-          createRemoveLikeRequest();
+          console.log(`{{post.slug}}`);
+          try {
+            const response = fetch(
+              "{% url 'likes:like-create' post_slug=post.slug %}",
+              {
+                headers: {
+                  "X-CSRFToken": '{{ csrf_token }}',
+                  "Content-Type": "application/json",
+                },
+                method: "POST", 
+                body: "",
+              });
+
+          } catch(e){
+            console.error("Error:", e);
+          }
+        })
+      }
+      
+      function handleDislikeClick(x) {
+        x.addEventListener('click', (e) => {
+          console.log(`{{post.slug}}`);
+          try {
+            const response = fetch(
+              "{% url 'likes:dislike-create' post_slug=post.slug %}",
+              {
+                headers: {
+                  "X-CSRFToken": '{{ csrf_token }}',
+                  "Content-Type": "application/json",
+                },
+                method: "POST", 
+                body: "",
+              });
+
+          } catch(e){
+            console.error("Error:", e);
+          }
         })
       }
 
-      async function createRemoveLikeRequest(){
-        console.log(`{{post.slug}}`);
-        try {
-          const response = await fetch(
-            "{% url 'likes:like-create-delete' post_slug=post.slug %}",
-            {
-              headers: {
-                "X-CSRFToken": '{{ csrf_token }}',
-                "Content-Type": "application/json",
-              },
-              method: "POST", 
-              body: "",
-            });
-
-        } catch(e){
-          console.error("Error:", e);
-        }
-      }
     </script>
     {% endblock %} 
 
@@ -69,9 +81,9 @@
         </li>
         {% endif %}
         <!-- Use an element to toggle between a like/dislike icon -->
-        <form method='POST' action="">
-          {% csrf_token %} 
-          {% comment %} {{ form }} {% endcomment %}
+        {% comment %} <form method='POST' action="">
+          {% csrf_token %}  {% endcomment %}
+        <div class="">
           <a
           name="like"
           id="like"
@@ -81,7 +93,17 @@
           <i onclick="handleLikeClick(this)" id="#thumb-up" class="fa fa-thumbs-up"></i>
         </a>
         <p>{{post_likes}}</p>
-      </form>
+        <a
+          name="dislike"
+          id="dislike"
+          class="btn btn-primary"
+          role="button"
+          >
+          <i onclick="handleDislikeClick(this)" id="#thumb-down" class="fa fa-thumbs-down"></i>
+        </a>
+        <p>{{post_dislikes}}</p>
+      </div>
+      {% comment %} </form> {% endcomment %}
       </div>
     </div>
     {% block sidebar %} 
