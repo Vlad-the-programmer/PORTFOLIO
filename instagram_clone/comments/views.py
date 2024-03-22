@@ -8,8 +8,12 @@ from .models import Comment
 from posts.models import Post
 from .forms import CommentCreateForm, CommentUpdateForm
 from . import mixins
+from common import mixins as common_mixins
 
-class CommentCreateView(LoginRequiredMixin, edit.CreateView):
+
+class CommentCreateView(LoginRequiredMixin,
+                        common_mixins.LoginRequiredMixin,
+                        edit.CreateView):
     model = Comment
     template_name = 'posts/post-detail.html'
     form_class = CommentCreateForm
@@ -106,6 +110,7 @@ class CommentUpdateView(
 class CommentDeleteView(    
                             LoginRequiredMixin, 
                             mixins.GetCommentObjectMixin,
+                            common_mixins.LoginRequiredMixin,
                             edit.DeleteView
                         ):
     template_name = 'comments/comment_delete.html'

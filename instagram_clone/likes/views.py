@@ -11,23 +11,23 @@ from django.views.generic import edit
 
 from .models import Like, Dislike
 from posts.models import Post
-from .forms import LikeCreateDeleteForm
-from comments.models import Comment
-from comments.utils import paginateComments
-from comments.forms import CommentCreateForm
+from common import mixins as common_mixins
+
 
 logger = logging.getLogger(__name__)
 
 Profile = get_user_model()
 
 
-class LikeCreateView(LoginRequiredMixin, edit.CreateView):
+class LikeCreateView(LoginRequiredMixin,
+                     common_mixins.LoginRequiredMixin,
+                     edit.CreateView):
     model = Like
     slug_url_kwarg = 'post_slug'
     context_object_name = 'like'
     template_name = 'posts/post-detail.html'
     # form_class = LikeCreateDeleteForm
-    
+
     
     def get_object(self):
         try:
@@ -50,6 +50,7 @@ class LikeCreateView(LoginRequiredMixin, edit.CreateView):
     
     def post(self, request, *args, **kwargs):
         self.request = request
+        
         like, created, post = self.get_object()
         print("Created", created)
         
@@ -94,7 +95,9 @@ class LikeCreateView(LoginRequiredMixin, edit.CreateView):
         return context
 
 
-class DislikeCreateView(LoginRequiredMixin, edit.DeleteView):
+class DislikeCreateView(LoginRequiredMixin, 
+                        common_mixins.LoginRequiredMixin,
+                        edit.DeleteView):
     model = Dislike
     slug_url_kwarg = 'post_slug'
     context_object_name = 'dislike'

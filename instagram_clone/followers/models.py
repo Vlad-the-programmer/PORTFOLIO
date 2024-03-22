@@ -25,7 +25,7 @@ class UserFollowing(TimeStampedUUIDModel):
             models.UniqueConstraint(    
                                     fields=['user','following_user'],
                                     name="unique_followers"
-                                )
+                                ),
         ]
 
         ordering = ["-created_at"]

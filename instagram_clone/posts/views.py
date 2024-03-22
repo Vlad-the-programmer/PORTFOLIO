@@ -16,6 +16,7 @@ from likes.models import Like
 from .forms import UpdateForm, CreateForm
 from .utils import searchPosts, postsFilter, paginatePosts
 from . import mixins
+from common import mixins as common_mixins
 
 
 class PostsListView(list.ListView):
@@ -58,7 +59,10 @@ class PostsListView(list.ListView):
     
     
 @method_decorator(permission_required("post.add", raise_exception=True), name='dispatch')
-class CreatePostView(LoginRequiredMixin, edit.CreateView):
+class CreatePostView(LoginRequiredMixin, 
+                     common_mixins.LoginRequiredMixin,
+                     edit.CreateView
+                    ):
     model = Post
     form_class = CreateForm
     template_name = 'posts/post_create.html'
@@ -137,6 +141,7 @@ class PostDetailView(
 class PostUpdateView(   
                         LoginRequiredMixin,  
                         mixins.GetPostObjectMixin, 
+                        common_mixins.LoginRequiredMixin,
                         edit.UpdateView
                     ):
     template_name = 'posts/post_create.html'
@@ -187,6 +192,7 @@ class PostUpdateView(
 class PostDeleteView(   
                         LoginRequiredMixin,   
                         mixins.GetPostObjectMixin,
+                        common_mixins.LoginRequiredMixin,
                         edit.DeleteView
                     ):
     template_name = 'posts/post_delete.html'

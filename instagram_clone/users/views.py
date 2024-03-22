@@ -14,6 +14,7 @@ from django.utils.http import urlsafe_base64_decode
 from .emails_handler import send_verification_email
 from .forms import UserCreateForm, UserUpdateForm
 from . import mixins as custom_mixins
+from common import mixins as common_mixins
 
 
 Profile = get_user_model()
@@ -73,23 +74,19 @@ def activate(request, uidb64, token):
         return redirect(reverse_lazy('users:register')) 
 
 
-class ProfileDetailView(custom_mixins.GetObjectMixin, detail.DetailView):
+class ProfileDetailView(custom_mixins.GetProfileObjectMixin,
+                        common_mixins.LoginRequiredMixin,
+                        detail.DetailView
+                    ):
     model = Profile
     template_name = 'profile/profile_detail.html'
     context_object_name = 'profile'
-    
-    
-    def get(self, request, *args, **kwargs):
-        print("Request user profile-detail ", request.user)
-        if not request.user.is_authenticated:
-            messages.info(request, "Login first!")
-            return redirect(reverse_lazy("users:login"))
-        return super().get(request, *args, **kwargs)
         
 
 class ProfileDeleteView(    
                         LoginRequiredMixin,
-                        custom_mixins.GetObjectMixin, 
+                        custom_mixins.GetProfileObjectMixin, 
+                        common_mixins.LoginRequiredMixin,
                         edit.DeleteView
                     ):
     template_name = 'profile/profile_delete.html'
@@ -115,7 +112,8 @@ class ProfileDeleteView(
 
 class ProfileUpdateView(    
                         LoginRequiredMixin,
-                        custom_mixins.GetObjectMixin, 
+                        custom_mixins.GetProfileObjectMixin, 
+                        common_mixins.LoginRequiredMixin,
                         edit.UpdateView
                     ):
     template_name = 'profile/profile-update.html'

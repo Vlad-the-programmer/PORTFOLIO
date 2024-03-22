@@ -7236,3 +7236,628 @@ TypeError: unhashable type: 'dict'
 2024-03-20 16:23:05,109 likes.views  INFO     Dislike created by vkook                                 for post Django
 2024-03-20 16:26:25,402 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
 2024-03-20 16:26:26,363 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 14:49:33,835 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 14:50:03,476 django.request ERROR    Internal Server Error: /post/detail/django/
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 210, in render
+    return template.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 173, in render
+    return self._render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 326, in render
+    return nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'profile-detail' with arguments '('',)' not found. 1 pattern(s) tried: ['users/profile/detail/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/\\Z']
+2024-03-22 14:50:03,758 django.request WARNING  Not Found: /favicon.ico
+2024-03-22 14:53:38,895 django.request WARNING  Not Found: /images/favicon.ico
+2024-03-22 14:53:41,988 django.request WARNING  Not Found: /users/login/images/favicon.ico
+2024-03-22 14:53:48,044 django.request ERROR    Internal Server Error: /post/detail/django/
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 210, in render
+    return template.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 173, in render
+    return self._render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 326, in render
+    return nodelist.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/urls/resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'profile-detail' with arguments '('',)' not found. 1 pattern(s) tried: ['users/profile/detail/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/\\Z']
+2024-03-22 14:55:37,373 django.request WARNING  Not Found: /post/detail/django/images/favicon.ico
+2024-03-22 15:04:54,295 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-22 15:04:55,116 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 15:08:14,962 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-22 15:08:15,710 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 15:08:20,303 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-22 15:08:21,255 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 15:10:07,621 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-22 15:10:08,591 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 15:14:19,613 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-22 15:14:20,453 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 15:46:42,732 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/mixins.py changed, reloading.
+2024-03-22 15:46:43,739 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 15:47:05,575 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/mixins.py changed, reloading.
+2024-03-22 15:47:06,285 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 15:49:05,400 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/views.py changed, reloading.
+2024-03-22 15:49:06,136 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 15:49:46,750 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/views.py changed, reloading.
+2024-03-22 15:49:47,753 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 15:55:23,297 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-22 15:55:24,364 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:00:02,208 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/mixins.py changed, reloading.
+2024-03-22 16:00:03,080 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:00:58,794 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/views.py changed, reloading.
+2024-03-22 16:00:59,614 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:01:39,804 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/views.py changed, reloading.
+2024-03-22 16:01:40,742 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:02:37,422 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-22 16:02:38,190 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:13:06,232 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/common/mixins.py changed, reloading.
+2024-03-22 16:13:07,013 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:13:28,040 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/mixins.py changed, reloading.
+2024-03-22 16:13:28,751 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:14:53,664 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-22 16:14:54,432 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:16:23,217 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-22 16:16:24,319 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:16:29,356 django.request ERROR    Internal Server Error: /post/detail/django/
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 196, in compile_nodelist
+    return parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/loader_tags.py", line 240, in do_block
+    parser.invalid_block_tag(endblock, "endblock", acceptable_endblocks)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/template/base.py", line 555, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 118: 'endblock', expected 'endblock' or 'endblock sidebar'. Did you forget to register or load this tag?
+2024-03-22 16:16:49,651 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-22 16:16:50,469 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:18:22,831 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/instagram_clone/settings.py changed, reloading.
+2024-03-22 16:18:23,536 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:19:58,554 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-22 16:19:59,507 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:20:35,177 django.request WARNING  Not Found: /users/user-profile/images/favicon.ico
+2024-03-22 16:20:39,179 likes.views  INFO     Like created by vkook                                 for post Django
+2024-03-22 16:46:47,757 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/posts/views.py changed, reloading.
+2024-03-22 16:46:48,451 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:49:11,713 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/chats/views.py changed, reloading.
+2024-03-22 16:49:12,467 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 16:50:26,864 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/comments/views.py changed, reloading.
+2024-03-22 16:50:27,558 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 17:32:22,725 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/models.py changed, reloading.
+2024-03-22 17:32:23,656 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 17:32:28,641 django.request WARNING  Not Found: /users/follow/images/favicon.ico
+2024-03-22 17:32:31,243 django.request WARNING  Not Found: /users/unfollow/images/favicon.ico
+2024-03-22 17:33:10,525 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/models.py changed, reloading.
+2024-03-22 17:33:11,343 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 17:49:01,741 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 17:49:02,489 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 17:51:44,905 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 17:51:45,558 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:09:21,877 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:10:06,543 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:10:07,212 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:11:39,147 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:11:39,864 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:13:34,388 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:13:35,023 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:14:29,716 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+likes.models.Dislike.DoesNotExist: Dislike matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 130, in post
+    dislike, created, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 955, in get_or_create
+    return self.create(**params), True
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+TypeError: Dislike.save() missing 2 required positional arguments: 'force_update' and 'update_fields'
+2024-03-22 18:15:49,989 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:15:50,782 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:16:03,043 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+likes.models.Dislike.DoesNotExist: Dislike matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 130, in post
+    dislike, created, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 955, in get_or_create
+    return self.create(**params), True
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py", line 81, in save
+    if self.author in self.get_all_dislikes_authors_list():
+TypeError: Dislike.get_all_dislikes_authors_list() takes 0 positional arguments but 1 was given
+2024-03-22 18:17:41,509 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:17:42,379 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:17:49,043 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:21:09,303 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:21:10,241 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:21:23,150 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:21:55,281 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:21:56,203 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:22:07,476 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:22:07,478 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:22:07,852 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:22:07,852 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:22:07,865 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:24:15,587 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:24:16,529 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:24:25,587 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:24:25,595 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:24:25,601 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:24:25,604 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:25:06,408 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:25:07,284 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:25:09,830 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:25:09,842 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:25:09,860 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:25:09,867 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:25:09,987 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:25:10,924 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 142, in post
+    return redirect(self.get_success_url())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 156, in get_success_url
+    dislike, _, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,121 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 130, in post
+    dislike, created, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,189 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 142, in post
+    return redirect(self.get_success_url())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 156, in get_success_url
+    dislike, _, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,208 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 142, in post
+    return redirect(self.get_success_url())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 156, in get_success_url
+    dislike, _, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,236 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 142, in post
+    return redirect(self.get_success_url())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 156, in get_success_url
+    dislike, _, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,278 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 142, in post
+    return redirect(self.get_success_url())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 156, in get_success_url
+    dislike, _, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,298 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 130, in post
+    dislike, created, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,383 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 130, in post
+    dislike, created, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,522 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 130, in post
+    dislike, created, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,540 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 130, in post
+    dislike, created, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:25:11,574 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 130, in post
+    dislike, created, post = self.get_object()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 118, in get_object
+    dislike, created = Dislike.objects.get_or_create(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Dislike -- it returned 5!
+2024-03-22 18:30:45,181 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:30:45,917 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-22 18:31:14,153 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-22 18:32:34,457 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
+2024-03-22 18:32:35,379 django.utils.autoreload INFO     Watching for file changes with StatReloader

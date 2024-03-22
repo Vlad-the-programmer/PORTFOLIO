@@ -11,6 +11,7 @@ from django.views.generic import detail, edit, list
 from .forms import MessageCreateUpdateForm
 from .models import Chat, Message
 from . import mixins
+from common import mixins as common_mixins
 
 
 logger = logging.getLogger(__name__)
@@ -18,7 +19,10 @@ logger = logging.getLogger(__name__)
 Profile = get_user_model()
 
 
-class ChatListView(LoginRequiredMixin, list.ListView):
+class ChatListView(LoginRequiredMixin,
+                   common_mixins.LoginRequiredMixin,
+                   list.ListView
+                ):
     model = Chat
     template_name = 'chats/chats-list.html'
     context_object_name = 'chats'
@@ -41,6 +45,7 @@ class ChatListView(LoginRequiredMixin, list.ListView):
 class ChatDetailView(   
                         LoginRequiredMixin,
                         mixins.GetChatObjectMixin,
+                        common_mixins.LoginRequiredMixin,
                         detail.DetailView
                     ):
     model = Chat
@@ -65,7 +70,9 @@ class ChatDetailView(
         return context
         
 
-class CreateChatView(LoginRequiredMixin, edit.CreateView):
+class CreateChatView(LoginRequiredMixin, 
+                     common_mixins.LoginRequiredMixin,
+                     edit.CreateView):
     template_name = 'chats/chat-create.html'
     model = Chat
     context_object_name = 'chat'
@@ -103,6 +110,7 @@ class CreateChatView(LoginRequiredMixin, edit.CreateView):
 class ChatDeleteView(   
                         LoginRequiredMixin, 
                         mixins.GetChatObjectMixin,
+                        common_mixins.LoginRequiredMixin,
                         edit.DeleteView
                     ):
     model = Chat
@@ -132,7 +140,9 @@ class ChatDeleteView(
         return context    
     
     
-class MessageCreateView(LoginRequiredMixin, edit.CreateView):
+class MessageCreateView(LoginRequiredMixin,
+                        common_mixins.LoginRequiredMixin,
+                        edit.CreateView):
     template_name = 'chats/chat-detail.html'
     model = Message
     context_object_name = 'message'
@@ -166,6 +176,7 @@ class MessageCreateView(LoginRequiredMixin, edit.CreateView):
 class MessageUpdateView(    
                             LoginRequiredMixin,
                             mixins.GetMessageObjectMixin,
+                            common_mixins.LoginRequiredMixin,
                             edit.UpdateView
                         ):
     template_name = 'chats/chat-detail.html'
@@ -218,6 +229,7 @@ class MessageUpdateView(
 class MessageDeleteView(    
                             LoginRequiredMixin,
                             mixins.GetMessageObjectMixin, 
+                            common_mixins.LoginRequiredMixin,
                             edit.DeleteView
                         ):
     model = Message

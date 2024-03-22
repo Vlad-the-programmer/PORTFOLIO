@@ -1,4 +1,4 @@
-from .models import Profile
+from users.models import Profile
 
 def template_context_processor(request, *args, **kwargs):
     user = request.user

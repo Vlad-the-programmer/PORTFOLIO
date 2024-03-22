@@ -1,9 +1,10 @@
-from django.contrib.auth import get_user_model
 
+# Auth
+from django.contrib.auth import get_user_model
 Profile = get_user_model()
 
 
-class GetObjectMixin():
+class GetProfileObjectMixin():
     def get_object(self):
         pk_ = self.kwargs.get('pk', '')
         
@@ -12,3 +13,4 @@ class GetObjectMixin():
         except Profile.DoesNotExist:
             profile = None
         return profile
+    

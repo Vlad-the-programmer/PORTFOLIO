@@ -59,8 +59,8 @@
         </a>
         {% endfor %}
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-        {% comment %} <p class="text-muted">{{ post.author.username }} | {{ post.created_at }}</p> {% endcomment %}
-        <a href="{% url 'users:following-user-profile' username=post.author.username %}" 
+        <a 
+        href="{% url 'users:following-user-profile' username=post.author.username %}" 
         class="btn btn-danger">{{ post.author.username }} | {{ post.created_at }}
         </a>
         <p class="card-text">{{ post.content | safe }}</p>
@@ -71,7 +71,7 @@
             class="btn btn--sub"
             >Delete</a
           >
-        </li>
+        </li> 
         <li class="btn btn-info">
           <a
             href="{% url 'posts:post-update' slug=post.slug %}"
@@ -92,7 +92,7 @@
           >
           <i onclick="handleLikeClick(this)" id="#thumb-up" class="fa fa-thumbs-up"></i>
         </a>
-        <p>{{post_likes}}</p>
+        <p>{{post_likes}}</p> 
         <a
           name="dislike"
           id="dislike"

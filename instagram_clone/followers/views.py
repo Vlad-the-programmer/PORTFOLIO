@@ -11,6 +11,8 @@ from django.views.generic import detail, edit
 
 from .models import UserFollowing
 from posts.models import Post
+from common import mixins as common_mixins
+from common import decorators as common_decorators
 
 
 logger = logging.getLogger(__name__)
@@ -18,7 +20,7 @@ logger = logging.getLogger(__name__)
 Profile = get_user_model()
 
 
-@login_required
+@common_decorators.login_required
 def followUser(request, username):
     user = Profile.objects.filter(username=username).first()
     
@@ -66,7 +68,7 @@ def followUser(request, username):
     return render_func
 
 
-@login_required
+@common_decorators.login_required
 def unFollowUser(request, username):
     user = Profile.objects.filter(username=username).first()
     if user is None:
@@ -108,7 +110,9 @@ def unFollowUser(request, username):
     return render_func
 
 
-class FollowingProfileDetailView(detail.DetailView):
+class FollowingProfileDetailView(common_mixins.LoginRequiredMixin,
+                                 detail.DetailView
+                                ):
     model = Profile
     template_name = "followers/followerProfile_detail.html"
     context_object_name = 'followingUser'
@@ -124,10 +128,3 @@ class FollowingProfileDetailView(detail.DetailView):
             return Http404("User not found")
         return profile
     
-    
-    def get(self, request, *args, **kwargs):
-        print("Request user profile-detail ", request.user)
-        if not request.user.is_authenticated:
-            messages.info(request, "Login first!")
-            return redirect(reverse_lazy("users:login"))
-        return super().get(request, *args, **kwargs)
