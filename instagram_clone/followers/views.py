@@ -41,8 +41,8 @@ def followUser(request, username):
         messages.info(request, "User not found!")
         return render_func
     
-    print(is_following_user)
-    print(currentUser.following_users_list)
+    print("is following ", is_following_user)
+    print("User following list ", currentUser.following_users_list)
     
     
     if user.username == currentUser.username:
@@ -53,8 +53,7 @@ def followUser(request, username):
     # followingUser = UserFollowing.objects.filter(user=currentUser).filter(
     #             following_user=user
     #         ).first()
-    print('following user')
-    print(followingUser)
+    print('following user', followingUser)
     if followingUser is not None:
         messages.info(request, "You follow the user already!")
         print("Follow!")
@@ -80,7 +79,10 @@ def unFollowUser(request, username):
     # is_following_user = UserFollowing.objects.filter(user=currentUser).filter(
     #             following_user__username=username
     #         ).exists() 
-    print(is_following_user)
+    
+    print("is following ", is_following_user)
+    print("User following list ", currentUser.following_users_list)
+    
     render_func = render(request, 
                           "followers/followerProfile_detail.html",
                           { 
@@ -99,8 +101,7 @@ def unFollowUser(request, username):
     #             following_user__username=username
     #         ).first()
     
-    print('Unfollow-following user is')
-    print(followingUser)
+    print('Unfollow-following user is', followingUser)
     if followingUser is not None:
         messages.info(request, "User unfollowed!")
         followingUser.delete()

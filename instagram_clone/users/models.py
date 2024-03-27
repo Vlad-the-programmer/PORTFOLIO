@@ -191,9 +191,6 @@ class Profile(AbstractUser):
     
     
     def is_following(self, username):
-        print("exists ", self.following_users_list.filter(
-                following_user__username=username
-            ).exists())
         return self.following_users_list.filter(
                 following_user__username=username
             ).exists()

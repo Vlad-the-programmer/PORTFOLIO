@@ -7861,3 +7861,18 @@ likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Disli
 2024-03-22 18:31:14,153 likes.views  INFO     Dislike created by vkook                                 for post Django
 2024-03-22 18:32:34,457 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/models.py changed, reloading.
 2024-03-22 18:32:35,379 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-27 09:28:59,286 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-27 09:29:47,293 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-27 09:30:19,282 django.request WARNING  Not Found: /images/favicon.ico
+2024-03-27 09:48:19,618 django.request WARNING  Not Found: /post/detail/django/images/favicon.ico
+2024-03-27 09:48:44,740 django.request WARNING  Not Found: /users/login/images/favicon.ico
+2024-03-27 09:49:08,854 django.request WARNING  Not Found: /users/user-profile/images/favicon.ico
+2024-03-27 11:11:47,587 django.request WARNING  Not Found: /users/profile/detail/30a0e395-9e8f-481d-9d51-27dc5533e5f6/images/favicon.ico
+2024-03-27 11:21:54,991 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-27 11:21:55,709 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-27 11:24:32,259 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-27 11:24:32,981 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-27 11:45:24,795 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-27 11:45:25,596 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-27 11:53:34,335 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-27 11:53:35,424 django.utils.autoreload INFO     Watching for file changes with StatReloader
