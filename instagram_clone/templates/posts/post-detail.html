@@ -4,10 +4,10 @@
     <!-- Function to toggle like -->
     <script>
       function handleLikeClick(x) {
-        x.addEventListener('click', (e) => {
+        x.addEventListener('click', async (e) => {
           console.log(`{{post.slug}}`);
           try {
-            const response = fetch(
+            const response = await fetch(
               "{% url 'likes:like-create' post_slug=post.slug %}",
               {
                 headers: {
@@ -20,15 +20,17 @@
 
           } catch(e){
             console.error("Error:", e);
+          }  finally{
+            window.location.reload();
           }
         })
       }
       
       function handleDislikeClick(x) {
-        x.addEventListener('click', (e) => {
+        x.addEventListener('click', async (e) => {
           console.log(`{{post.slug}}`);
           try {
-            const response = fetch(
+            const response = await fetch(
               "{% url 'likes:dislike-create' post_slug=post.slug %}",
               {
                 headers: {
@@ -41,6 +43,8 @@
 
           } catch(e){
             console.error("Error:", e);
+          }  finally{
+            window.location.reload();
           }
         })
       }

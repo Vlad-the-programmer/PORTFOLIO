@@ -1,13 +1,15 @@
 {% extends '../base.html' %} 
 
 {% block scripts %}
-<script>
+<script async>
   function handleFollowClick(x) {
-    x.addEventListener('click', (e) => {
+    x.addEventListener('click', async (e) => {
       
       console.log(`{{followingUser.username}}`);
+      console.log(`{{is_following}}`);
+
       try {
-        const response = fetch(
+        const response = await fetch(
           "{% url 'users:follow-user' username=followingUser.username %}",
           {
             headers: {
@@ -20,16 +22,18 @@
 
       } catch(e){
         console.error("Error:", e);
+      } finally{
+        window.location.reload();
       }
     })
   }
   
-  function handleUnfollowClick(x) {
-    x.addEventListener('click', (e) => {
+  function handleUnFollowClick(x) {
+    x.addEventListener('click', async (e) => {
       
       console.log(`{{followingUser.username}}`);
       try {
-        const response = fetch(
+        const response = await fetch(
           "{% url 'users:unfollow-user' username=followingUser.username %}",
           {
             headers: {
@@ -42,6 +46,8 @@
 
       } catch(e){
         console.error("Error:", e);
+      } finally{
+        window.location.reload();
       }
     })
   }
@@ -80,7 +86,7 @@
           {% if is_following %}
           <a
             {% comment %} href="{% url 'users:unfollow-user' username=followingUser.username %}" {% endcomment %}
-            onclick="handleUnfollowClick(this)"
+            onclick="handleUnFollowClick(this)"
             class="btn btn-danger"
           >
             UnFollow

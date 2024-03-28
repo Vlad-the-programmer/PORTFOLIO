@@ -7876,3 +7876,178 @@ likes.models.Dislike.MultipleObjectsReturned: get() returned more than one Disli
 2024-03-27 11:45:25,596 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2024-03-27 11:53:34,335 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
 2024-03-27 11:53:35,424 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 13:13:38,263 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 13:17:00,473 django.request WARNING  Not Found: /images/favicon.ico
+2024-03-28 13:17:07,312 django.request WARNING  Not Found: /post/detail/django/images/favicon.ico
+2024-03-28 13:18:06,268 django.request WARNING  Not Found: /users/login/images/favicon.ico
+2024-03-28 13:18:23,669 django.request WARNING  Not Found: /users/user-profile/images/favicon.ico
+2024-03-28 13:29:31,615 django.request WARNING  Not Found: /users/profile/detail/30a0e395-9e8f-481d-9d51-27dc5533e5f6/images/favicon.ico
+2024-03-28 14:11:49,815 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-28 14:11:50,822 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:15:22,346 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-28 14:15:23,157 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:15:33,775 django.request ERROR    Internal Server Error: /users/unfollow/admin
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/common/decorators.py", line 11, in wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py", line 101, in unFollowUser
+    'username': followingUser.username
+UnboundLocalError: local variable 'followingUser' referenced before assignment
+2024-03-28 14:15:58,927 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-28 14:15:59,879 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:18:49,049 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-28 14:18:49,964 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:26:39,508 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-28 14:26:40,369 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:34:52,199 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-28 14:34:52,996 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:34:59,103 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-28 14:37:39,495 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-28 14:37:40,425 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:38:51,760 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/posts/views.py changed, reloading.
+2024-03-28 14:38:52,577 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:39:45,491 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/posts/views.py changed, reloading.
+2024-03-28 14:39:46,349 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:40:24,934 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/posts/views.py changed, reloading.
+2024-03-28 14:40:25,592 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:40:50,106 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/posts/views.py changed, reloading.
+2024-03-28 14:40:50,813 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:41:03,735 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/posts/views.py changed, reloading.
+2024-03-28 14:41:04,808 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:43:00,443 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/posts/views.py changed, reloading.
+2024-03-28 14:43:01,175 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:44:07,724 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-28 14:44:08,539 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:44:19,316 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-28 14:44:20,200 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:44:49,535 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-28 14:44:50,412 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:45:10,457 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/followers/views.py changed, reloading.
+2024-03-28 14:45:11,231 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:45:25,048 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/posts/views.py changed, reloading.
+2024-03-28 14:45:25,833 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:45:54,140 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/users/models.py changed, reloading.
+2024-03-28 14:45:54,989 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:46:20,382 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-28 14:52:04,658 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py changed, reloading.
+2024-03-28 14:52:05,457 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:52:24,100 django.request ERROR    Internal Server Error: /likes/like/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 58, in post
+    get_user_dislike_and_delete(request.user, post)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/utils.py", line 11, in get_user_dislike_and_delete
+    dislike = Dislike.objects.filter(user=user, post=post)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1495, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1307, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1772, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'user' into field. Choices are: author, author_id, created_at, id, pkid, post, post_id, updated_at
+2024-03-28 14:52:56,737 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/utils.py changed, reloading.
+2024-03-28 14:52:57,677 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:53:33,408 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 119, in post
+    get_user_like_and_delete(request.user, post)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/utils.py", line 4, in get_user_like_and_delete
+    like = Like.objects.filter(user=user, post=post)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1495, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1307, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1772, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'user' into field. Choices are: author, author_id, created_at, id, likes, pkid, post, post_id, updated_at
+2024-03-28 14:54:22,932 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/utils.py changed, reloading.
+2024-03-28 14:54:23,748 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:54:34,509 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/utils.py changed, reloading.
+2024-03-28 14:54:35,386 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:54:39,269 likes.views  INFO     Like created by vkook                                 for post Django
+2024-03-28 14:54:58,474 django.request ERROR    Internal Server Error: /likes/dislike/create/django
+Traceback (most recent call last):
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/views.py", line 119, in post
+    get_user_like_and_delete(request.user, post)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/utils.py", line 4, in get_user_like_and_delete
+    like = Like.objects.filter(user=user, post=post).first()
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1495, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1307, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1772, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'user' into field. Choices are: author, author_id, created_at, id, likes, pkid, post, post_id, updated_at
+2024-03-28 14:55:24,544 django.utils.autoreload INFO     /home/vlad/projects/DjangoProjects/portfolioProjects/instagram_clone/likes/utils.py changed, reloading.
+2024-03-28 14:55:25,450 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2024-03-28 14:55:51,011 likes.views  INFO     Dislike created by vkook                                 for post Django
+2024-03-28 14:55:53,605 likes.views  INFO     Like created by vkook                                 for post Django

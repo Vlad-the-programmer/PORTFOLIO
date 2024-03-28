@@ -56,24 +56,6 @@ class Profile(AbstractUser):
                             default='',
                             max_length=50,
                         )
-    # followed_by = models.ManyToManyField(
-    #                                 'self',
-    #                                 on_delete=models.CASCADE,
-    #                                 related_name='following_users',
-    #                                 blank=True, 
-    #                                 null=True,
-    #                                 symmetrical=False,
-    #                                 verbose_name=_("Followers"),
-    #                             )
-    # following = models.ManyToManyRel(  
-    #                                 'self',
-    #                                 on_delete=models.CASCADE,
-    #                                 related_name='follower',
-    #                                 symmetrical=False,
-    #                                 blank=True,
-    #                                 null=True,
-    #                                 verbose_name=_("Followed users"),
-    #                             )   
     password = models.CharField(max_length=100, blank=True, null=True)
     username = models.CharField(    
                                     verbose_name=_("Username"),
@@ -204,4 +186,3 @@ class Profile(AbstractUser):
        verbose_name = _('User')
        verbose_name_plural = _('Users')
        ordering = ['email']
-    #    unique_together = [['following', 'self'], ['followed_by', 'self']]

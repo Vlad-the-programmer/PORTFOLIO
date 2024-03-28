@@ -1,5 +1,4 @@
 import logging
-from django.urls import reverse, reverse_lazy
 from django.shortcuts import redirect
 from django.http import Http404
 # Auth
@@ -12,6 +11,7 @@ from django.views.generic import edit
 from .models import Like, Dislike
 from posts.models import Post
 from common import mixins as common_mixins
+from .utils import get_user_like_and_delete, get_user_dislike_and_delete
 
 
 logger = logging.getLogger(__name__)
@@ -26,7 +26,6 @@ class LikeCreateView(LoginRequiredMixin,
     slug_url_kwarg = 'post_slug'
     context_object_name = 'like'
     template_name = 'posts/post-detail.html'
-    # form_class = LikeCreateDeleteForm
 
     
     def get_object(self):
@@ -56,7 +55,7 @@ class LikeCreateView(LoginRequiredMixin,
         
         if created:
             print("Create like post: ", like.post.title)
-            print("Post slug ", self.kwargs.get('post_slug') or None)
+            get_user_dislike_and_delete(request.user, post)
             like.post = post
             like.author = request.user
             like.save()
@@ -79,20 +78,6 @@ class LikeCreateView(LoginRequiredMixin,
     def get_success_url(self):
         like, _, post = self.get_object()
         return post.get_absolute_url()
-    
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        
-        like, _, post = self.get_object()
-        context['post'] = post
-        
-        likes = Like.objects.filter(post__slug=post.slug).all()
-        user_like = like
-        
-        context['user_like'] = user_like
-        context['post_likes'] = likes.count()
-        return context
 
 
 class DislikeCreateView(LoginRequiredMixin, 
@@ -102,7 +87,6 @@ class DislikeCreateView(LoginRequiredMixin,
     slug_url_kwarg = 'post_slug'
     context_object_name = 'dislike'
     template_name = 'posts/post-detail.html'
-    # form_class = LikeCreateDeleteForm
     
     
     def get_object(self):
@@ -132,7 +116,7 @@ class DislikeCreateView(LoginRequiredMixin,
         
         if created:
             print("Create dislike post: ", dislike.post.title)
-            print("Post slug ", self.kwargs.get('post_slug') or None)
+            get_user_like_and_delete(request.user, post)
             dislike.post = post
             dislike.author = request.user
             dislike.save()
@@ -156,16 +140,3 @@ class DislikeCreateView(LoginRequiredMixin,
         dislike, _, post = self.get_object()
         return post.get_absolute_url()
     
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        
-        dislike, _, post = self.get_object()
-        context['post'] = post
-        
-        dislikes = Dislike.objects.filter(post__slug=post.slug).all()
-        user_dislike = dislike
-
-        context['user_dislike'] = user_dislike
-        context['post_dislikes'] = dislikes.count()
-        return context

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 # Auth
@@ -12,7 +12,7 @@ from comments.forms import CommentCreateForm
 from comments.models import Comment
 from comments.utils import paginateComments
 from .models import Post, Tags
-from likes.models import Like
+from likes.models import Like, Dislike
 from .forms import UpdateForm, CreateForm
 from .utils import searchPosts, postsFilter, paginatePosts
 from . import mixins
@@ -98,8 +98,7 @@ class CreatePostView(LoginRequiredMixin,
         return context
     
       
-class PostDetailView(   
-                        mixins.GetPostObjectMixin,
+class PostDetailView(   mixins.GetPostObjectMixin,
                         detail.DetailView
                     ):
         model = Post
@@ -123,23 +122,22 @@ class PostDetailView(
             post = context['post']
             
             comments = Comment.objects.filter(post=post)
-            likes = Like.objects.filter(post__slug=post.slug)
-            user_like = likes.filter(author=self.request.user.pk).first()
-            
             custom_range, page_obj = paginateComments(self.request, comments, 5)
+            likes = Like.objects.filter(post__slug=post.slug).all()
+            dislikes = Dislike.objects.filter(post__slug=post.slug).all()
             
             context['comment_form'] = CommentCreateForm
             context['comments'] = comments
             context['page_obj'] = page_obj
             context['custom_range'] = custom_range
-            context['user_like'] = user_like
             context['post_likes'] = likes.count()
+            context['post_dislikes'] = dislikes.count()
+            
             return context
         
  
 @method_decorator(permission_required("post.update", raise_exception=True), name='dispatch')       
-class PostUpdateView(   
-                        LoginRequiredMixin,  
+class PostUpdateView(   LoginRequiredMixin,  
                         mixins.GetPostObjectMixin, 
                         common_mixins.LoginRequiredMixin,
                         edit.UpdateView
@@ -189,8 +187,7 @@ class PostUpdateView(
         
 
 @method_decorator(permission_required("post.delete", raise_exception=True), name='dispatch')
-class PostDeleteView(   
-                        LoginRequiredMixin,   
+class PostDeleteView(LoginRequiredMixin,   
                         mixins.GetPostObjectMixin,
                         common_mixins.LoginRequiredMixin,
                         edit.DeleteView

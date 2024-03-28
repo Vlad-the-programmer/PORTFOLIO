@@ -1,16 +1,14 @@
 import logging
-from django.urls import reverse, reverse_lazy
-from django.shortcuts import redirect, get_object_or_404, render
+from django.urls import reverse
+from django.shortcuts import redirect
 from django.http import Http404
 # Auth
 from django.contrib.auth import get_user_model
 from django.contrib import messages
 # Generic class-based views
-from django.contrib.auth.decorators import login_required
-from django.views.generic import detail, edit
+from django.views.generic import detail
 
 from .models import UserFollowing
-from posts.models import Post
 from common import mixins as common_mixins
 from common import decorators as common_decorators
 
@@ -29,14 +27,12 @@ def followUser(request, username):
     # is_following_user = UserFollowing.objects.filter(user=currentUser).filter(
     #             following_user=user
     #         ).exists()
-    render_func = render(request, 
-                          "followers/followerProfile_detail.html",
-                          { 
-                            'followingUser': user, 
-                            'is_following': is_following_user,
-                            'profile': currentUser
-                        }
-                    )
+
+    render_func = redirect(reverse("users:following-user-profile", 
+                                    kwargs={
+                                        'username': user.username
+                                    }
+                                ))
     if user is None:
         messages.info(request, "User not found!")
         return render_func
@@ -83,15 +79,11 @@ def unFollowUser(request, username):
     print("is following ", is_following_user)
     print("User following list ", currentUser.following_users_list)
     
-    render_func = render(request, 
-                          "followers/followerProfile_detail.html",
-                          { 
-                            'followingUser': user, 
-                            'is_following': is_following_user,
-                            'profile': currentUser
-                        }
-                    )
-    
+    render_func = redirect(reverse("users:following-user-profile", 
+                                    kwargs={
+                                        'username': user.username
+                                    }
+                                ))
     if user.username == currentUser.username:
         messages.info(request, "You cannot follow yourself!")
         return render_func
@@ -128,4 +120,16 @@ class FollowingProfileDetailView(common_mixins.LoginRequiredMixin,
         except Profile.DoesNotExist:
             return Http404("User not found")
         return profile
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        _username = self.kwargs.get("username", "")
+        user = Profile.objects.filter(username=_username).first()
+        currentUser = self.request.user
+        is_following_user = currentUser.is_following(user.username)
+        
+        context["is_following"] = is_following_user
+        return context
     
